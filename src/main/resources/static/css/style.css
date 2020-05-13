@@ -1,0 +1,50 @@
+body {
+	background-color: white;
+	color: black;
+	font-family: sans-serif;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	width: 100%;
+}
+h1 {
+	border-bottom: 3px solid peru;
+	color: grey;
+	display: inline-block;
+}
+h2, h3, h4, h5 {
+	color: peru;
+}
+a {
+	color: peru;
+	text-decoration: none;
+}
+a:hover {
+	color: peru;
+	text-decoration: underline;
+}
+.left {
+	text-align: left;
+}
+.right {
+	text-align: right;
+}
+#header {
+	color: white;
+	font-size: xx-large;
+	font-weight: bold;
+}
+#top {
+	background-color: slategrey;
+	padding: 1em;
+}
+#navigation {
+	width: 100%;
+}
+#navigationTable {
+	padding: 1em;
+	width: 90%;
+}
+#middle {
+	padding: 2em;
+}
