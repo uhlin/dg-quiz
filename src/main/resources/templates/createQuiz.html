@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Create new quiz</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link th:href="@{/css/style.css}" rel="STYLESHEET" type="text/css" />
+
+<style>
+</style>
+</head>
+
+<body>
+<div th:replace="fragments/top :: top"></div>
+<div th:replace="fragments/navigation :: navigation"></div>
+
+<div id="middle">
+<h1>Create new quiz</h1>
+
+<form th:action="@{/createQuiz}" method="post">
+<table id="createQuizTable">
+	<tr>
+		<td><span class="">Title:</span></td>
+		<td><input class="" type="text" name="quizTitle" /></td>
+	</tr>
+	<tr>
+		<td><span class="">Topic / Category:</span></td>
+		<td>
+			<select id="quizTopic" name="quizTopic">
+				<option value="">Sports</option>
+				<option value="">Games &amp; Leisure</option>
+				<option value="">History</option>
+				<option value="">Culture</option>
+				<option value="">Literature</option>
+				<option value="">Music</option>
+				<option value="">Food &amp; Drinks</option>
+				<option value="">Animals &amp; Nature</option>
+				<option value="">Entertainment</option>
+				<option value="">Language</option>
+				<option value="">Movies &amp; TV Shows</option>
+				<option value="">Geography</option>
+				<option value="">Society</option>
+				<option value="">Technology &amp; Science</option>
+				<option value="">Other</option>
+			</select> 
+		</td>
+	</tr>
+	<tr>
+		<td><span class="">Language:</span></td>
+		<td>
+			<select id="quizLang" name="quizLang">
+				<option value="">English</option>
+				<option value="">Swedish</option>
+			</select>
+		</td>
+	</tr>
+	<!-- tr>
+		<td><span class="">Quiz max time:</span></td>
+		<td>
+			<select id="quizMaxTime" name="quizMaxTime">
+				<option value="">1 hour</option>
+				<option value="">30 min</option>
+				<option value="">20 min</option>
+				<option value="">10 min</option>
+				<option value="">5 min</option>
+			</select>
+		</td>
+	</tr -->
+</table> <!-- createQuizTable -->
+
+<p><input type="submit" value="To the questions" /></p>
+
+</form>
+</div> <!-- middle -->
+
+<div th:replace="fragments/bottom :: bottom"></div>
+</body>
+</html>

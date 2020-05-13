@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+
+<body>
+<div th:fragment="navigation" id="navigation">
+	<table id="navigationTable">
+		<tr>
+			<td class="left">
+				<a href="/">(Start page)</a>
+			</td>
+			<td class="right">
+				<form action="/createQuiz">
+					<input type="submit" value="Create new quiz">
+				</form>
+			</td>
+		</tr>
+	</table> <!-- navigationTable -->
+</div>
+</body>
+</html>
