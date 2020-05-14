@@ -24,4 +24,56 @@ public class Quiz {
 		this.topic = Utilities.intToTopic(_topic);
 		this.lang = Utilities.intToLanguage(_lang);
 	}
+
+
+	/*********************
+	 *
+	 * getId() and setId()
+	 *
+	 */
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	/***************************
+	 *
+	 * getTitle() and setTitle()
+	 *
+	 */
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+
+	/***************************
+	 *
+	 * getTopic() and setTopic()
+	 *
+	 */
+	public Topic getTopic() {
+		return topic;
+	}
+	public void setTopic(Topic topic) {
+		this.topic = topic;
+	}
+
+
+	/*************************
+	 *
+	 * getLang() and setLang()
+	 *
+	 */
+	public Language getLang() {
+		return lang;
+	}
+	public void setLang(Language lang) {
+		this.lang = lang;
+	}
 }
