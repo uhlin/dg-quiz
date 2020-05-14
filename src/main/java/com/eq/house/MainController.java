@@ -2,6 +2,7 @@ package com.eq.house;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +14,13 @@ public class MainController {
 	QuizRepo repo;
 
 	@RequestMapping("/")
-	public String index() {
+	public String index(Model model) {
+
+		if (repo.count() > 0)
+			model.addAttribute("db", repo.findAll());
+		else
+			model.addAttribute("db", null);
+
 		return "index";
 	}
 
