@@ -15,6 +15,10 @@ public class Quiz {
 	Topic topic;
 	Language lang;
 
+	Quiz() {
+		System.out.println("** Quiz class: default constructor called **");
+	}
+
 	Quiz(String _title, Integer _topic, Integer _lang) {
 		this.title = _title;
 		this.topic = Utilities.intToTopic(_topic);
