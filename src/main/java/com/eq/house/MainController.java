@@ -19,6 +19,7 @@ public class MainController {
 
 	@RequestMapping("/")
 	public String index(Model model) {
+		model.addAttribute("completeNumberOfQuizzes", repo.count());
 
 		if (repo.count() > 0)
 			model.addAttribute("db", repo.findAll());
