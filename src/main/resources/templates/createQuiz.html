@@ -26,32 +26,13 @@
 	<tr>
 		<td><span class="">Topic / Category:</span></td>
 		<td>
-			<select id="quizTopic" name="quizTopic">
-				<option value="0">Sports</option>
-				<option value="1">Games &amp; Leisure</option>
-				<option value="2">History</option>
-				<option value="3">Culture</option>
-				<option value="4">Literature</option>
-				<option value="5">Music</option>
-				<option value="6">Food &amp; Drinks</option>
-				<option value="7">Animals &amp; Nature</option>
-				<option value="8">Entertainment</option>
-				<option value="9">Language</option>
-				<option value="10">Movies &amp; TV Shows</option>
-				<option value="11">Geography</option>
-				<option value="12">Society</option>
-				<option value="13">Technology &amp; Science</option>
-				<option value="14">Other</option>
-			</select>
+			<div th:replace="fragments/quizTopic :: quizTopic"></div>
 		</td>
 	</tr>
 	<tr>
 		<td><span class="">Language:</span></td>
 		<td>
-			<select id="quizLang" name="quizLang">
-				<option value="0">English</option>
-				<option value="1">Swedish</option>
-			</select>
+			<div th:replace="fragments/quizLang :: quizLang"></div>
 		</td>
 	</tr>
 	<!-- tr>
