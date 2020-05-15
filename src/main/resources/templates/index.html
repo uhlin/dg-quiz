@@ -22,6 +22,26 @@ There are totally
 <span th:text="${completeNumberOfQuizzes}"></span>
 number of quizzes to play.
 </p>
+
+<form th:action="@{/}" method="post">
+<table id="filterTable">
+	<tr>
+		<td><span class="">Topic / Category:</span></td>
+		<td>
+			<div th:replace="fragments/quizTopic :: quizTopic"></div>
+		</td>
+	</tr>
+	<tr>
+		<td><span class="">Language:</span></td>
+		<td>
+			<div th:replace="fragments/quizLang :: quizLang"></div>
+		</td>
+	</tr>
+</table> <!-- filterTable -->
+
+<p><input type="submit" value="Filter" /></p>
+
+</form>
 </div> <!-- middle -->
 
 <div th:replace="fragments/bottom :: bottom"></div>
