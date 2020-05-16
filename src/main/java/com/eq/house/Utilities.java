@@ -39,6 +39,44 @@ public class Utilities {
 		return Topic.Other;
 	} /* intToTopic() */
 
+	public static String topicToString(Topic topic) {
+		switch (topic) {
+		case Sports:
+			return "Sports";
+		case GamesAndLeisure:
+			return "Games &amp; Leisure";
+		case History:
+			return "History";
+		case Culture:
+			return "Culture";
+		case Literature:
+			return "Literature";
+		case Music:
+			return "Music";
+		case FoodAndDrinks:
+			return "Food &amp; Drinks";
+		case AnimalsAndNature:
+			return "Animals &amp; Nature";
+		case Entertainment:
+			return "Entertainment";
+		case Language:
+			return "Language";
+		case MoviesAndTVShows:
+			return "Movies &amp; TV Shows";
+		case Geography:
+			return "Geography";
+		case Society:
+			return "Society";
+		case TechnologyAndScience:
+			return "Technology &amp; Science";
+		case Other:
+			return "Other";
+		}
+
+		System.err.println("topicToString: warning: unknown topic");
+		return "Other";
+	} /* topicToString() */
+
 	public static Language intToLanguage(Integer i) {
 		switch (i) {
 		case 0:
@@ -50,4 +88,16 @@ public class Utilities {
 		System.err.println("intToLanguage: warning: unknown language (using fallback)");
 		return Language.Swedish;
 	} /* intToLanguage() */
+
+	public static String languageToString(Language lang) {
+		switch (lang) {
+		case English:
+			return "English";
+		case Swedish:
+			return "Swedish";
+		}
+
+		System.err.println("languageToString: warning: unknown language");
+		return "Unspecified";
+	} /* languageToString() */
 }
