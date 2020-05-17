@@ -44,7 +44,7 @@ public class Utilities {
 		case Sports:
 			return "Sports";
 		case GamesAndLeisure:
-			return "Games &amp; Leisure";
+			return "Games & Leisure";
 		case History:
 			return "History";
 		case Culture:
@@ -54,21 +54,21 @@ public class Utilities {
 		case Music:
 			return "Music";
 		case FoodAndDrinks:
-			return "Food &amp; Drinks";
+			return "Food & Drinks";
 		case AnimalsAndNature:
-			return "Animals &amp; Nature";
+			return "Animals & Nature";
 		case Entertainment:
 			return "Entertainment";
 		case Language:
 			return "Language";
 		case MoviesAndTVShows:
-			return "Movies &amp; TV Shows";
+			return "Movies & TV Shows";
 		case Geography:
 			return "Geography";
 		case Society:
 			return "Society";
 		case TechnologyAndScience:
-			return "Technology &amp; Science";
+			return "Technology & Science";
 		case Other:
 			return "Other";
 		}
