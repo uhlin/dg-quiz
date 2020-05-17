@@ -100,4 +100,18 @@ public class Utilities {
 		System.err.println("languageToString: warning: unknown language");
 		return "Unspecified";
 	} /* languageToString() */
+
+	public static QuestionType intToQuestionType(Integer i) {
+		switch (i) {
+		case 0:
+			return QuestionType.Text;
+		case 1:
+			return QuestionType.Sound;
+		case 2:
+			return QuestionType.Image;
+		}
+
+		System.err.println("intToQuestionType: warning: unknown question type (using fallback...)");
+		return QuestionType.Text;
+	} /* intToQuestionType() */
 }
