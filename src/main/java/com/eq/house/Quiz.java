@@ -14,6 +14,8 @@ public class Quiz {
 	String title;
 	Topic topic;
 	Language lang;
+	//FIXME
+	//List<Question> questions;
 
 	Quiz() {
 		System.out.println("** Quiz class: default constructor called **");
