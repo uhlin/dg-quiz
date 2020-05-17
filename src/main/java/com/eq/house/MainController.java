@@ -67,6 +67,41 @@ public class MainController {
 		return f;
 	}
 
+	/*
+	 * Get quiz id (by title, topic and language)
+	 */
+	Long getQuizId(String title, Integer topic, Integer lang) {
+		Topic _topic = Utilities.intToTopic(topic);
+		Language _lang = Utilities.intToLanguage(lang);
+
+		Iterable<Quiz> all = repo.findAll();
+
+		for (Quiz quiz : all) {
+			if (quiz.getTitle().equalsIgnoreCase(title) &&
+					quiz.getTopic() == _topic &&
+					quiz.getLang() == _lang)
+				return quiz.getId();
+		}
+
+		return Long.valueOf(-1);
+	}
+
+	Quiz getQuiz(String title, Integer topic, Integer lang) {
+		Topic _topic = Utilities.intToTopic(topic);
+		Language _lang = Utilities.intToLanguage(lang);
+
+		Iterable<Quiz> all = repo.findAll();
+
+		for (Quiz quiz : all) {
+			if (quiz.getTitle().equalsIgnoreCase(title) &&
+					quiz.getTopic() == _topic &&
+					quiz.getLang() == _lang)
+				return quiz;
+		}
+
+		return null;
+	}
+
 	@GetMapping("/createQuiz")
 	public String createQuiz() {
 		return "createQuiz";
