@@ -138,4 +138,28 @@ public class MainController {
 		model.addAttribute("quizLang", lang);
 		return "addQuestion";
 	}
+
+	@RequestMapping("/addQuestion")
+	public String addQuestion(
+			Model model,
+			@RequestParam(name = "questionType", required = true) Integer type,
+			@RequestParam(name = "quizTitle",    required = true) String  title,
+			@RequestParam(name = "quizTopic",    required = true) Integer topic,
+			@RequestParam(name = "quizLang",     required = true) Integer lang) {
+		model.addAttribute("quizTitle", title);
+		model.addAttribute("quizTopic", topic);
+		model.addAttribute("quizLang", lang);
+
+		switch (Utilities.intToQuestionType(type)) {
+		case Text:
+			return "addTextQuestion";
+		case Sound:
+			return "addSoundQuestion";
+		case Image:
+			return "addImageQuestion";
+		}
+
+		System.err.println("addQuestion: fatal: cannot determine question type!");
+		return "error";
+	}
 }
