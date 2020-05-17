@@ -57,6 +57,9 @@ public class Quiz {
 	 * getTopic() and setTopic()
 	 *
 	 */
+	public String getTopicString() {
+		return Utilities.topicToString(topic);
+	}
 	public Topic getTopic() {
 		return topic;
 	}
@@ -70,6 +73,9 @@ public class Quiz {
 	 * getLang() and setLang()
 	 *
 	 */
+	public String getLangString() {
+		return Utilities.languageToString(lang);
+	}
 	public Language getLang() {
 		return lang;
 	}
