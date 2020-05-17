@@ -2,6 +2,24 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-05-18 ##
+- Lade till följande metoder i klassen MainController:
+  - `getQuizId()`
+  - `getQuiz()`
+  - `addQuestion()`
+- Lade till följande metoder i klassen Utilities:
+  - `intToQuestionType`
+- Lade till följande klasser:
+  - `Question`
+  - `QuestionText`
+  - `QuestionSound`
+  - `QuestionImage`
+- Lade till följande mallar:
+  - `addTextQuestion.html`
+  - `addSoundQuestion.html`
+  - `addImageQuestion.html`
+- Lade till nya fragment
+
 ## 2020-05-17 ##
 Startsidan listar nu quiz och det är möjligt att filtrera visningen med hjälp
 av att ange ämne/kategori och språk.
