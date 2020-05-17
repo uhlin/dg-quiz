@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+
+<body>
+<div th:fragment="showQuizzesV1">
+<table id="quizzesTable1">
+	<tr th:each="i: ${#numbers.sequence(0, dbCount - 1, 3)}">
+		<td>
+			<div th:if="${i < dbCount}">
+				&bull;&nbsp;<a th:href="@{'/playQuiz'(id=${db[i].getId()})}" th:text="${db[i].getTitle()}"></a>
+			</div>
+		</td>
+		<td>
+			<div th:if="${i + 1 < dbCount}">
+				&bull;&nbsp;<a th:href="@{'/playQuiz'(id=${db[i + 1].getId()})}" th:text="${db[i + 1].getTitle()}"></a>
+			</div>
+		</td>
+		<td>
+			<div th:if="${i + 2 < dbCount}">
+				&bull;&nbsp;<a th:href="@{'/playQuiz'(id=${db[i + 2].getId()})}" th:text="${db[i + 2].getTitle()}"></a>
+			</div>
+		</td>
+	</tr>
+</table>
+</div>
+</body>
+</html>

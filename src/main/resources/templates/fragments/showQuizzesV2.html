@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+
+<body>
+<div th:fragment="showQuizzesV2">
+<table id="quizzesTable2">
+	<tr>
+		<th>Quiz</th>
+		<th>Topic</th>
+		<th>In language</th>
+	</tr>
+	<tr th:each="e: ${db}">
+		<td><a th:href="@{'/playQuiz'(id=${e.getId()})}" th:text="${e.getTitle()}"></a></td>
+		<td th:text="${e.getTopicString()}"></td>
+		<td th:text="${e.getLangString()}"></td>
+	</tr>
+</table>
+</div>
+</body>
+</html>
