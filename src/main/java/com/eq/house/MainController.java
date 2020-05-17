@@ -109,13 +109,33 @@ public class MainController {
 
 	@PostMapping("/createQuiz")
 	public String createQuizBegin(
+			Model model,
 			@RequestParam(name = "quizTitle") String  title,
 			@RequestParam(name = "quizTopic") Integer topic,
 			@RequestParam(name = "quizLang")  Integer lang) {
 		System.out.println("quizTitle: " + title);
 		System.out.println("quizTopic: " + topic);
 		System.out.println("quizLang:  " + lang);
-		repo.save(new Quiz(title, topic, lang));
+
+		if (getQuiz(title, topic, lang) != null) {
+			System.err.println("createQuizBegin: error: quiz already exists");
+			return "quizAlreadyExists";
+		} else {
+			repo.save(new Quiz(title, topic, lang));
+		}
+
+		Quiz quiz = null;
+
+		if ((quiz = getQuiz(title, topic, lang)) == null) {
+			System.err.println("createQuizBegin: fatal: cannot find saved quiz");
+			return "error";
+		} else {
+			model.addAttribute("quiz", quiz);
+		}
+
+		model.addAttribute("quizTitle", title);
+		model.addAttribute("quizTopic", topic);
+		model.addAttribute("quizLang", lang);
 		return "addQuestion";
 	}
 }
