@@ -6,8 +6,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link th:href="@{/css/style.css}" rel="STYLESHEET" type="text/css" />
 
-<style>
-</style>
+	<style>
+	</style>
 </head>
 
 <body>
@@ -16,8 +16,18 @@
 
 <div id="middle">
 <h1>Add question</h1>
-<p>
-</p>
+
+<form th:action="@{/addQuestion}" method="post">
+<p>Please, choose question type:</p>
+
+<select th:replace="fragments/questionType :: questionType"></select>
+
+<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
+<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
+<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
+
+<p><input type="submit" value="Next" /></p>
+</form>
 </div> <!-- middle -->
 
 <div th:replace="fragments/bottom :: bottom"></div>
