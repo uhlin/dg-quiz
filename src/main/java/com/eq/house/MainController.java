@@ -1,5 +1,8 @@
 package com.eq.house;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,22 +28,43 @@ public class MainController {
 		String s1 = "";
 		String s2 = "";
 
-		if (topic != -1 && lang != -1) {
-			s1 = Utilities.topicToString(Utilities.intToTopic(topic));
-			s2 = Utilities.languageToString(Utilities.intToLanguage(lang));
-
-			System.out.println("MainController: index: topic = " + s1);
-			System.out.println("MainController: index: lang  = " + s2);
-		}
-
 		model.addAttribute("completeNumberOfQuizzes", repo.count());
 
-		if (repo.count() > 0)
-			model.addAttribute("db", repo.findAll());
-		else
+		if (repo.count() > 0) {
+			if (topic != -1 && lang != -1) {
+				s1 = Utilities.topicToString(Utilities.intToTopic(topic));
+				s2 = Utilities.languageToString(Utilities.intToLanguage(lang));
+
+				System.out.println("MainController: index: topic = " + s1);
+				System.out.println("MainController: index: lang  = " + s2);
+
+				List<Quiz> f =
+						getFilteredQuizzes(Utilities.intToTopic(topic), Utilities.intToLanguage(lang));
+
+				model.addAttribute("db", f);
+				model.addAttribute("dbCount", f.size());
+			} else {
+				model.addAttribute("db", repo.findAll());
+				model.addAttribute("dbCount", repo.count());
+			}
+		} else {
 			model.addAttribute("db", null);
+			model.addAttribute("dbCount", 0);
+		}
 
 		return "index";
+	}
+
+	List<Quiz> getFilteredQuizzes(Topic byTopic, Language byLang) {
+		Iterable<Quiz> all = repo.findAll();
+		List<Quiz> f = new LinkedList<Quiz>();
+
+		for (Quiz quiz : all) {
+			if (quiz.getTopic() == byTopic && quiz.getLang() == byLang)
+				f.add(quiz);
+		}
+
+		return f;
 	}
 
 	@GetMapping("/createQuiz")
