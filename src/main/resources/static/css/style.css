@@ -48,3 +48,10 @@ a:hover {
 #middle {
 	padding: 2em;
 }
+/* #quizzesTable1 {} */
+#quizzesTable2 {
+	width: 70%;
+}
+#quizzesTable2 th, td {
+	text-align: left;
+}
