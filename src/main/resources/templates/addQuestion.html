@@ -18,9 +18,11 @@
 <h1>Add question</h1>
 
 <form th:action="@{/addQuestion}" method="post">
-<p>Please, choose question type:</p>
+<p>Please, choose question type and number of answers:</p>
 
 <select th:replace="fragments/questionType :: questionType"></select>
+
+<select th:replace="fragments/numAnswers :: numAnswers"></select>
 
 <input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
 <input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
