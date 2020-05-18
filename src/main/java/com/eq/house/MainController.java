@@ -16,6 +16,15 @@ public class MainController {
 	@Autowired
 	QuizRepo repo;
 
+	@Autowired
+	QuestionTextRepo questionTextRepo;
+
+	@Autowired
+	QuestionSoundRepo questionSoundRepo;
+
+	@Autowired
+	QuestionImageRepo questionImageRepo;
+
 	public QuizRepo quizRepoExported() {
 		return repo;
 	}
