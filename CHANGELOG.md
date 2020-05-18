@@ -19,6 +19,10 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   - `addSoundQuestion.html`
   - `addImageQuestion.html`
 - Lade till nya fragment
+- Lade till följande förvar:
+  - QuestionTextRepo
+  - QuestionSoundRepo
+  - QuestionImageRepo
 
 ## 2020-05-17 ##
 Startsidan listar nu quiz och det är möjligt att filtrera visningen med hjälp
