@@ -86,4 +86,23 @@ public class Quiz {
 	public void setLang(Language lang) {
 		this.lang = lang;
 	}
+
+
+	/*****************************************
+	 *
+	 * getNumQuestions() and setNumQuestions()
+	 *
+	 */
+	public Integer getNumQuestions() {
+		return numQuestions;
+	}
+	public void setNumQuestions(Integer numQuestions) {
+		this.numQuestions = numQuestions;
+	}
+	public Integer increaseNumQuestions() {
+		return (++ this.numQuestions);
+	}
+	public Integer decreaseNumQuestion() {
+		return (-- this.numQuestions);
+	}
 }
