@@ -11,20 +11,22 @@ public class Quiz {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
 
+	//String uniqueId;
 	String title;
 	Topic topic;
 	Language lang;
-	//FIXME
-	//List<Question> questions;
+	Integer numQuestions;
 
 	Quiz() {
 		System.out.println("** Quiz class: default constructor called **");
 	}
 
 	Quiz(String _title, Integer _topic, Integer _lang) {
+		//this.uniqueId = UUID.randomUUID().toString();
 		this.title = _title;
 		this.topic = Utilities.intToTopic(_topic);
 		this.lang = Utilities.intToLanguage(_lang);
+		this.numQuestions = 0;
 	}
 
 
