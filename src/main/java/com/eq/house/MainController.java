@@ -154,10 +154,12 @@ public class MainController {
 			@RequestParam(name = "questionType", required = true) Integer type,
 			@RequestParam(name = "quizTitle",    required = true) String  title,
 			@RequestParam(name = "quizTopic",    required = true) Integer topic,
-			@RequestParam(name = "quizLang",     required = true) Integer lang) {
+			@RequestParam(name = "quizLang",     required = true) Integer lang,
+			@RequestParam(name = "numAnswers",   required = true) Integer num) {
 		model.addAttribute("quizTitle", title);
 		model.addAttribute("quizTopic", topic);
 		model.addAttribute("quizLang", lang);
+		model.addAttribute("numAnswers", num);
 
 		switch (Utilities.intToQuestionType(type)) {
 		case Text:
