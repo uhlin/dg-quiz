@@ -18,7 +18,25 @@
 <h1>Add TEXT question for: <span th:text="${quizTitle}"></span></h1>
 
 <form th:action="@{/addTextQuestion}" method="post">
+
+<h2>Question:</h2>
+
+<p><input type="text" name="question" /></p>
+
+<div th:if="${numAnswers} == 4">
+<table th:replace="fragments/4ans :: 4ans"></table>
+</div>
+<div th:if="${numAnswers} == 6">
+<table th:replace="fragments/6ans :: 6ans"></table>
+</div>
+
+<p><input type="submit" value="Add question" /></p>
 </form>
+
+<form th:action="@{/doneWithQuestions}" method="post">
+<p><input type="submit" value="No more questions" /></p>
+</form>
+
 </div> <!-- middle -->
 
 <div th:replace="fragments/bottom :: bottom"></div>
