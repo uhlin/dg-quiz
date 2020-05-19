@@ -2,6 +2,10 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-05-19 ##
+Arbetat med att föra in textfrågor för ett specifikt quiz i databasen.
+Ej klar.
+
 ## 2020-05-18 ##
 - Lade till följande metoder i klassen MainController:
   - `getQuizId()`
