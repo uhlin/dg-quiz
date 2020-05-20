@@ -175,7 +175,7 @@ public class MainController {
 		return "addQuestion";
 	}
 
-	@RequestMapping("/addQuestion")
+	@PostMapping("/addQuestion")
 	public String addQuestion(
 			Model model,
 			@RequestParam(name = "questionType", required = true) Integer type,
