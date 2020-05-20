@@ -45,6 +45,19 @@ public class Quiz {
 	}
 
 
+	/*********************************
+	 *
+	 * getUniqueId() and setUniqueId()
+	 *
+	 */
+	public String getUniqueId() {
+		return uniqueId;
+	}
+	public void setUniqueId(String uniqueId) {
+		this.uniqueId = uniqueId;
+	}
+
+
 	/***************************
 	 *
 	 * getTitle() and setTitle()
@@ -106,18 +119,5 @@ public class Quiz {
 	}
 	public Integer decreaseNumQuestion() {
 		return (-- this.numQuestions);
-	}
-
-
-	/*********************************
-	 *
-	 * getUniqueId() and setUniqueId()
-	 *
-	 */
-	public String getUniqueId() {
-		return uniqueId;
-	}
-	public void setUniqueId(String uniqueId) {
-		this.uniqueId = uniqueId;
 	}
 }
