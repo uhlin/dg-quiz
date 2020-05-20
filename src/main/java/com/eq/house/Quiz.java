@@ -30,6 +30,7 @@ public class Quiz {
 		this.topic = Utilities.intToTopic(_topic);
 		this.lang = Utilities.intToLanguage(_lang);
 		this.numQuestions = 0;
+		this.completedAddingQuestions = false;
 	}
 
 
