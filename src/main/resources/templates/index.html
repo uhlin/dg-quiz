@@ -26,13 +26,13 @@ number of quizzes to play.
 <form th:action="@{/}" method="post">
 <table id="filterTable">
 	<tr>
-		<td><span class="">Topic / Category:</span></td>
+		<td><span class="label1">Topic / Category:</span></td>
 		<td>
 			<select th:replace="fragments/quizTopic :: quizTopic"></select>
 		</td>
 	</tr>
 	<tr>
-		<td><span class="">Language:</span></td>
+		<td><span class="label1">Language:</span></td>
 		<td>
 			<select th:replace="fragments/quizLang :: quizLang"></select>
 		</td>
