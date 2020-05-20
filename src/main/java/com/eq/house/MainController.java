@@ -210,7 +210,14 @@ public class MainController {
 
 
 	@PostMapping("/addTextQuestion")
-	public String addTextQuestion() {
+	public String addTextQuestion(
+			Model model,
+			@RequestParam(name = "quizTitle", required = true) String  title,
+			@RequestParam(name = "quizTopic", required = true) Integer topic,
+			@RequestParam(name = "quizLang",  required = true) Integer lang) {
+		model.addAttribute("quizTitle", title);
+		model.addAttribute("quizTopic", topic);
+		model.addAttribute("quizLang", lang);
 		return "addQuestion";
 	}
 
