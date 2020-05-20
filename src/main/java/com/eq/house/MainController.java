@@ -64,7 +64,7 @@ public class MainController {
 		return "index";
 	}
 
-	List<Quiz> getFilteredQuizzes(Topic byTopic, Language byLang) {
+	public List<Quiz> getFilteredQuizzes(Topic byTopic, Language byLang) {
 		Iterable<Quiz> all = repo.findAll();
 		List<Quiz> f = new LinkedList<Quiz>();
 
@@ -79,7 +79,7 @@ public class MainController {
 	/*
 	 * Get quiz id (by title, topic and language)
 	 */
-	Long getQuizId(String title, Integer topic, Integer lang) {
+	public Long getQuizId(String title, Integer topic, Integer lang) {
 		Topic _topic = Utilities.intToTopic(topic);
 		Language _lang = Utilities.intToLanguage(lang);
 
@@ -95,7 +95,7 @@ public class MainController {
 		return Long.valueOf(-1);
 	}
 
-	String getQuizUniqueId(String title, Integer topic, Integer lang) {
+	public String getQuizUniqueId(String title, Integer topic, Integer lang) {
 		Topic _topic = Utilities.intToTopic(topic);
 		Language _lang = Utilities.intToLanguage(lang);
 
@@ -111,7 +111,7 @@ public class MainController {
 		return "";
 	}
 
-	Quiz getQuiz(String title, Integer topic, Integer lang) {
+	public Quiz getQuiz(String title, Integer topic, Integer lang) {
 		Topic _topic = Utilities.intToTopic(topic);
 		Language _lang = Utilities.intToLanguage(lang);
 
@@ -127,7 +127,7 @@ public class MainController {
 		return null;
 	}
 
-	Quiz getQuizByUniqueId(final String id) {
+	public Quiz getQuizByUniqueId(final String id) {
 		Iterable<Quiz> all = repo.findAll();
 
 		for (Quiz quiz : all) {
