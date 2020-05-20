@@ -218,13 +218,31 @@ public class MainController {
 
 	@PostMapping("/addTextQuestion")
 	public String addTextQuestion(
+			@Valid QuestionText qText,
 			Model model,
-			@RequestParam(name = "quizTitle", required = true) String  title,
-			@RequestParam(name = "quizTopic", required = true) Integer topic,
-			@RequestParam(name = "quizLang",  required = true) Integer lang) {
+			BindingResult bindingResult,
+			@RequestParam(name = "quizTitle",  required = true)  String  title,
+			@RequestParam(name = "quizTopic",  required = true)  Integer topic,
+			@RequestParam(name = "quizLang",   required = true)  Integer lang,
+			@RequestParam(name = "numAnswers", required = false) Integer num) {
+		Quiz quiz = getQuiz(title, topic, lang);
+		final Integer questionNum = quiz.getNumQuestions() + 1;
+		model.addAttribute("questionNum", questionNum);
+
 		model.addAttribute("quizTitle", title);
 		model.addAttribute("quizTopic", topic);
 		model.addAttribute("quizLang", lang);
+		model.addAttribute("numAnswers", num);
+
+		if (bindingResult.hasErrors()) {
+			/* TODO: Handle error */
+			return "addTextQuestion";
+		}
+
+		qText.setQuizId(quiz.getUniqueId());
+		qText.setQuestionNum(quiz.increaseNumQuestions());
+		qText.outputObject();
+		questionTextRepo.save(qText);
 		return "addQuestion";
 	}
 
