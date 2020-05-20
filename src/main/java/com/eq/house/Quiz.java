@@ -11,13 +11,13 @@ import javax.persistence.Id;
 public class Quiz {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	Long id;
+	private Long id;
 
-	String uniqueId;
-	String title;
-	Topic topic;
-	Language lang;
-	Integer numQuestions;
+	private String uniqueId;
+	private String title;
+	private Topic topic;
+	private Language lang;
+	private Integer numQuestions;
 
 	Quiz() {
 		System.out.println("** Quiz class: default constructor called **");
