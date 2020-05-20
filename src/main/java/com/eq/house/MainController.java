@@ -95,6 +95,22 @@ public class MainController {
 		return Long.valueOf(-1);
 	}
 
+	String getQuizUniqueId(String title, Integer topic, Integer lang) {
+		Topic _topic = Utilities.intToTopic(topic);
+		Language _lang = Utilities.intToLanguage(lang);
+
+		Iterable<Quiz> all = repo.findAll();
+
+		for (Quiz quiz : all) {
+			if (quiz.getTitle().equalsIgnoreCase(title) &&
+					quiz.getTopic() == _topic &&
+					quiz.getLang() == _lang)
+				return quiz.getUniqueId();
+		}
+
+		return "";
+	}
+
 	Quiz getQuiz(String title, Integer topic, Integer lang) {
 		Topic _topic = Utilities.intToTopic(topic);
 		Language _lang = Utilities.intToLanguage(lang);
@@ -105,6 +121,17 @@ public class MainController {
 			if (quiz.getTitle().equalsIgnoreCase(title) &&
 					quiz.getTopic() == _topic &&
 					quiz.getLang() == _lang)
+				return quiz;
+		}
+
+		return null;
+	}
+
+	Quiz getQuizByUniqueId(final String id) {
+		Iterable<Quiz> all = repo.findAll();
+
+		for (Quiz quiz : all) {
+			if (quiz.getUniqueId().equals(id))
 				return quiz;
 		}
 
