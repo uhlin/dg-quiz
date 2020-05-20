@@ -30,6 +30,10 @@
 <table th:replace="fragments/6ans :: 6ans"></table>
 </div>
 
+<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
+<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
+<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
+
 <p><input type="submit" value="Add question" /></p>
 </form>
 
