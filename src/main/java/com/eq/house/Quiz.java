@@ -19,11 +19,11 @@ public class Quiz {
 	private Language lang;
 	private Integer numQuestions;
 
-	Quiz() {
+	public Quiz() {
 		System.out.println("** Quiz class: default constructor called **");
 	}
 
-	Quiz(String _title, Integer _topic, Integer _lang) {
+	public Quiz(String _title, Integer _topic, Integer _lang) {
 		this.uniqueId = UUID.randomUUID().toString();
 		this.title = _title;
 		this.topic = Utilities.intToTopic(_topic);
