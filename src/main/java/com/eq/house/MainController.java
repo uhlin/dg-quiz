@@ -188,6 +188,13 @@ public class MainController {
 		model.addAttribute("quizLang", lang);
 		model.addAttribute("numAnswers", num);
 
+		System.out.println("---------- addQuestion: ----------");
+		System.out.println("questionType: " + type);
+		System.out.println("quizTitle:    " + title);
+		System.out.println("quizTopic:    " + topic);
+		System.out.println("quizLang:     " + lang);
+		System.out.println("numAnswers:   " + num);
+
 		switch (Utilities.intToQuestionType(type)) {
 		case Text:
 			return "addTextQuestion";
