@@ -54,6 +54,26 @@ public class QuestionText {
 		this.opt6Right = -1;
 	}
 
+	public void outputObject() {
+		System.out.println("quizId:      " + this.quizId);
+		System.out.println("question:    " + this.question);
+		System.out.println("questionNum: " + this.questionNum);
+
+		System.out.println("opt1Text:    " + this.opt1Text);
+		System.out.println("opt2Text:    " + this.opt2Text);
+		System.out.println("opt3Text:    " + this.opt3Text);
+		System.out.println("opt4Text:    " + this.opt4Text);
+		System.out.println("opt5Text:    " + this.opt5Text);
+		System.out.println("opt6Text:    " + this.opt6Text);
+
+		System.out.println("opt1Right:   " + this.opt1Right);
+		System.out.println("opt2Right:   " + this.opt2Right);
+		System.out.println("opt3Right:   " + this.opt3Right);
+		System.out.println("opt4Right:   " + this.opt4Right);
+		System.out.println("opt5Right:   " + this.opt5Right);
+		System.out.println("opt6Right:   " + this.opt6Right);
+	}
+
 /***************************************************
  *
  * Getters/setters
