@@ -80,3 +80,11 @@ a:hover {
 .w70 { width: 70%; }
 .w75 { width: 75%; }
 .w80 { width: 80%; }
+.gfxFailure {
+	color: red;
+	font-weight: bold;
+}
+.gfxSuccess {
+	color: mediumseagreen;
+	font-weight: bold;
+}
