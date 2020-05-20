@@ -10,6 +10,10 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 - Lade till följande metoder i klassen MainController:
   - `getQuizUniqueId()`
   - `getQuizByUniqueId()`
+- Lade till PostMapping för:
+  - `/addTextQuestion`
+  - `/addSoundQuestion`
+  - `/addImageQuestion`
 
 ## 2020-05-19 ##
 Arbetat med att föra in textfrågor för ett specifikt quiz i databasen.
