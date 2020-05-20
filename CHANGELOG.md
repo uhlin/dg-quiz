@@ -7,6 +7,9 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   - `doneWithQuestions.html`
   - `quizAlreadyExists.html`
 - Lade till nya stilar
+- Lade till följande metoder i klassen MainController:
+  - `getQuizUniqueId()`
+  - `getQuizByUniqueId()`
 
 ## 2020-05-19 ##
 Arbetat med att föra in textfrågor för ett specifikt quiz i databasen.
