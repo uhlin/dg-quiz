@@ -201,6 +201,25 @@ public class MainController {
 		return "error";
 	}
 
+
+	@PostMapping("/addTextQuestion")
+	public String addTextQuestion() {
+		return "addQuestion";
+	}
+
+
+	@PostMapping("/addSoundQuestion")
+	public String addSoundQuestion() {
+		return "addQuestion";
+	}
+
+
+	@PostMapping("/addImageQuestion")
+	public String addImageQuestion() {
+		return "addQuestion";
+	}
+
+
 	@RequestMapping("/doneWithQuestions")
 	public String doneWithQuestions() {
 		/* TODO: Add code */
