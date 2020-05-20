@@ -1,5 +1,7 @@
 package com.eq.house;
 
+import java.util.UUID;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,7 +13,7 @@ public class Quiz {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
 
-	//String uniqueId;
+	String uniqueId;
 	String title;
 	Topic topic;
 	Language lang;
@@ -22,7 +24,7 @@ public class Quiz {
 	}
 
 	Quiz(String _title, Integer _topic, Integer _lang) {
-		//this.uniqueId = UUID.randomUUID().toString();
+		this.uniqueId = UUID.randomUUID().toString();
 		this.title = _title;
 		this.topic = Utilities.intToTopic(_topic);
 		this.lang = Utilities.intToLanguage(_lang);
@@ -104,5 +106,18 @@ public class Quiz {
 	}
 	public Integer decreaseNumQuestion() {
 		return (-- this.numQuestions);
+	}
+
+
+	/*********************************
+	 *
+	 * getUniqueId() and setUniqueId()
+	 *
+	 */
+	public String getUniqueId() {
+		return uniqueId;
+	}
+	public void setUniqueId(String uniqueId) {
+		this.uniqueId = uniqueId;
 	}
 }
