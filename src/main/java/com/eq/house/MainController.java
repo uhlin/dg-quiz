@@ -3,9 +3,12 @@ package com.eq.house;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -187,6 +190,10 @@ public class MainController {
 		model.addAttribute("quizTopic", topic);
 		model.addAttribute("quizLang", lang);
 		model.addAttribute("numAnswers", num);
+
+		Quiz quiz = getQuiz(title, topic, lang);
+		final Integer questionNum = quiz.getNumQuestions() + 1;
+		model.addAttribute("questionNum", questionNum);
 
 		System.out.println("---------- addQuestion: ----------");
 		System.out.println("questionType: " + type);
