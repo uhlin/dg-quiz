@@ -13,7 +13,7 @@
 		<th>In language</th>
 	</tr>
 	<tr th:each="e: ${db}">
-		<td><a th:href="@{'/playQuiz'(id=${e.getId()})}" th:text="${e.getTitle()}"></a></td>
+		<td><a th:href="@{'/playQuiz'(id=${e.getUniqueId()})}" th:text="${e.getTitle()}"></a></td>
 		<td th:text="${e.getTopicString()}"></td>
 		<td th:text="${e.getLangString()}"></td>
 	</tr>
