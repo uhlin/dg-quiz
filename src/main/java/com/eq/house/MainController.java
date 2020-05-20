@@ -173,4 +173,10 @@ public class MainController {
 		System.err.println("addQuestion: fatal: cannot determine question type!");
 		return "error";
 	}
+
+	@RequestMapping("/doneWithQuestions")
+	public String doneWithQuestions() {
+		/* TODO: Add code */
+		return "doneWithQuestions";
+	}
 }
