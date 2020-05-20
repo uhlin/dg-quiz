@@ -19,7 +19,7 @@
 
 <form th:action="@{/addTextQuestion}" method="post">
 
-<p>Question:</p>
+<p><span th:text="${questionNum}"></span>. Question:</p>
 
 <p><input type="text" name="question" class="textFieldStyle1 w80"/></p>
 
