@@ -18,19 +18,20 @@
 <h1>Create new quiz</h1>
 
 <form th:action="@{/createQuiz}" method="post">
+
+<p>Title:</p>
+
+<p><input class="textFieldStyle1 w65" type="text" name="quizTitle" /></p>
+
 <table id="createQuizTable">
 	<tr>
-		<td><span class="">Title:</span></td>
-		<td><input class="" type="text" name="quizTitle" /></td>
-	</tr>
-	<tr>
-		<td><span class="">Topic / Category:</span></td>
+		<td><span class="label1">Topic / Category:</span></td>
 		<td>
 			<select th:replace="fragments/quizTopic :: quizTopic"></select>
 		</td>
 	</tr>
 	<tr>
-		<td><span class="">Language:</span></td>
+		<td><span class="label1">Language:</span></td>
 		<td>
 			<select th:replace="fragments/quizLang :: quizLang"></select>
 		</td>
