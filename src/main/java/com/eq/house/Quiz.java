@@ -18,6 +18,7 @@ public class Quiz {
 	private Topic topic;
 	private Language lang;
 	private Integer numQuestions;
+	private Boolean completedAddingQuestions;
 
 	public Quiz() {
 		System.out.println("** Quiz class: default constructor called **");
@@ -119,5 +120,18 @@ public class Quiz {
 	}
 	public Integer decreaseNumQuestion() {
 		return (-- this.numQuestions);
+	}
+
+
+	/*****************************************************************
+	 *
+	 * getCompletedAddingQuestions() and setCompletedAddingQuestions()
+	 *
+	 */
+	public Boolean getCompletedAddingQuestions() {
+		return completedAddingQuestions;
+	}
+	public void setCompletedAddingQuestions(Boolean completedAddingQuestions) {
+		this.completedAddingQuestions = completedAddingQuestions;
 	}
 }
