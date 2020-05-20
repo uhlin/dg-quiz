@@ -47,6 +47,7 @@ a:hover {
 }
 #middle {
 	padding: 2em;
+	width: 90%;
 }
 /* #quizzesTable1 {} */
 #quizzesTable2 {
@@ -55,3 +56,29 @@ a:hover {
 #quizzesTable2 th, td {
 	text-align: left;
 }
+.label1 {
+	color: black;
+	font-weight: bold;
+}
+.label2 {
+	color: peru;
+	font-weight: bold;
+}
+.textFieldStyle1 {
+	border: 1px solid peru;
+	/*border-radius: 0.5em;*/
+	padding: 0.5em;
+}
+.textFieldStyle2 {
+	border: 1px solid black;
+	/*border-radius: 0.5em;*/
+	padding: 0.5em;
+}
+.ansTable { width: 85%; }
+.ansTable th, td { text-align: left; }
+.ansTable input { width: 85%; }
+.w60 { width: 60%; }
+.w65 { width: 65%; }
+.w70 { width: 70%; }
+.w75 { width: 75%; }
+.w80 { width: 80%; }

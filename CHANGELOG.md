@@ -6,6 +6,7 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 - Lade till följande mallar:
   - `doneWithQuestions.html`
   - `quizAlreadyExists.html`
+- Lade till nya stilar
 
 ## 2020-05-19 ##
 Arbetat med att föra in textfrågor för ett specifikt quiz i databasen.
