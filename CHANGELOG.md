@@ -2,6 +2,11 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-05-21 ##
+- Databasen lagrar nu även:
+  - Ljudfrågor
+  - Bildfrågor
+
 ## 2020-05-20 ##
 - Lade till följande mallar:
   - `doneWithQuestions.html`
