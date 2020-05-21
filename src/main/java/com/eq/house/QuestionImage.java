@@ -42,6 +42,7 @@ public class QuestionImage {
 		this.quizId = "";
 		this.question = "";
 		this.questionNum = -1;
+		this.imageFile = null;
 
 		this.opt1Text = null;
 		this.opt2Text = null;
