@@ -16,35 +16,35 @@
 
 <div id="middle">
 
-<h1>Add SOUND question for: <span th:text="${quizTitle}"></span></h1>
+	<h1>Add SOUND question for: <span th:text="${quizTitle}"></span></h1>
 
-<form th:action="@{/addSoundQuestion}" method="post">
+	<form th:action="@{/addSoundQuestion}" method="post">
 
-<p><span th:text="${questionNum}"></span>. Question:</p>
-<p><input type="text" name="question" class="textFieldStyle1 w80"/></p>
+		<p><span th:text="${questionNum}"></span>. Question:</p>
+		<p><input type="text" name="question" class="textFieldStyle1 w80"/></p>
 
-<p>Sound file:</p>
-<p><input type="file" name="soundFile" class="" /></p>
+		<p>Sound file:</p>
+		<p><input type="file" name="soundFile" class="" /></p>
 
-<div th:if="${numAnswers} == 4">
-<table th:replace="fragments/4ans :: 4ans"></table>
-</div>
-<div th:if="${numAnswers} == 6">
-<table th:replace="fragments/6ans :: 6ans"></table>
-</div>
+		<div th:if="${numAnswers} == 4">
+			<table th:replace="fragments/4ans :: 4ans"></table>
+		</div>
+		<div th:if="${numAnswers} == 6">
+			<table th:replace="fragments/6ans :: 6ans"></table>
+		</div>
 
-<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
-<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
-<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
+		<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
+		<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
+		<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
 
-<input type="hidden" id="numAnswers" name="numAnswers" th:value="${numAnswers}" />
+		<input type="hidden" id="numAnswers" name="numAnswers" th:value="${numAnswers}" />
 
-<p><input type="submit" value="Add question" /></p>
-</form>
+		<p><input type="submit" value="Add question" /></p>
+	</form>
 
-<form th:action="@{/doneWithQuestions}" method="post">
-<p><input type="submit" value="No more questions" /></p>
-</form>
+	<form th:action="@{/doneWithQuestions}" method="post">
+		<p><input type="submit" value="No more questions" /></p>
+	</form>
 
 </div> <!-- middle -->
 
