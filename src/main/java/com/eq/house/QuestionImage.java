@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.validation.constraints.Size;
 
 @Entity
 public class QuestionImage {
@@ -17,6 +18,7 @@ public class QuestionImage {
 	private Integer questionNum;
 
 	@Lob
+	@Size(min = 1, max = 4194304)
 	private byte[] imageFile;
 
 	private String opt1Text;

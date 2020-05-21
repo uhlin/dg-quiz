@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.validation.constraints.Size;
 
 @Entity
 public class QuestionSound {
@@ -17,6 +18,7 @@ public class QuestionSound {
 	private Integer questionNum;
 
 	@Lob
+	@Size(min = 1, max = 8388608)
 	private byte[] soundFile;
 
 	private String opt1Text;
