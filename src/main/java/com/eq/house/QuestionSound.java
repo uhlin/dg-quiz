@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.validation.constraints.Size;
 
+import org.springframework.web.multipart.MultipartFile;
+
 @Entity
 public class QuestionSound {
 	@Id
@@ -124,8 +126,13 @@ public class QuestionSound {
 	public byte[] getSoundFile() {
 		return soundFile;
 	}
-	public void setSoundFile(byte[] soundFile) {
-		this.soundFile = soundFile;
+	public void setSoundFile(MultipartFile mpFile) {
+		try {
+			this.soundFile = mpFile.getBytes();
+		} catch (Exception ex) {
+			System.err.println("setSoundFile: error: " + ex.getMessage());
+			this.soundFile = null;
+		}
 	}
 
 /***************************************************
