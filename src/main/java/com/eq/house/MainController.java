@@ -28,10 +28,6 @@ public class MainController {
 	@Autowired
 	QuestionImageRepo questionImageRepo;
 
-	public QuizRepo quizRepoExported() {
-		return repo;
-	}
-
 	@RequestMapping("/")
 	public String index(
 			Model model,
