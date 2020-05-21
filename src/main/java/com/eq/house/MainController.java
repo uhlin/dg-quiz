@@ -244,7 +244,32 @@ public class MainController {
 
 
 	@PostMapping("/addSoundQuestion")
-	public String addSoundQuestion() {
+	public String addSoundQuestion(
+			@Valid QuestionSound qSound,
+			Model model,
+			BindingResult bindingResult,
+			@RequestParam(name = "quizTitle",  required = true)  String  title,
+			@RequestParam(name = "quizTopic",  required = true)  Integer topic,
+			@RequestParam(name = "quizLang",   required = true)  Integer lang,
+			@RequestParam(name = "numAnswers", required = false) Integer num) {
+		Quiz quiz = getQuiz(title, topic, lang);
+		final Integer questionNum = quiz.getNumQuestions() + 1;
+		model.addAttribute("questionNum", questionNum);
+
+		model.addAttribute("quizTitle", title);
+		model.addAttribute("quizTopic", topic);
+		model.addAttribute("quizLang", lang);
+		model.addAttribute("numAnswers", num);
+
+		if (bindingResult.hasErrors()) {
+			/* TODO: Handle error */
+			return "addSoundQuestion";
+		}
+
+		qSound.setQuizId(quiz.getUniqueId());
+		qSound.setQuestionNum(quiz.increaseNumQuestions());
+		qSound.outputObject();
+		questionSoundRepo.save(qSound);
 		return "addQuestion";
 	}
 
