@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.validation.constraints.Size;
 
+import org.springframework.web.multipart.MultipartFile;
+
 @Entity
 public class QuestionImage {
 	@Id
@@ -124,8 +126,13 @@ public class QuestionImage {
 	public byte[] getImageFile() {
 		return imageFile;
 	}
-	public void setImageFile(byte[] imageFile) {
-		this.imageFile = imageFile;
+	public void setImageFile(MultipartFile mpFile) {
+		try {
+			this.imageFile = mpFile.getBytes();
+		} catch (Exception ex) {
+			System.err.println("setImageFile: error: " + ex.getMessage());
+			this.imageFile = null;
+		}
 	}
 
 /***************************************************
