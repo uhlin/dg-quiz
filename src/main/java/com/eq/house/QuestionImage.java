@@ -115,6 +115,14 @@ public class QuestionImage {
 		this.questionNum = questionNum;
 	}
 
+
+	public byte[] getImageFile() {
+		return imageFile;
+	}
+	public void setImageFile(byte[] imageFile) {
+		this.imageFile = imageFile;
+	}
+
 /***************************************************
  *
  * More getters/setters

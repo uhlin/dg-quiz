@@ -115,6 +115,14 @@ public class QuestionSound {
 		this.questionNum = questionNum;
 	}
 
+
+	public byte[] getSoundFile() {
+		return soundFile;
+	}
+	public void setSoundFile(byte[] soundFile) {
+		this.soundFile = soundFile;
+	}
+
 /***************************************************
  *
  * More getters/setters
