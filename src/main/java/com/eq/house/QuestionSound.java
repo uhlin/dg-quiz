@@ -64,6 +64,7 @@ public class QuestionSound {
 		System.out.println("quizId:      " + this.quizId);
 		System.out.println("question:    " + this.question);
 		System.out.println("questionNum: " + this.questionNum);
+		System.out.println("soundFile:   " + this.soundFile.length);
 
 		System.out.println("opt1Text:    " + this.opt1Text);
 		System.out.println("opt2Text:    " + this.opt2Text);
