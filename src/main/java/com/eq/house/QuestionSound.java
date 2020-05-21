@@ -60,6 +60,7 @@ public class QuestionSound {
 	}
 
 	public void outputObject() {
+		System.out.println("---------- QuestionSound ----------");
 		System.out.println("quizId:      " + this.quizId);
 		System.out.println("question:    " + this.question);
 		System.out.println("questionNum: " + this.questionNum);

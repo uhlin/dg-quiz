@@ -60,6 +60,7 @@ public class QuestionImage {
 	}
 
 	public void outputObject() {
+		System.out.println("---------- QuestionImage ----------");
 		System.out.println("quizId:      " + this.quizId);
 		System.out.println("question:    " + this.question);
 		System.out.println("questionNum: " + this.questionNum);
