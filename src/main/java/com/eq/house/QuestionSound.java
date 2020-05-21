@@ -42,6 +42,7 @@ public class QuestionSound {
 		this.quizId = "";
 		this.question = "";
 		this.questionNum = -1;
+		this.soundFile = null;
 
 		this.opt1Text = null;
 		this.opt2Text = null;
