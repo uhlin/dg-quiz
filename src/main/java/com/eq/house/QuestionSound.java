@@ -46,7 +46,7 @@ public class QuestionSound {
 		this.quizId = "";
 		this.question = "";
 		this.questionNum = -1;
-		this.soundFile = null;
+		this.soundFile = "".getBytes();
 
 		this.opt1Text = null;
 		this.opt2Text = null;
@@ -131,7 +131,7 @@ public class QuestionSound {
 			this.soundFile = mpFile.getBytes();
 		} catch (Exception ex) {
 			System.err.println("setSoundFile: error: " + ex.getMessage());
-			this.soundFile = null;
+			this.soundFile = "".getBytes();
 		}
 	}
 
