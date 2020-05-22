@@ -319,6 +319,7 @@ public class MainController {
 			return "error";
 
 		quiz.setCompletedAddingQuestions(true);
+		repo.save(quiz);
 
 		model.addAttribute("quizTitle", title);
 		model.addAttribute("quizTopic", Utilities.intToTopic(topic));
