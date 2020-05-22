@@ -16,8 +16,15 @@
 
 <div id="middle">
 <h1>Done adding questions</h1>
-<p>
-Under construction.
+<h2>Quiz created!</h2>
+<p class="gfxSuccess">
+Quiz
+<span th:text="${quizTitle}"></span>
+(<span th:text="${quizTopic}"></span>)
+has been successfully created.
+With a total of
+<span th:text="${numQuestions}"></span>
+questions.
 </p>
 </div> <!-- middle -->
 
