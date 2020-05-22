@@ -205,6 +205,8 @@ public class MainController {
 			return "addSoundQuestion";
 		case Image:
 			return "addImageQuestion";
+		case None:
+			break;
 		}
 
 		System.err.println("addQuestion: fatal: cannot determine question type!");
