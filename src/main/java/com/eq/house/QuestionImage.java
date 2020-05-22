@@ -46,7 +46,7 @@ public class QuestionImage {
 		this.quizId = "";
 		this.question = "";
 		this.questionNum = -1;
-		this.imageFile = null;
+		this.imageFile = "".getBytes();
 
 		this.opt1Text = null;
 		this.opt2Text = null;
@@ -131,7 +131,7 @@ public class QuestionImage {
 			this.imageFile = mpFile.getBytes();
 		} catch (Exception ex) {
 			System.err.println("setImageFile: error: " + ex.getMessage());
-			this.imageFile = null;
+			this.imageFile = "".getBytes();
 		}
 	}
 
