@@ -305,9 +305,23 @@ public class MainController {
 	}
 
 
-	@RequestMapping("/doneWithQuestions")
-	public String doneWithQuestions() {
-		/* TODO: Add code */
+	@PostMapping("/doneWithQuestions")
+	public String doneWithQuestions(
+			Model model,
+			@RequestParam(name = "quizTitle", required = true) String  title,
+			@RequestParam(name = "quizTopic", required = true) Integer topic,
+			@RequestParam(name = "quizLang",  required = true) Integer lang) {
+		Quiz quiz = getQuiz(title, topic, lang);
+
+		if (quiz == null || quiz.getNumQuestions() == 0)
+			return "error";
+
+		quiz.setCompletedAddingQuestions(true);
+
+		model.addAttribute("quizTitle", title);
+		model.addAttribute("quizTopic", Utilities.intToTopic(topic));
+		model.addAttribute("quizLang", Utilities.intToLanguage(lang));
+		model.addAttribute("numQuestions", quiz.getNumQuestions());
 		return "doneWithQuestions";
 	}
 }
