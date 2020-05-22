@@ -20,7 +20,7 @@ public class QuestionSound {
 	private Integer questionNum;
 
 	@Lob
-	@Size(min = 1, max = 8388608)
+	@Size(min = 0, max = 8388608)
 	private byte[] soundFile;
 
 	private String opt1Text;
