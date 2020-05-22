@@ -394,13 +394,13 @@ public class MainController {
 		Quiz quiz = getQuizByUniqueId(id);
 
 		if (quiz == null) {
-			/* TODO: Handle error */
+			model.addAttribute("errorMsg", "Cannot find quiz!");
 			return "error";
 		} else if (!quiz.getCompletedAddingQuestions()) {
-			/* TODO: Handle error */
+			model.addAttribute("errorMsg", "Did not complete adding questions!");
 			return "error";
 		} else if (quiz.getNumQuestions() == 0) {
-			/* TODO: Handle error */
+			model.addAttribute("errorMsg", "Zero questions!");
 			return "error";
 		}
 
