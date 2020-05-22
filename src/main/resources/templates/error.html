@@ -6,8 +6,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link th:href="@{/css/style.css}" rel="STYLESHEET" type="text/css" />
 
-<style>
-</style>
+	<style>
+	</style>
 </head>
 
 <body>
@@ -16,15 +16,13 @@
 
 <div id="middle">
 
-<h1>Error</h1>
+	<h1>Error</h1>
 
-<p th:if="${errorMsg == null}">
-Something went wrong... :-(
-</p>
+	<p th:if="${errorMsg == null}">Something went wrong... :-(</p>
 
-<p th:if="${errorMsg != null}">
-<span th:text="${errorMsg}" class="gfxFailure"></span>
-</p>
+	<p th:if="${errorMsg != null}">
+		<span th:text="${errorMsg}" class="gfxFailure"></span>
+	</p>
 
 </div> <!-- middle -->
 
