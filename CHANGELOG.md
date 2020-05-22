@@ -2,6 +2,12 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-05-22 ##
+- Lade till GetMapping för:
+  - `/playQuiz`
+- Lade till följande mallar:
+  - `playQuiz.html`
+
 ## 2020-05-21 ##
 - Databasen lagrar nu även:
   - Ljudfrågor
