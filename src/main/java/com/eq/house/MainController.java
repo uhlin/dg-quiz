@@ -405,6 +405,7 @@ public class MainController {
 		}
 
 		model.addAttribute("quiz", quiz);
+		//model.addAttribute("questions", getAllQuestionsForQuiz(id));
 
 		return "playQuiz";
 	}
