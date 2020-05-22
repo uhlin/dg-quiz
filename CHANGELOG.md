@@ -7,6 +7,10 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   - `/playQuiz`
 - Lade till följande mallar:
   - `playQuiz.html`
+- Lade till kod till klassen `Question`
+- Lade till följande metoder i klassen MainController:
+  - `getQuestion()`
+  - `getAllQuestionsForQuiz()`
 
 ## 2020-05-21 ##
 - Databasen lagrar nu även:
