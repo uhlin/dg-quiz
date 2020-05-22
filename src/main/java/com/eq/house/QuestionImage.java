@@ -20,7 +20,7 @@ public class QuestionImage {
 	private Integer questionNum;
 
 	@Lob
-	@Size(min = 1, max = 4194304)
+	@Size(min = 0, max = 4194304)
 	private byte[] imageFile;
 
 	private String opt1Text;
