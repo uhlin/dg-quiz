@@ -324,4 +324,28 @@ public class MainController {
 		model.addAttribute("numQuestions", quiz.getNumQuestions());
 		return "doneWithQuestions";
 	}
+
+	/* -------------------- Play functionality -------------------- */
+
+	@GetMapping("/playQuiz")
+	public String playQuiz(
+			Model model,
+			@RequestParam(name = "id", required = true) String id) {
+		Quiz quiz = getQuizByUniqueId(id);
+
+		if (quiz == null) {
+			/* TODO: Handle error */
+			return "error";
+		} else if (!quiz.getCompletedAddingQuestions()) {
+			/* TODO: Handle error */
+			return "error";
+		} else if (quiz.getNumQuestions() == 0) {
+			/* TODO: Handle error */
+			return "error";
+		}
+
+		model.addAttribute("quiz", quiz);
+
+		return "playQuiz";
+	}
 }
