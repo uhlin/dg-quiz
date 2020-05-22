@@ -43,6 +43,10 @@
 
 	<form th:action="@{/doneWithQuestions}" method="post">
 		<p><input type="submit" value="No more questions" /></p>
+
+		<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
+		<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
+		<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
 	</form>
 
 </div> <!-- middle -->
