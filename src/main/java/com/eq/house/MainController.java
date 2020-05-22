@@ -328,8 +328,8 @@ public class MainController {
 		repo.save(quiz);
 
 		model.addAttribute("quizTitle", title);
-		model.addAttribute("quizTopic", Utilities.intToTopic(topic));
-		model.addAttribute("quizLang", Utilities.intToLanguage(lang));
+		model.addAttribute("quizTopic", Utilities.topicToString(Utilities.intToTopic(topic)));
+		model.addAttribute("quizLang", Utilities.languageToString(Utilities.intToLanguage(lang)));
 		model.addAttribute("numQuestions", quiz.getNumQuestions());
 		return "doneWithQuestions";
 	}
