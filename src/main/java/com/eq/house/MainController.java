@@ -315,8 +315,14 @@ public class MainController {
 			@RequestParam(name = "quizLang",  required = true) Integer lang) {
 		Quiz quiz = getQuiz(title, topic, lang);
 
-		if (quiz == null || quiz.getNumQuestions() == 0)
+		if (quiz == null) {
+			model.addAttribute("errorMsg", "Cannot find quiz!");
 			return "error";
+		} else if (quiz.getNumQuestions() == 0) {
+			repo.delete(quiz); // delete it
+			model.addAttribute("errorMsg", "Zero questions!");
+			return "error";
+		}
 
 		quiz.setCompletedAddingQuestions(true);
 		repo.save(quiz);
