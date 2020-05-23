@@ -1,5 +1,7 @@
 package com.eq.house;
 
+import java.util.Arrays;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -67,6 +69,7 @@ public class QuestionImage {
 		System.out.println("question:    " + this.question);
 		System.out.println("questionNum: " + this.questionNum);
 		System.out.println("imageFile:   " + this.imageFile.length);
+		System.out.println("Decomp size: " + getImageFileDecompressed());
 
 		System.out.println("opt1Text:    " + this.opt1Text);
 		System.out.println("opt2Text:    " + this.opt2Text);
@@ -123,6 +126,15 @@ public class QuestionImage {
 
 	public byte[] getImageFile() {
 		return imageFile;
+	}
+	public final byte[] getImageFileDecompressed() {
+		try {
+			byte[] imageFileCopy = Arrays.copyOf(this.imageFile, this.imageFile.length);
+			return Utilities.unzipBytes(imageFileCopy);
+		} catch (Exception ex) {
+			System.err.println("getImageFileDecompressed: error: " + ex.getMessage());
+		}
+		return "".getBytes();
 	}
 	public void setImageFile(MultipartFile mpFile) {
 		try {
