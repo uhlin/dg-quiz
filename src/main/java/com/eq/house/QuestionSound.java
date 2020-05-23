@@ -142,7 +142,7 @@ public class QuestionSound {
 				throw new Exception("mpFile is null");
 			else if (mpFile.getSize() > MainController.soundFileMaxBytesUncompressed)
 				throw new Exception("file too large");
-			this.soundFile = mpFile.getBytes();
+			this.soundFile = Utilities.zipBytes(mpFile.getBytes());
 		} catch (Exception ex) {
 			System.err.println("setSoundFile: error: " + ex.getMessage());
 			this.soundFile = "".getBytes();
