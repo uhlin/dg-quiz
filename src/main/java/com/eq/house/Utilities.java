@@ -6,6 +6,8 @@ import java.util.zip.Inflater;
 import org.apache.tomcat.util.http.fileupload.ByteArrayOutputStream;
 
 public class Utilities {
+	public static final long oneMegaByte = 1048576;
+
 	public static Topic intToTopic(Integer i) {
 		switch (i) {
 		case 0:
@@ -159,5 +161,15 @@ public class Utilities {
 
 		stream.close();
 		return stream.toByteArray();
+	}
+
+	public static final String getSoundFileMaxSizeString() {
+		final double maxSize = (MainController.soundFileMaxBytesUncompressed / oneMegaByte);
+		return ("Max is: " + maxSize + " MB");
+	}
+
+	public static final String getImageFileMaxSizeString() {
+		final double maxSize = (MainController.imageFileMaxBytesUncompressed / oneMegaByte);
+		return ("Max is: " + maxSize + " MB");
 	}
 }
