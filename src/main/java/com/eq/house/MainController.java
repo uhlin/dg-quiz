@@ -1,5 +1,6 @@
 package com.eq.house;
 
+import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -376,6 +377,22 @@ public class MainController {
 			repo.delete(quiz); // delete it
 			model.addAttribute("errorMsg", "Zero questions!");
 			return "error";
+		}
+
+		File file = new File("quizzes/" + quiz.getUniqueId());
+
+		if (file.exists()) {
+			repo.delete(quiz);
+			model.addAttribute("errorMsg", "doneWithQuestions: fatal: " +
+					"storage for quiz already exists");
+			return "error";
+		} else {
+			if (!file.mkdirs()) {
+				repo.delete(quiz);
+				model.addAttribute("errorMsg", "doneWithQuestions: fatal: " +
+						"cannot create harddisk storage for quiz");
+				return "error";
+			}
 		}
 
 		quiz.setCompletedAddingQuestions(true);
