@@ -4,6 +4,10 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
 ## 2020-05-23 ##
 - Lade till kod för att kontrollera storlek på upload (säkerhet)
+- Fixade bättre validering av input för:
+  - `/addTextQuestion`
+  - `/addSoundQuestion`
+  - `/addImageQuestion`
 
 ## 2020-05-22 ##
 - Lade till GetMapping för:
