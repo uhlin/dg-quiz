@@ -1,5 +1,10 @@
 package com.eq.house;
 
+import java.util.zip.Deflater;
+import java.util.zip.Inflater;
+
+import org.apache.tomcat.util.http.fileupload.ByteArrayOutputStream;
+
 public class Utilities {
 	public static Topic intToTopic(Integer i) {
 		switch (i) {
@@ -114,4 +119,45 @@ public class Utilities {
 		System.err.println("intToQuestionType: warning: unknown question type");
 		return QuestionType.None;
 	} /* intToQuestionType() */
+
+	public static byte[] zipBytes(byte[] input) throws Exception {
+		if (input == null)
+			throw new Exception("zipBytes: null input");
+
+		ByteArrayOutputStream stream = new ByteArrayOutputStream();
+		Deflater dfl = new Deflater();
+
+		dfl.setLevel(Deflater.BEST_COMPRESSION);
+		dfl.setInput(input);
+		dfl.finish();
+
+		byte[] tmp = new byte[8192];
+
+		while (! dfl.finished()) {
+			final int size = dfl.deflate(tmp);
+			stream.write(tmp, 0, size);
+		}
+
+		stream.close();
+		return stream.toByteArray();
+	}
+
+	public static byte[] unzipBytes(byte[] input) throws Exception {
+		if (input == null)
+			throw new Exception("unzipBytes: null input");
+
+		ByteArrayOutputStream stream = new ByteArrayOutputStream();
+		Inflater ifl = new Inflater();
+
+		ifl.setInput(input);
+		byte[] tmp = new byte[8192];
+
+		while (! ifl.finished()) {
+			final int size = ifl.inflate(tmp);
+			stream.write(tmp, 0, size);
+		}
+
+		stream.close();
+		return stream.toByteArray();
+	}
 }
