@@ -280,7 +280,10 @@ public class MainController {
 		model.addAttribute("quizLang", lang);
 		model.addAttribute("numAnswers", num);
 
-		if (mpFile != null && mpFile.getSize() > soundFileMaxBytesUncompressed) {
+		if (mpFile == null || mpFile.getSize() == 0) {
+			model.addAttribute("errorMsg", "Sound file null or zero size");
+			return "addSoundQuestion";
+		} else if (mpFile != null && mpFile.getSize() > soundFileMaxBytesUncompressed) {
 			model.addAttribute("errorMsg", "File too large!");
 			return "addSoundQuestion";
 		} else if (qSound.getQuestion().equals("")) {
@@ -327,7 +330,10 @@ public class MainController {
 		model.addAttribute("quizLang", lang);
 		model.addAttribute("numAnswers", num);
 
-		if (mpFile != null && mpFile.getSize() > imageFileMaxBytesUncompressed) {
+		if (mpFile == null || mpFile.getSize() == 0) {
+			model.addAttribute("errorMsg", "Image file null or zero size");
+			return "addImageQuestion";
+		} else if (mpFile != null && mpFile.getSize() > imageFileMaxBytesUncompressed) {
 			model.addAttribute("errorMsg", "File too large!");
 			return "addImageQuestion";
 		} else if (qImage.getQuestion().equals("")) {
