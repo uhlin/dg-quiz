@@ -465,8 +465,43 @@ public class MainController {
 		}
 
 		model.addAttribute("quiz", quiz);
-		//model.addAttribute("questions", getAllQuestionsForQuiz(id));
+		model.addAttribute("questionNum", 1);
 
 		return "playQuiz";
+	}
+
+	@GetMapping("/askQuestion")
+	public String askQuestion(
+			Model model,
+			@RequestParam(name = "quizId", required = true) String quizId,
+			@RequestParam(name = "questionNum", required = true) Integer questionNum) {
+		Quiz quiz = null;
+		Question question = null;
+
+		if ((quiz = getQuizByUniqueId(quizId)) == null) {
+			model.addAttribute("errorMsg", "askQuestion: fatal: cannot find quiz");
+			return "error";
+		} else if ((question = getQuestion(quizId, questionNum)) == null) {
+			model.addAttribute("errorMsg", "askQuestion: fatal: cannot find question");
+			return "error";
+		}
+
+		model.addAttribute("quiz", quiz);
+		model.addAttribute("question", question);
+		//model.addAttribute("questionNum", questionNum);
+
+		switch (question.getqType()) {
+		case Text:
+			return "askTextQuestion";
+		case Sound:
+			return "askSoundQuestion";
+		case Image:
+			return "askImageQuestion";
+		case None:
+			break;
+		}
+
+		model.addAttribute("errorMsg", "askQuestion: fatal: cannot determine question type");
+		return "error";
 	}
 }
