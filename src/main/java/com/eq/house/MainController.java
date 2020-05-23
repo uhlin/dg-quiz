@@ -284,7 +284,7 @@ public class MainController {
 			model.addAttribute("errorMsg", "Sound file null or zero size");
 			return "addSoundQuestion";
 		} else if (mpFile != null && mpFile.getSize() > soundFileMaxBytesUncompressed) {
-			model.addAttribute("errorMsg", "File too large!");
+			model.addAttribute("errorMsg", "File too large! " + Utilities.getSoundFileMaxSizeString());
 			return "addSoundQuestion";
 		} else if (qSound.getQuestion().equals("")) {
 			model.addAttribute("errorMsg", "Empty question");
@@ -334,7 +334,7 @@ public class MainController {
 			model.addAttribute("errorMsg", "Image file null or zero size");
 			return "addImageQuestion";
 		} else if (mpFile != null && mpFile.getSize() > imageFileMaxBytesUncompressed) {
-			model.addAttribute("errorMsg", "File too large!");
+			model.addAttribute("errorMsg", "File too large! " + Utilities.getImageFileMaxSizeString());
 			return "addImageQuestion";
 		} else if (qImage.getQuestion().equals("")) {
 			model.addAttribute("errorMsg", "Empty question");
