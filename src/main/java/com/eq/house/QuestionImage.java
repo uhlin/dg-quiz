@@ -142,7 +142,7 @@ public class QuestionImage {
 				throw new Exception("mpFile is null");
 			else if (mpFile.getSize() > MainController.imageFileMaxBytesUncompressed)
 				throw new Exception("file too large");
-			this.imageFile = mpFile.getBytes();
+			this.imageFile = Utilities.zipBytes(mpFile.getBytes());
 		} catch (Exception ex) {
 			System.err.println("setImageFile: error: " + ex.getMessage());
 			this.imageFile = "".getBytes();
