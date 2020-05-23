@@ -9,6 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DgQuizApplication {
 
 	public static void main(String[] args) {
+		new DgQuizApplication().go(args);
+	}
+
+	void go(String[] args) {
 		SpringApplication.run(DgQuizApplication.class, args);
 	}
 
