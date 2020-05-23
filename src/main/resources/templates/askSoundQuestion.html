@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>QUIZ  --  Sound Question</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link th:href="@{/css/style.css}" rel="STYLESHEET" type="text/css" />
+
+	<style>
+	</style>
+</head>
+
+<body>
+<div th:replace="fragments/top :: top"></div>
+<div th:replace="fragments/navigation :: navigation"></div>
+
+<div id="middle">
+
+	<h2 class="center"><span th:text="${quiz.getTitle()}"></span></h2>
+
+	<h3 class="center">Question number <span th:text="${question.qSound.getQuestionNum()}"></span></h3>
+
+	<h4 class="center">&ldquo;<span th:text="${question.qSound.getQuestion()}"></span>&rdquo;?</h4>
+
+<p>
+Under construction.
+</p>
+
+</div> <!-- middle -->
+
+<div th:replace="fragments/bottom :: bottom"></div>
+</body>
+</html>
