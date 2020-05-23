@@ -8,6 +8,10 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   - `/addTextQuestion`
   - `/addSoundQuestion`
   - `/addImageQuestion`
+- Lade till följande funktioner i klassen Utilities:
+  - `zipBytes()`
+  - `unzipBytes()`
+- Ljud- och bildfrågor sparas nu komprimerade i databasen
 
 ## 2020-05-22 ##
 - Lade till GetMapping för:
