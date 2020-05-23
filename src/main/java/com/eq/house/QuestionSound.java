@@ -5,7 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
-import javax.validation.constraints.Size;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -20,7 +19,6 @@ public class QuestionSound {
 	private Integer questionNum;
 
 	@Lob
-	@Size(min = 0, max = 8388608)
 	private byte[] soundFile;
 
 	private String opt1Text;
@@ -128,6 +126,10 @@ public class QuestionSound {
 	}
 	public void setSoundFile(MultipartFile mpFile) {
 		try {
+			if (mpFile == null)
+				throw new Exception("mpFile is null");
+			else if (mpFile.getSize() > MainController.soundFileMaxBytesUncompressed)
+				throw new Exception("file too large");
 			this.soundFile = mpFile.getBytes();
 		} catch (Exception ex) {
 			System.err.println("setSoundFile: error: " + ex.getMessage());
