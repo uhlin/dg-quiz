@@ -15,9 +15,34 @@
 <div th:replace="fragments/navigation :: navigation"></div>
 
 <div id="middle">
-<h1>Play quiz</h1>
-<h2 th:text="${quiz.getTitle()}"></h2>
-<p>Under construction.</p>
+
+	<h1>Play quiz</h1>
+
+	<h2 th:text="${quiz.getTitle()}"></h2>
+
+	<table id="">
+	<tr>
+		<td><span class="label1">Topic:</span></td>
+		<td th:text="${quiz.getTopicString()}"></td>
+	</tr>
+	<tr>
+		<td><span class="label1">In Language:</span></td>
+		<td th:text="${quiz.getLangString()}"></td>
+	</tr>
+	<tr>
+		<td><span class="label1">Questions:</span></td>
+		<td th:text="${quiz.getNumQuestions()}"></td>
+	</tr>
+	</table>
+
+	<form th:action="@{/askQuestion}" method="GET">
+		<input type="hidden" name="quizId" th:value="${quiz.getUniqueId()}" />
+		<input type="hidden" name="questionNum" th:value="${questionNum}" />
+
+		<p><input type="submit" value="Start" /></p>
+
+	</form>
+
 </div> <!-- middle -->
 
 <div th:replace="fragments/bottom :: bottom"></div>
