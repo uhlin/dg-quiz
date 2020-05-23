@@ -22,6 +22,7 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   - `askImageQuestion.html`
 - Fixade mapping för:
   - `/askQuestion`
+- Flyttade "play functionality" till en egen kontroller
 
 ## 2020-05-22 ##
 - Lade till GetMapping för:
