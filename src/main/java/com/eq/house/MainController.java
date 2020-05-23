@@ -236,8 +236,20 @@ public class MainController {
 		model.addAttribute("quizLang", lang);
 		model.addAttribute("numAnswers", num);
 
-		if (bindingResult.hasErrors()) {
-			/* TODO: Handle error */
+		if (qText.getQuestion().equals("")) {
+			model.addAttribute("errorMsg", "Empty question");
+			return "addTextQuestion";
+		} else if (qText.getOpt1Text().equals("") ||
+				qText.getOpt2Text().equals("") ||
+				qText.getOpt3Text().equals("") ||
+				qText.getOpt4Text().equals("")) {
+			model.addAttribute("errorMsg", "Empty option text A-D");
+			return "addTextQuestion";
+		} else if (num != null && num == 6 &&
+				(qText.getOpt5Text().equals("") || qText.getOpt6Text().equals(""))) {
+			model.addAttribute("errorMsg", "Empty option text E-F");
+			return "addTextQuestion";
+		} else if (bindingResult.hasErrors()) {
 			return "addTextQuestion";
 		}
 
@@ -270,6 +282,19 @@ public class MainController {
 
 		if (mpFile != null && mpFile.getSize() > soundFileMaxBytesUncompressed) {
 			model.addAttribute("errorMsg", "File too large!");
+			return "addSoundQuestion";
+		} else if (qSound.getQuestion().equals("")) {
+			model.addAttribute("errorMsg", "Empty question");
+			return "addSoundQuestion";
+		} else if (qSound.getOpt1Text().equals("") ||
+				qSound.getOpt2Text().equals("") ||
+				qSound.getOpt3Text().equals("") ||
+				qSound.getOpt4Text().equals("")) {
+			model.addAttribute("errorMsg", "Empty option text A-D");
+			return "addSoundQuestion";
+		} else if (num != null && num == 6 &&
+				(qSound.getOpt5Text().equals("") || qSound.getOpt6Text().equals(""))) {
+			model.addAttribute("errorMsg", "Empty option text E-F");
 			return "addSoundQuestion";
 		} else if (bindingResult.hasErrors()) {
 			return "addSoundQuestion";
@@ -304,6 +329,19 @@ public class MainController {
 
 		if (mpFile != null && mpFile.getSize() > imageFileMaxBytesUncompressed) {
 			model.addAttribute("errorMsg", "File too large!");
+			return "addImageQuestion";
+		} else if (qImage.getQuestion().equals("")) {
+			model.addAttribute("errorMsg", "Empty question");
+			return "addImageQuestion";
+		} else if (qImage.getOpt1Text().equals("") ||
+				qImage.getOpt2Text().equals("") ||
+				qImage.getOpt3Text().equals("") ||
+				qImage.getOpt4Text().equals("")) {
+			model.addAttribute("errorMsg", "Empty option text A-D");
+			return "addImageQuestion";
+		} else if (num != null && num == 6 &&
+				(qImage.getOpt5Text().equals("") || qImage.getOpt6Text().equals(""))) {
+			model.addAttribute("errorMsg", "Empty option text E-F");
 			return "addImageQuestion";
 		} else if (bindingResult.hasErrors()) {
 			return "addImageQuestion";
