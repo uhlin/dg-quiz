@@ -14,6 +14,14 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   - `getSoundFileMaxSizeString()`
   - `getImageFileMaxSizeString()`
 - Ljud- och bildfrågor sparas nu komprimerade i databasen
+- Gjorde arbete på följande mallar:
+  - `playQuiz.html`
+- Lade till följande mallar:
+  - `askTextQuestion.html`
+  - `askSoundQuestion.html`
+  - `askImageQuestion.html`
+- Fixade mapping för:
+  - `/askQuestion`
 
 ## 2020-05-22 ##
 - Lade till GetMapping för:
