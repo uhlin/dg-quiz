@@ -18,6 +18,10 @@
 
 	<h1>Add SOUND question for: <span th:text="${quizTitle}"></span></h1>
 
+	<p th:if="${errorMsg}">
+		<span th:text="${errorMsg}" class="gfxFailure"></span>
+	</p>
+
 	<form th:action="@{/addSoundQuestion}" method="POST" enctype="multipart/form-data">
 		<p><span th:text="${questionNum}"></span>. Question:</p>
 		<p><input type="text" name="question" class="textFieldStyle1 w80"/></p>
