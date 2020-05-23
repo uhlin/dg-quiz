@@ -18,6 +18,10 @@
 
 	<h1>Add TEXT question for: <span th:text="${quizTitle}"></span></h1>
 
+	<p th:if="${errorMsg}">
+		<span th:text="${errorMsg}" class="gfxFailure"></span>
+	</p>
+
 	<form th:action="@{/addTextQuestion}" method="POST">
 		<p><span th:text="${questionNum}"></span>. Question:</p>
 
