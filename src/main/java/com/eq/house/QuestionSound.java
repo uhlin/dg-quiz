@@ -1,5 +1,7 @@
 package com.eq.house;
 
+import java.util.Arrays;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -67,6 +69,7 @@ public class QuestionSound {
 		System.out.println("question:    " + this.question);
 		System.out.println("questionNum: " + this.questionNum);
 		System.out.println("soundFile:   " + this.soundFile.length);
+		System.out.println("Decomp size: " + getSoundFileDecompressed().length);
 
 		System.out.println("opt1Text:    " + this.opt1Text);
 		System.out.println("opt2Text:    " + this.opt2Text);
@@ -123,6 +126,15 @@ public class QuestionSound {
 
 	public byte[] getSoundFile() {
 		return soundFile;
+	}
+	public final byte[] getSoundFileDecompressed() {
+		try {
+			byte[] soundFileCopy = Arrays.copyOf(this.soundFile, this.soundFile.length);
+			return Utilities.unzipBytes(soundFileCopy);
+		} catch (Exception ex) {
+			System.err.println("getSoundFileDecompressed: error: " + ex.getMessage());
+		}
+		return "".getBytes();
 	}
 	public void setSoundFile(MultipartFile mpFile) {
 		try {
