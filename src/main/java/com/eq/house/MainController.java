@@ -13,9 +13,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class MainController {
+	public static final long soundFileMaxBytesUncompressed = 4194304; // 4 MB
+	public static final long imageFileMaxBytesUncompressed = 2097152; // 2 MB
+
 	@Autowired
 	QuizRepo repo;
 
@@ -250,6 +254,7 @@ public class MainController {
 			@Valid QuestionSound qSound,
 			Model model,
 			BindingResult bindingResult,
+			@RequestParam(name = "soundFile",  required = true)  MultipartFile mpFile,
 			@RequestParam(name = "quizTitle",  required = true)  String  title,
 			@RequestParam(name = "quizTopic",  required = true)  Integer topic,
 			@RequestParam(name = "quizLang",   required = true)  Integer lang,
@@ -263,8 +268,10 @@ public class MainController {
 		model.addAttribute("quizLang", lang);
 		model.addAttribute("numAnswers", num);
 
-		if (bindingResult.hasErrors()) {
-			/* TODO: Handle error */
+		if (mpFile != null && mpFile.getSize() > soundFileMaxBytesUncompressed) {
+			model.addAttribute("errorMsg", "File too large!");
+			return "addSoundQuestion";
+		} else if (bindingResult.hasErrors()) {
 			return "addSoundQuestion";
 		}
 
@@ -281,6 +288,7 @@ public class MainController {
 			@Valid QuestionImage qImage,
 			Model model,
 			BindingResult bindingResult,
+			@RequestParam(name = "imageFile",  required = true)  MultipartFile mpFile,
 			@RequestParam(name = "quizTitle",  required = true)  String  title,
 			@RequestParam(name = "quizTopic",  required = true)  Integer topic,
 			@RequestParam(name = "quizLang",   required = true)  Integer lang,
@@ -294,8 +302,10 @@ public class MainController {
 		model.addAttribute("quizLang", lang);
 		model.addAttribute("numAnswers", num);
 
-		if (bindingResult.hasErrors()) {
-			/* TODO: Handle error */
+		if (mpFile != null && mpFile.getSize() > imageFileMaxBytesUncompressed) {
+			model.addAttribute("errorMsg", "File too large!");
+			return "addImageQuestion";
+		} else if (bindingResult.hasErrors()) {
 			return "addImageQuestion";
 		}
 
