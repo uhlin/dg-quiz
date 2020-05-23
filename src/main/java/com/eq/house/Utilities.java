@@ -111,7 +111,7 @@ public class Utilities {
 			return QuestionType.Image;
 		}
 
-		System.err.println("intToQuestionType: warning: unknown question type (using fallback...)");
-		return QuestionType.Text;
+		System.err.println("intToQuestionType: warning: unknown question type");
+		return QuestionType.None;
 	} /* intToQuestionType() */
 }
