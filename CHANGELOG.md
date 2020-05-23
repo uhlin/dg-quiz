@@ -2,6 +2,9 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-05-23 ##
+- Lade till kod för att kontrollera storlek på upload (säkerhet)
+
 ## 2020-05-22 ##
 - Lade till GetMapping för:
   - `/playQuiz`
