@@ -31,6 +31,9 @@ public class PlayController {
 	QuestionImageRepo questionImageRepo;
 
 	public Quiz getQuizByUniqueId(final String id) {
+		if (id == null)
+			return null;
+
 		Iterable<Quiz> all = repo.findAll();
 
 		for (Quiz quiz : all) {

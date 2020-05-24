@@ -100,6 +100,9 @@ public class MainController {
 	}
 
 	public String getQuizUniqueId(String title, Integer topic, Integer lang) {
+		if (title == null || topic == null || lang == null)
+			return "";
+
 		Topic _topic = Utilities.intToTopic(topic);
 		Language _lang = Utilities.intToLanguage(lang);
 
@@ -116,6 +119,9 @@ public class MainController {
 	}
 
 	public Quiz getQuiz(String title, Integer topic, Integer lang) {
+		if (title == null || topic == null || lang == null)
+			return null;
+
 		Topic _topic = Utilities.intToTopic(topic);
 		Language _lang = Utilities.intToLanguage(lang);
 
@@ -132,6 +138,9 @@ public class MainController {
 	}
 
 	public Quiz getQuizByUniqueId(final String id) {
+		if (id == null)
+			return null;
+
 		Iterable<Quiz> all = repo.findAll();
 
 		for (Quiz quiz : all) {
