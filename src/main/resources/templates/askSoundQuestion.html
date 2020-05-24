@@ -22,9 +22,13 @@
 
 	<h4 class="center">&ldquo;<span th:text="${question.qSound.getQuestion()}"></span>&rdquo;?</h4>
 
-<p>
-Under construction.
-</p>
+	<p class="center">
+		<audio controls>
+			<source th:src="${binary}" type="audio/mpeg">
+			<source th:src="${binary}" type="audio/ogg">
+			<source th:src="${binary}" type="audio/wav">
+		</audio>
+	</p>
 
 </div> <!-- middle -->
 
