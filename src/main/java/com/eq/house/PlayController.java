@@ -157,6 +157,9 @@ public class PlayController {
 			return "error";
 		}
 
+		final String src1 = "quizzes/" + quizId + "/question" + questionNum;
+		final String src2 = "/quizzes/" + quizId + "/question" + questionNum;
+
 		model.addAttribute("quiz", quiz);
 		model.addAttribute("question", question);
 		//model.addAttribute("questionNum", questionNum);
