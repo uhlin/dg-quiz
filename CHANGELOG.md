@@ -11,6 +11,7 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   - `getQuizUniqueId()`
   - `getQuiz()`
   - `getQuizByUniqueId()`
+  - `getQuestion()`
 
 ## 2020-05-23 ##
 - Lade till kod för att kontrollera storlek på upload (säkerhet)

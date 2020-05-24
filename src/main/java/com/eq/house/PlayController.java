@@ -71,6 +71,11 @@ public class PlayController {
 	/* -------------------- Play functionality -------------------- */
 
 	public Question getQuestion(final String quizId, final Integer questionNum) {
+		if (quizId == null || questionNum == null || quizId.equals("")) {
+			System.err.println("getQuestion: error: invalid arguments");
+			return null;
+		}
+
 		Question question = null;
 		Iterable<QuestionText> allText = questionTextRepo.findAll();
 		Iterable<QuestionSound> allSound = questionSoundRepo.findAll();
