@@ -170,7 +170,24 @@ public class PlayController {
 		switch (question.getqType()) {
 		case Text:
 			return "askTextQuestion";
-		case Sound:
+		case Sound: {
+			try {
+				file = new File(src1);
+				stream = new FileOutputStream(file);
+				stream.getChannel().truncate(0);
+				stream.write(question.getqSound().getSoundFileDecompressed());
+			} catch (Exception ex) {
+				System.err.println("askQuestion: Sound: warning: " + ex.getMessage());
+			} finally {
+				try {
+					if (stream != null)
+						stream.close();
+				} catch (Exception ex) {
+					System.err.println("** cannot close stream");
+					System.err.println("askQuestion: Sound: warning: " + ex.getMessage());
+				}
+			}
+
 			return "askSoundQuestion";
 		case Image:
 			return "askImageQuestion";
