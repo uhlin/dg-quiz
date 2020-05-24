@@ -2,6 +2,10 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-05-24 ##
+- Gjorde arbete på följande mallar:
+  - `askSoundQuestion.html`
+
 ## 2020-05-23 ##
 - Lade till kod för att kontrollera storlek på upload (säkerhet)
 - Fixade bättre validering av input för:
