@@ -49,8 +49,13 @@ public class PlayController {
 	public final byte[] getBinary(
 			@PathVariable(name = "quizId") String quizId,
 			@PathVariable(name = "binaryName") String binaryName) {
-		if (quizId == null || binaryName == null || quizId.equals("") || binaryName.equals(""))
+		if (quizId == null || binaryName == null || quizId.equals("") || binaryName.equals("")) {
+			System.err.println("getBinary: error: invalid arguments");
 			return "".getBytes();
+		} else if (!binaryName.startsWith("question")) {
+			System.err.println("getBinary: error: unexpected start of binaryName");
+			return "".getBytes();
+		}
 
 		File file = new File("quizzes/" + quizId + "/" + binaryName);
 
