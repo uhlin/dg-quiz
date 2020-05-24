@@ -5,6 +5,7 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 ## 2020-05-24 ##
 - Gjorde arbete på följande mallar:
   - `askSoundQuestion.html`
+  - `askImageQuestion.html`
 - Fixade en bugg i metoden `getQuestion()` (PlayController)
 
 ## 2020-05-23 ##
