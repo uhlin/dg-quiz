@@ -68,7 +68,7 @@ public class PlayController {
 		Iterable<QuestionImage> allImage = questionImageRepo.findAll();
 
 		for (QuestionText qText : allText) {
-			if (qText.getQuestionNum() == questionNum) {
+			if (qText.getQuestionNum() == questionNum && qText.getQuizId().equals(quizId)) {
 				question = new Question(QuestionType.Text);
 				question.setqText(qText);
 				return question;
@@ -76,7 +76,7 @@ public class PlayController {
 		}
 
 		for (QuestionSound qSound : allSound) {
-			if (qSound.getQuestionNum() == questionNum) {
+			if (qSound.getQuestionNum() == questionNum && qSound.getQuizId().equals(quizId)) {
 				question = new Question(QuestionType.Sound);
 				question.setqSound(qSound);
 				return question;
@@ -84,7 +84,7 @@ public class PlayController {
 		}
 
 		for (QuestionImage qImage : allImage) {
-			if (qImage.getQuestionNum() == questionNum) {
+			if (qImage.getQuestionNum() == questionNum && qImage.getQuizId().equals(quizId)) {
 				question = new Question(QuestionType.Image);
 				question.setqImage(qImage);
 				return question;
