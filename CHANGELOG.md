@@ -7,6 +7,10 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   - `askSoundQuestion.html`
   - `askImageQuestion.html`
 - Fixade en bugg i metoden `getQuestion()` (PlayController)
+- Fixade null checks för följande metoder:
+  - `getQuizUniqueId()`
+  - `getQuiz()`
+  - `getQuizByUniqueId()`
 
 ## 2020-05-23 ##
 - Lade till kod för att kontrollera storlek på upload (säkerhet)
