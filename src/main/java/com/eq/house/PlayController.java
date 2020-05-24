@@ -40,6 +40,25 @@ public class PlayController {
 		return null;
 	}
 
+	@RequestMapping("/quizzes/{quizId}/{binaryName}")
+	@ResponseBody
+	public final byte[] getBinary(
+			@PathVariable(name = "quizId") String quizId,
+			@PathVariable(name = "binaryName") String binaryName) {
+		if (quizId == null || binaryName == null || quizId.equals("") || binaryName.equals(""))
+			return "".getBytes();
+
+		File file = new File("quizzes/" + quizId + "/" + binaryName);
+
+		try {
+			return Files.readAllBytes(file.toPath());
+		} catch (Exception ex) {
+			System.err.println("getBinary: error: " + ex.getMessage());
+		}
+
+		return "".getBytes();
+	}
+
 	/* -------------------- Play functionality -------------------- */
 
 	public Question getQuestion(final String quizId, final Integer questionNum) {
