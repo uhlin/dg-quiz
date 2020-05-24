@@ -114,6 +114,7 @@ public class PlayController {
 	}
 
 	public List<Question> getAllQuestionsForQuiz(final String quizId) {
+		/* FIXME: Investigate null checking */
 		Quiz quiz = getQuizByUniqueId(quizId);
 		List<Question> questions = new LinkedList<Question>();
 
