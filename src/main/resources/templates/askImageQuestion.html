@@ -7,6 +7,11 @@
 	<link th:href="@{/css/style.css}" rel="STYLESHEET" type="text/css" />
 
 	<style>
+	img.question {
+		border: 1px solid black;
+		height: 45%;
+		width: 45%;
+	}
 	</style>
 </head>
 
@@ -22,9 +27,12 @@
 
 	<h4 class="center">&ldquo;<span th:text="${question.qImage.getQuestion()}"></span>&rdquo;?</h4>
 
-<p>
-Under construction.
-</p>
+	<p class="center">
+		<img
+			th:alt="${'Question' + ' ' + question.qImage.getQuestionNum()}"
+			th:src="${binary}"
+			class="question" />
+	</p>
 
 </div> <!-- middle -->
 
