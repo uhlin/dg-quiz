@@ -189,8 +189,27 @@ public class PlayController {
 			}
 
 			return "askSoundQuestion";
-		case Image:
+		} /* ===== Sound ===== */
+		case Image: {
+			try {
+				file = new File(src1);
+				stream = new FileOutputStream(file);
+				stream.getChannel().truncate(0);
+				stream.write(question.getqImage().getImageFileDecompressed());
+			} catch (Exception ex) {
+				System.err.println("askQuestion: Image: warning: " + ex.getMessage());
+			} finally {
+				try {
+					if (stream != null)
+						stream.close();
+				} catch (Exception ex) {
+					System.err.println("** cannot close stream");
+					System.err.println("askQuestion: Image: warning: " + ex.getMessage());
+				}
+			}
+
 			return "askImageQuestion";
+		} /* ===== Image ===== */
 		case None:
 			break;
 		}
