@@ -162,7 +162,10 @@ public class PlayController {
 
 		model.addAttribute("quiz", quiz);
 		model.addAttribute("question", question);
-		//model.addAttribute("questionNum", questionNum);
+		model.addAttribute("binary", src2);
+
+		File file = null;
+		FileOutputStream stream = null;
 
 		switch (question.getqType()) {
 		case Text:
