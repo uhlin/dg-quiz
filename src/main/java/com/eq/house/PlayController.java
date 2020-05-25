@@ -232,4 +232,14 @@ public class PlayController {
 		model.addAttribute("errorMsg", "askQuestion: fatal: cannot determine question type");
 		return "error";
 	}
+
+	@PostMapping("/answerQuestion")
+	public String answerQuestion() {
+		return "";
+	}
+
+	@RequestMapping("/exitQuiz")
+	public String exitQuiz() {
+		return "";
+	}
 }
