@@ -5,6 +5,9 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 ## 2020-05-25 ##
 - Lade till nya stilar
   - `checkbox.css`
+- Lade till mapping för:
+  - `/answerQuestion`
+  - `/exitQuiz`
 
 ## 2020-05-24 ##
 - Gjorde arbete på följande mallar:
