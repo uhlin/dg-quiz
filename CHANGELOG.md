@@ -8,6 +8,8 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 - Lade till mapping för:
   - `/answerQuestion`
   - `/exitQuiz`
+- Gjorde arbete på följande mallar:
+  - `askTextQuestion.html`
 
 ## 2020-05-24 ##
 - Gjorde arbete på följande mallar:
