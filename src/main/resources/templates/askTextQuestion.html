@@ -5,6 +5,7 @@
 	<title>QUIZ  --  Text Question</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link th:href="@{/css/style.css}" rel="STYLESHEET" type="text/css" />
+	<link th:href="@{/css/checkbox.css}" rel="STYLESHEET" type="text/css" />
 
 	<style>
 	</style>
@@ -22,9 +23,64 @@
 
 	<h4 class="center">&ldquo;<span th:text="${question.qText.getQuestion()}"></span>&rdquo;?</h4>
 
-<p>
-Under construction.
-</p>
+	<h4 class="center">Alternatives</h4>
+
+	<form th:action="@{/answerQuestion}" method="POST">
+	<div id="questionAnsAlt">
+
+		<p>
+			<label class="checkboxContainer">
+				<span class="ansOpt">A)</span>&nbsp;<span th:text="${question.qText.getOpt1Text()}"></span>
+				<input type="checkbox" name="opt1Checked" />
+				<span class="checkmark"></span>
+			</label>
+		</p>
+		<p>
+			<label class="checkboxContainer">
+				<span class="ansOpt">B)</span>&nbsp;<span th:text="${question.qText.getOpt2Text()}"></span>
+				<input type="checkbox" name="opt2Checked" />
+				<span class="checkmark"></span>
+			</label>
+		</p>
+		<p>
+			<label class="checkboxContainer">
+				<span class="ansOpt">C)</span>&nbsp;<span th:text="${question.qText.getOpt3Text()}"></span>
+				<input type="checkbox" name="opt3Checked" />
+				<span class="checkmark"></span>
+			</label>
+		</p>
+		<p>
+			<label class="checkboxContainer">
+				<span class="ansOpt">D)</span>&nbsp;<span th:text="${question.qText.getOpt4Text()}"></span>
+				<input type="checkbox" name="opt4Checked" />
+				<span class="checkmark"></span>
+			</label>
+		</p>
+
+
+		<p th:if="${question.qText.haveSixOptions() == true}">
+			<label class="checkboxContainer">
+				<span class="ansOpt">E)</span>&nbsp;<span th:text="${question.qText.getOpt5Text()}"></span>
+				<input type="checkbox" name="opt5Checked" />
+				<span class="checkmark"></span>
+			</label>
+		</p>
+		<p th:if="${question.qText.haveSixOptions() == true}">
+			<label class="checkboxContainer">
+				<span class="ansOpt">F)</span>&nbsp;<span th:text="${question.qText.getOpt6Text()}"></span>
+				<input type="checkbox" name="opt6Checked" />
+				<span class="checkmark"></span>
+			</label>
+		</p>
+
+
+	</div> <!-- questionAnsAlt -->
+	<p class="center"><input type="submit" value="Answer" /></p>
+	</form>
+
+	<form th:action="@{/exitQuiz}" method="POST">
+	<p class="center"><input type="submit" value="Exit" /></p>
+	</form>
 
 </div> <!-- middle -->
 
