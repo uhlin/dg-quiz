@@ -86,6 +86,12 @@ public class QuestionImage {
 		System.out.println("opt6Right:   " + this.opt6Right);
 	}
 
+	public Boolean haveSixOptions() {
+		if (this.opt5Right == -1 && this.opt6Right == -1)
+			return false;
+		return true;
+	}
+
 /***************************************************
  *
  * Getters/setters

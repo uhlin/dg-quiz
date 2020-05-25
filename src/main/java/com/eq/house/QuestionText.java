@@ -75,6 +75,13 @@ public class QuestionText {
 		System.out.println("opt6Right:   " + this.opt6Right);
 	}
 
+	/* TOCTOU */
+	public Boolean haveSixOptions() {
+		if (this.opt5Right == -1 && this.opt6Right == -1)
+			return false;
+		return true;
+	}
+
 /***************************************************
  *
  * Getters/setters
