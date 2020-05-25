@@ -7,58 +7,44 @@ body {
 	margin-top: 0px;
 	width: 100%;
 }
-h1 {
-	border-bottom: 3px solid peru;
-	color: grey;
-	display: inline-block;
+
+#top {
+	background: linear-gradient(lightslategrey, darkslategrey);
+	padding: 1em;
 }
-h2, h3 {
-	color: peru;
-}
-h4, h5, h6 {
-	color: black;
-}
-a {
-	color: peru;
-	text-decoration: none;
-}
-a:hover {
-	color: peru;
-	text-decoration: underline;
-}
-.left { text-align: left; }
-.center { text-align: center; }
-.right { text-align: right; }
 #header {
 	color: white;
 	font-size: xx-large;
 	font-weight: bold;
 }
-#top {
-	background: linear-gradient(lightslategrey, darkslategrey);
-	padding: 1em;
-}
-#navigation {
-	width: 100%;
-}
-#navigationTable {
-	padding: 1em;
-	width: 90%;
-}
 #middle {
 	padding: 2em;
 	width: 90%;
 }
-/* #quizzesTable1 {} */
-#quizzesTable2 {
-	width: 70%;
-}
-#quizzesTable2 th, td {
-	text-align: left;
+
+#navigation { width: 100%; }
+#navigationTable {
+	padding: 1em;
+	width: 90%;
 }
 #questionAnsAlt {
 	margin-left: 15%;
 	margin-right: auto;
+}
+#quizzesTable2 th, td { text-align: left; }
+#quizzesTable2 { width: 70%; }
+
+.ansOpt { color: peru; }
+.ansTable input { width: 85%; }
+.ansTable th, td { text-align: left; }
+.ansTable { width: 85%; }
+.gfxFailure {
+	color: red;
+	font-weight: bold;
+}
+.gfxSuccess {
+	color: mediumseagreen;
+	font-weight: bold;
 }
 .label1 {
 	color: black;
@@ -68,6 +54,11 @@ a:hover {
 	color: peru;
 	font-weight: bold;
 }
+
+.left { text-align: left; }
+.right { text-align: right; }
+.center { text-align: center; }
+
 .textFieldStyle1 {
 	border: 1px solid peru;
 	padding: 0.5em;
@@ -76,22 +67,23 @@ a:hover {
 	border: 1px solid black;
 	padding: 0.5em;
 }
-.ansOpt {
-	color: peru;
-}
-.ansTable { width: 85%; }
-.ansTable th, td { text-align: left; }
-.ansTable input { width: 85%; }
 .w60 { width: 60%; }
 .w65 { width: 65%; }
 .w70 { width: 70%; }
 .w75 { width: 75%; }
 .w80 { width: 80%; }
-.gfxFailure {
-	color: red;
-	font-weight: bold;
+a {
+	color: peru;
+	text-decoration: none;
 }
-.gfxSuccess {
-	color: mediumseagreen;
-	font-weight: bold;
+a:hover {
+	color: peru;
+	text-decoration: underline;
 }
+h1 {
+	border-bottom: 3px solid peru;
+	color: grey;
+	display: inline-block;
+}
+h2, h3 { color: peru; }
+h4, h5, h6 { color: black; }
