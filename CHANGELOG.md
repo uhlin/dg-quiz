@@ -2,6 +2,14 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-05-26 ##
+- Lade till nya fragment:
+  - `questionAnsAlt.html`
+- Ändrade följande mallar:
+  - `askTextQuestion.html`
+  - `askSoundQuestion.html`
+  - `askImageQuestion.html`
+
 ## 2020-05-25 ##
 - Lade till nya stilar
   - `checkbox.css`
