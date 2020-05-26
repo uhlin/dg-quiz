@@ -247,8 +247,59 @@ public class PlayController {
 	}
 
 	@PostMapping("/answerQuestion")
-	public String answerQuestion() {
-		return "";
+	public String answerQuestion(
+			@Valid Answer answer,
+			RedirectAttributes attr,
+			BindingResult bindingResult,
+			@RequestParam(name = "playerId", required = true) String playerId,
+			@RequestParam(name = "quizId", required = true) String quizId,
+			@RequestParam(name = "questionNum", required = true) Integer questionNum) {
+		Quiz quiz = null;
+		Question question = null;
+
+		if ((quiz = getQuizByUniqueId(quizId)) == null) {
+			attr.addAttribute("errorMsg", "answerQuestion: fatal: cannot find quiz");
+			return "redirect:/error";
+		} else if ((question = getQuestion(quizId, questionNum)) == null) {
+			attr.addAttribute("errorMsg", "answerQuestion: fatal: cannot find question");
+			return "redirect:/error";
+		} else if (questionNum < 1 || questionNum > quiz.getNumQuestions()) {
+			attr.addAttribute("errorMsg", "answerQuestion: fatal: question number out of range!");
+			return "redirect:/error";
+		}
+
+		switch (question.getqType()) {
+		case Text:
+			answer.setAnsAlt(question.getqText().haveSixOptions() ? 6 : 4);
+			break;
+		case Sound:
+			answer.setAnsAlt(question.getqSound().haveSixOptions() ? 6 : 4);
+			break;
+		case Image:
+			answer.setAnsAlt(question.getqImage().haveSixOptions() ? 6 : 4);
+			break;
+		default:
+			attr.addAttribute("errorMsg", "answerQuestion: fatal: cannot determine question type");
+			return "redirect:/error";
+		}
+
+		answer.setPlayerId(playerId);
+		answer.setQuizId(quizId);
+		answer.setQuestionNum(questionNum);
+		answer.outputObject();
+		System.out.println("Saving answer...");
+		answerRepo.save(answer);
+
+		attr.addAttribute("playerId", playerId);
+		attr.addAttribute("quizId", quizId);
+
+		if (questionNum == quiz.getNumQuestions()) {
+			return "redirect:/finishedQuiz";
+		}
+
+		/* Next question */
+		attr.addAttribute("questionNum", (questionNum + 1));
+		return "redirect:/askQuestion";
 	}
 
 	@RequestMapping("/exitQuiz")
