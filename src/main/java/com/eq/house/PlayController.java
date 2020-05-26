@@ -255,4 +255,9 @@ public class PlayController {
 	public String exitQuiz() {
 		return "";
 	}
+
+	@RequestMapping("/finishedQuiz")
+	public String finishedQuiz() {
+		return "";
+	}
 }
