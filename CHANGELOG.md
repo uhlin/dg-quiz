@@ -9,6 +9,10 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   - `askTextQuestion.html`
   - `askSoundQuestion.html`
   - `askImageQuestion.html`
+- Fixade mapping för:
+  - `/finishedQuiz`
+- Lade till ny klass: Answer
+- Lade till nytt förvar: AnswerRepo
 
 ## 2020-05-25 ##
 - Lade till nya stilar
