@@ -185,6 +185,7 @@ public class PlayController {
 		final String src1 = "quizzes/" + quizId + "/question" + questionNum;
 		final String src2 = "/quizzes/" + quizId + "/question" + questionNum;
 
+		model.addAttribute("playerId", playerId);
 		model.addAttribute("quiz", quiz);
 		model.addAttribute("binary", src2);
 
