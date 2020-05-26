@@ -36,6 +36,7 @@
 	</table>
 
 	<form th:action="@{/askQuestion}" method="POST">
+		<input type="hidden" name="playerId" th:value="${playerId}" />
 		<input type="hidden" name="quizId" th:value="${quiz.getUniqueId()}" />
 		<input type="hidden" name="questionNum" th:value="${questionNum}" />
 
