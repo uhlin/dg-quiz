@@ -309,6 +309,6 @@ public class PlayController {
 
 	@RequestMapping("/finishedQuiz")
 	public String finishedQuiz() {
-		return "";
+		return "finishedQuiz";
 	}
 }
