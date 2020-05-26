@@ -35,6 +35,9 @@ public class PlayController {
 	@Autowired
 	QuestionImageRepo questionImageRepo;
 
+	@Autowired
+	AnswerRepo answerRepo;
+
 	public Quiz getQuizByUniqueId(final String id) {
 		if (id == null)
 			return null;
