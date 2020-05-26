@@ -176,7 +176,6 @@ public class PlayController {
 		final String src2 = "/quizzes/" + quizId + "/question" + questionNum;
 
 		model.addAttribute("quiz", quiz);
-		model.addAttribute("question", question);
 		model.addAttribute("binary", src2);
 
 		File file = null;
@@ -184,6 +183,7 @@ public class PlayController {
 
 		switch (question.getqType()) {
 		case Text:
+			model.addAttribute("question", question.getqText());
 			return "askTextQuestion";
 		case Sound: {
 			try {
@@ -203,6 +203,7 @@ public class PlayController {
 				}
 			}
 
+			model.addAttribute("question", question.getqSound());
 			return "askSoundQuestion";
 		} /* ===== Sound ===== */
 		case Image: {
@@ -223,6 +224,7 @@ public class PlayController {
 				}
 			}
 
+			model.addAttribute("question", question.getqImage());
 			return "askImageQuestion";
 		} /* ===== Image ===== */
 		case None:

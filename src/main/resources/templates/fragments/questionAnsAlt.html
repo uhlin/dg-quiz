@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+
+<body>
+<div th:fragment="questionAnsAlt" id="questionAnsAlt">
+	<p>
+		<label class="checkboxContainer">
+			<span class="ansOpt">A)</span>&nbsp;<span th:text="${question.getOpt1Text()}"></span>
+			<input type="checkbox" name="opt1Checked" />
+			<span class="checkmark"></span>
+		</label>
+	</p>
+	<p>
+		<label class="checkboxContainer">
+			<span class="ansOpt">B)</span>&nbsp;<span th:text="${question.getOpt2Text()}"></span>
+			<input type="checkbox" name="opt2Checked" />
+			<span class="checkmark"></span>
+		</label>
+	</p>
+	<p>
+		<label class="checkboxContainer">
+			<span class="ansOpt">C)</span>&nbsp;<span th:text="${question.getOpt3Text()}"></span>
+			<input type="checkbox" name="opt3Checked" />
+			<span class="checkmark"></span>
+		</label>
+	</p>
+	<p>
+		<label class="checkboxContainer">
+			<span class="ansOpt">D)</span>&nbsp;<span th:text="${question.getOpt4Text()}"></span>
+			<input type="checkbox" name="opt4Checked" />
+			<span class="checkmark"></span>
+		</label>
+	</p>
+
+	<p th:if="${question.haveSixOptions() == true}">
+		<label class="checkboxContainer">
+			<span class="ansOpt">E)</span>&nbsp;<span th:text="${question.getOpt5Text()}"></span>
+			<input type="checkbox" name="opt5Checked" />
+			<span class="checkmark"></span>
+		</label>
+	</p>
+	<p th:if="${question.haveSixOptions() == true}">
+		<label class="checkboxContainer">
+			<span class="ansOpt">F)</span>&nbsp;<span th:text="${question.getOpt6Text()}"></span>
+			<input type="checkbox" name="opt6Checked" />
+			<span class="checkmark"></span>
+		</label>
+	</p>
+</div> <!-- questionAnsAlt -->
+</body>
+</html>
