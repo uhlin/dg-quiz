@@ -5,6 +5,7 @@
 	<title>QUIZ  --  Image Question</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link th:href="@{/css/style.css}" rel="STYLESHEET" type="text/css" />
+	<link th:href="@{/css/checkbox.css}" rel="STYLESHEET" type="text/css" />
 
 	<style>
 	img.question {
@@ -22,17 +23,29 @@
 <div id="middle">
 
 	<h2 class="center"><span th:text="${quiz.getTitle()}"></span></h2>
-
-	<h3 class="center">Question number <span th:text="${question.qImage.getQuestionNum()}"></span></h3>
-
-	<h4 class="center">&ldquo;<span th:text="${question.qImage.getQuestion()}"></span>&rdquo;?</h4>
+	<h3 class="center">Question number <span th:text="${question.getQuestionNum()}"></span></h3>
+	<h4 class="center">&ldquo;<span th:text="${question.getQuestion()}"></span>&rdquo;?</h4>
 
 	<p class="center">
 		<img
-			th:alt="${'Question' + ' ' + question.qImage.getQuestionNum()}"
+			th:alt="${'Question' + ' ' + question.getQuestionNum()}"
 			th:src="${binary}"
 			class="question" />
 	</p>
+
+	<h4 class="center">Alternatives</h4>
+
+	<form th:action="@{/answerQuestion}" method="POST">
+
+		<div th:replace="fragments/questionAnsAlt :: questionAnsAlt"></div>
+
+		<p class="center"><input type="submit" value="Answer" /></p>
+
+	</form>
+
+	<form th:action="@{/exitQuiz}" method="POST">
+		<p class="center"><input type="submit" value="Exit" /></p>
+	</form>
 
 </div> <!-- middle -->
 
