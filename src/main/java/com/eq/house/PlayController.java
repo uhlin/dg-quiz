@@ -158,6 +158,7 @@ public class PlayController {
 			return "error";
 		}
 
+		model.addAttribute("playerId", UUID.randomUUID().toString());
 		model.addAttribute("quiz", quiz);
 		model.addAttribute("questionNum", 1);
 
