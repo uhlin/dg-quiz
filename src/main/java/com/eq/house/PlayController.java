@@ -165,7 +165,7 @@ public class PlayController {
 		return "playQuiz";
 	}
 
-	@PostMapping("/askQuestion")
+	@RequestMapping("/askQuestion")
 	public String askQuestion(
 			Model model,
 			@RequestParam(name = "quizId", required = true) String quizId,
