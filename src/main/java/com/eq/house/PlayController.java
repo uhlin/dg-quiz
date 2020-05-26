@@ -168,6 +168,7 @@ public class PlayController {
 	@RequestMapping("/askQuestion")
 	public String askQuestion(
 			Model model,
+			@RequestParam(name = "playerId", required = true) String playerId,
 			@RequestParam(name = "quizId", required = true) String quizId,
 			@RequestParam(name = "questionNum", required = true) Integer questionNum) {
 		Quiz quiz = null;
