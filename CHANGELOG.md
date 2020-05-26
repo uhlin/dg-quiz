@@ -13,6 +13,9 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   - `/finishedQuiz`
 - Lade till ny klass: Answer
 - Lade till nytt förvar: AnswerRepo
+- Lade till följande mallar:
+  - `exitQuiz.html`
+  - `finishedQuiz.html`
 
 ## 2020-05-25 ##
 - Lade till nya stilar
