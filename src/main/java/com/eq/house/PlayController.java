@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -303,7 +304,32 @@ public class PlayController {
 	}
 
 	@RequestMapping("/exitQuiz")
-	public String exitQuiz() {
+	@Transactional
+	public String exitQuiz(
+			Model model,
+			@RequestParam(name = "playerId", required = true) String playerId,
+			@RequestParam(name = "quizId", required = true) String quizId) {
+		List<Answer> answers = answerRepo.findByPlayerId(playerId);
+		Quiz quiz = null;
+
+		if (answers == null) {
+			model.addAttribute("errorMsg", "exitQuiz: fatal: cannot find answers");
+			return "error";
+		} else if (answers.size() == 0) {
+			model.addAttribute("errorMsg", "exitQuiz: fatal: zero answers");
+			return "error";
+		} else if ((quiz = getQuizByUniqueId(quizId)) == null) {
+			model.addAttribute("errorMsg", "exitQuiz: fatal: no such quiz");
+			return "error";
+		}
+
+		System.out.println("----- exitQuiz: -----");
+		System.out.println("answers:    " + answers.size());
+		System.out.println("pre count:  " + answerRepo.count());
+		answerRepo.deleteByPlayerId(playerId);
+		System.out.println("post count: " + answerRepo.count());
+
+		model.addAttribute("quiz", quiz);
 		return "exitQuiz";
 	}
 
