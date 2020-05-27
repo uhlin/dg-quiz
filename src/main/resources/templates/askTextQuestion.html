@@ -35,6 +35,9 @@
 	</form>
 
 	<form th:action="@{/exitQuiz}" method="POST">
+		<input type="hidden" name="playerId" th:value="${playerId}" />
+		<input type="hidden" name="quizId" th:value="${quiz.getUniqueId()}" />
+
 		<p class="center"><input type="submit" value="Exit" /></p>
 	</form>
 
