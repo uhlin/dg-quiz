@@ -7,6 +7,10 @@
 	<link th:href="@{/css/style.css}" rel="STYLESHEET" type="text/css" />
 
 	<style>
+	.item {
+		color: grey;
+		font-weight: bold;
+	}
 	</style>
 </head>
 
@@ -16,11 +20,14 @@
 
 <div id="middle">
 
-<h1>Exited Quiz</h1>
+	<h1>Exited Quiz</h1>
 
-<p>
-Under construction.
-</p>
+	<p class="gfxWarn">
+		You ended quiz
+		<span class="item" th:text="${quiz.getTitle()}"></span>
+		(<span class="item" th:text="${quiz.getTopicString()}"></span>)
+		without completing it.
+	</p>
 
 </div> <!-- middle -->
 
