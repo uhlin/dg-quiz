@@ -46,6 +46,10 @@ body {
 	color: mediumseagreen;
 	font-weight: bold;
 }
+.gfxWarn {
+	color: yellow;
+	font-weight: bold;
+}
 .label1 {
 	color: black;
 	font-weight: bold;
