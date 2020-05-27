@@ -5,6 +5,14 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 ## 2020-05-27 ##
 - Ändrade följande mallar:
   - `exitQuiz.html`
+- Lade till följande klasser:
+  `QuestionAndAnswer`
+- Fixade skrivfel
+- Lade till följande metoder i klassen `PlayController`:
+  - `getAnswer()`
+  - `getAllQna()`
+- Gjorde arbete på följande mappings:
+  - `/finishedQuiz`
 
 ## 2020-05-26 ##
 - Lade till nya fragment:
