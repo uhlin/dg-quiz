@@ -380,7 +380,28 @@ public class PlayController {
 	}
 
 	@RequestMapping("/finishedQuiz")
-	public String finishedQuiz() {
+	public String finishedQuiz(
+			Model model,
+			@RequestParam(name = "playerId", required = true) String playerId,
+			@RequestParam(name = "quizId", required = true) String quizId) {
+		Quiz quiz = null;
+		List<QuestionAndAnswer> qna = null;
+
+		if (playerId == null || quizId == null || playerId.isEmpty() || quizId.isEmpty()) {
+			model.addAttribute("errorMsg", "finishedQuiz: fatal: invalid arguments");
+			return "error";
+		} else if ((quiz = getQuizByUniqueId(quizId)) == null) {
+			model.addAttribute("errorMsg", "finishedQuiz: fatal: no such quiz");
+			return "error";
+		} else if ((qna = getAllQna(quizId, playerId)) == null) {
+			model.addAttribute("errorMsg", "finishedQuiz: fatal: " +
+					"cannot retrieve questions and answers");
+			return "error";
+		}
+
+		model.addAttribute("quiz", quiz);
+		model.addAttribute("qna", qna);
+
 		return "finishedQuiz";
 	}
 }
