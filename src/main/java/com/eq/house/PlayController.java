@@ -159,6 +159,35 @@ public class PlayController {
 		return questions;
 	}
 
+	public List<QuestionAndAnswer> getAllQna(
+			final String quizId,
+			final String playerId) {
+		Quiz quiz = null;
+
+		if (quizId == null || playerId == null || quizId.isEmpty() || playerId.isEmpty()) {
+			System.err.println("getAllQna: error: invalid arguments");
+			return null;
+		} else if ((quiz = getQuizByUniqueId(quizId)) == null) {
+			System.err.println("getAllQna: error: cannot find quiz");
+			return null;
+		}
+
+		List<QuestionAndAnswer> qnaList = new LinkedList<QuestionAndAnswer>();
+
+		for (Integer i = 1; i <= quiz.getNumQuestions(); i ++) {
+			Question question = getQuestion(quizId, i);
+			Answer   answer   = getAnswer(playerId, quizId, i);
+
+			if (question == null || answer == null)
+				return null;
+
+			QuestionAndAnswer qna = new QuestionAndAnswer(question, answer);
+			qnaList.add(qna);
+		}
+
+		return qnaList;
+	}
+
 	@GetMapping("/playQuiz")
 	public String playQuiz(
 			Model model,
