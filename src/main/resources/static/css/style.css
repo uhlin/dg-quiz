@@ -71,11 +71,17 @@ body {
 	border: 1px solid black;
 	padding: 0.5em;
 }
+
+.txtBold { font-weight: bold; }
+.txtNormal { font-weight: normal; }
+
 .w60 { width: 60%; }
 .w65 { width: 65%; }
 .w70 { width: 70%; }
 .w75 { width: 75%; }
 .w80 { width: 80%; }
+.w85 { width: 85%; }
+
 a {
 	color: peru;
 	text-decoration: none;
