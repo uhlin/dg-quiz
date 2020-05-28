@@ -17,6 +17,28 @@ public class QuestionAndAnswer {
 		this.answer = answer;
 	}
 
+	public List<String> getListOfAnswers() {
+		List<String> list = new LinkedList<String>();
+
+		if (answer.getOpt1Checked() == true)
+			list.add(new String("A"));
+		if (answer.getOpt2Checked() == true)
+			list.add(new String("B"));
+		if (answer.getOpt3Checked() == true)
+			list.add(new String("C"));
+		if (answer.getOpt4Checked() == true)
+			list.add(new String("D"));
+
+		if (answer.getAnsAlt() == 6) {
+			if (answer.getOpt5Checked() == true)
+				list.add(new String("E"));
+			if (answer.getOpt6Checked() == true)
+				list.add(new String("F"));
+		}
+
+		return list;
+	}
+
 	public List<OptionAndText> getListOfRightAnswers() {
 		List<OptionAndText> list = new LinkedList<OptionAndText>();
 
