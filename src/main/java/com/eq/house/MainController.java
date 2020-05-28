@@ -162,10 +162,6 @@ public class MainController {
 			@RequestParam(name = "quizTitle") String  title,
 			@RequestParam(name = "quizTopic") Integer topic,
 			@RequestParam(name = "quizLang")  Integer lang) {
-		System.out.println("quizTitle: " + title);
-		System.out.println("quizTopic: " + topic);
-		System.out.println("quizLang:  " + lang);
-
 		if (title == null || topic == null || lang == null) {
 			model.addAttribute("errorMsg", "createQuizBegin: error: invalid arguments");
 			return "error";
@@ -178,6 +174,10 @@ public class MainController {
 		} else {
 			repo.save(new Quiz(title, topic, lang));
 		}
+
+		System.out.println("quizTitle: " + title);
+		System.out.println("quizTopic: " + topic);
+		System.out.println("quizLang:  " + lang);
 
 		Quiz quiz = null;
 
