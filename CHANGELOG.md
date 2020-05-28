@@ -10,6 +10,10 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   - `/addTextQuestion`
   - `/addSoundQuestion`
   - `/addImageQuestion`
+- Lade till ny klass `OptionAndText`
+- Lade till följande metoder i klassen `QuestionAndAnswer`:
+  - `getListOfRightAnswers()`
+  - `hasTwoOrMoreAnswers()`
 
 ## 2020-05-27 ##
 - Ändrade följande mallar:
