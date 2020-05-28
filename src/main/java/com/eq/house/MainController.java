@@ -118,7 +118,7 @@ public class MainController {
 		return "";
 	}
 
-	public Quiz getQuiz(String title, Integer topic, Integer lang) {
+	private Quiz getQuiz(String title, Integer topic, Integer lang) {
 		if (title == null || topic == null || lang == null)
 			return null;
 
