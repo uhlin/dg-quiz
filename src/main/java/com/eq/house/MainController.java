@@ -202,12 +202,28 @@ public class MainController {
 			@RequestParam(name = "quizTopic",    required = true) Integer topic,
 			@RequestParam(name = "quizLang",     required = true) Integer lang,
 			@RequestParam(name = "numAnswers",   required = true) Integer num) {
+		Quiz quiz = null;
+
+		if (type == null || title == null || topic == null || lang == null || num == null) {
+			model.addAttribute("errorMsg", "addQuestion: fatal: invalid arguments");
+			return "error";
+		} else if (title.isEmpty()) {
+			model.addAttribute("errorMsg", "addQuestion: fatal: empty quiz title");
+			return "error";
+		} else if ((quiz = getQuiz(title, topic, lang)) == null) {
+			model.addAttribute("errorMsg", "addQuestion: fatal: no such quiz");
+			return "error";
+		} else if (quiz.getCompletedAddingQuestions()) {
+			model.addAttribute("errorMsg", "addQuestion: fatal: " +
+					"already completed adding questions for that quiz");
+			return "error";
+		}
+
 		model.addAttribute("quizTitle", title);
 		model.addAttribute("quizTopic", topic);
 		model.addAttribute("quizLang", lang);
 		model.addAttribute("numAnswers", num);
 
-		Quiz quiz = getQuiz(title, topic, lang);
 		final Integer questionNum = quiz.getNumQuestions() + 1;
 		model.addAttribute("questionNum", questionNum);
 
