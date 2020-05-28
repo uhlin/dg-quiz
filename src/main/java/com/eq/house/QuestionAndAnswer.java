@@ -109,6 +109,40 @@ public class QuestionAndAnswer {
 		return list;
 	}
 
+	public Integer getQuestionNum() {
+		switch (question.getqType()) {
+		case Text:
+			return question.getqText().getQuestionNum();
+		case Sound:
+			return question.getqSound().getQuestionNum();
+		case Image:
+			return question.getqImage().getQuestionNum();
+		default:
+			break;
+		}
+
+		System.err.println("getQuestionNum: error: " +
+				"cannot determine question type");
+		return (-1);
+	}
+
+	public String getQuestionText() {
+		switch (question.getqType()) {
+		case Text:
+			return question.getqText().getQuestion();
+		case Sound:
+			return question.getqSound().getQuestion();
+		case Image:
+			return question.getqImage().getQuestion();
+		default:
+			break;
+		}
+
+		System.err.println("getQuestionText: error: " +
+				"cannot determine question type");
+		return "";
+	}
+
 	public Boolean hasTwoOrMoreAnswers() {
 		return (getListOfRightAnswers().size() >= 2 ? true : false);
 	}
