@@ -399,7 +399,16 @@ public class PlayController {
 			return "error";
 		}
 
+		int rightAnswersCount = 0;
+
+		for (QuestionAndAnswer qna : qnaList) {
+			if (qna.isRightAnswer())
+				rightAnswersCount ++;
+		}
+
 		model.addAttribute("quiz", quiz);
+		model.addAttribute("rightAnswersCount", rightAnswersCount);
+		model.addAttribute("possibleRightAnswers", qnaList.size());
 		model.addAttribute("qnaList", qnaList);
 
 		return "finishedQuiz";
