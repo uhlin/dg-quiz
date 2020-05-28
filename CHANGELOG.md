@@ -2,6 +2,10 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-05-28 ##
+- Lade till null checks för:
+  - `createQuizBegin()`
+
 ## 2020-05-27 ##
 - Ändrade följande mallar:
   - `exitQuiz.html`

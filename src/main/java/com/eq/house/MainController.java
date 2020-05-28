@@ -166,7 +166,13 @@ public class MainController {
 		System.out.println("quizTopic: " + topic);
 		System.out.println("quizLang:  " + lang);
 
-		if (getQuiz(title, topic, lang) != null) {
+		if (title == null || topic == null || lang == null) {
+			model.addAttribute("errorMsg", "createQuizBegin: error: invalid arguments");
+			return "error";
+		} else if (title.isEmpty()) {
+			model.addAttribute("errorMsg", "createQuizBegin: error: empty title");
+			return "error";
+		} else if (getQuiz(title, topic, lang) != null) {
 			System.err.println("createQuizBegin: error: quiz already exists");
 			return "quizAlreadyExists";
 		} else {
