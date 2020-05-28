@@ -255,11 +255,27 @@ public class MainController {
 			@Valid QuestionText qText,
 			Model model,
 			BindingResult bindingResult,
-			@RequestParam(name = "quizTitle",  required = true)  String  title,
-			@RequestParam(name = "quizTopic",  required = true)  Integer topic,
-			@RequestParam(name = "quizLang",   required = true)  Integer lang,
-			@RequestParam(name = "numAnswers", required = false) Integer num) {
-		Quiz quiz = getQuiz(title, topic, lang);
+			@RequestParam(name = "quizTitle")  String title,
+			@RequestParam(name = "quizTopic")  Integer topic,
+			@RequestParam(name = "quizLang")   Integer lang,
+			@RequestParam(name = "numAnswers") Integer num) {
+		Quiz quiz = null;
+
+		if (title == null || topic == null || lang == null || num == null) {
+			model.addAttribute("errorMsg", "addTextQuestion: fatal: invalid arguments");
+			return "error";
+		} else if (title.isEmpty()) {
+			model.addAttribute("errorMsg", "addTextQuestion: fatal: empty quiz title");
+			return "error";
+		} else if ((quiz = getQuiz(title, topic, lang)) == null) {
+			model.addAttribute("errorMsg", "addTextQuestion: fatal: no such quiz");
+			return "error";
+		} else if (quiz.getCompletedAddingQuestions()) {
+			model.addAttribute("errorMsg", "addTextQuestion: fatal: " +
+					"already completed adding questions for that quiz");
+			return "error";
+		}
+
 		final Integer questionNum = quiz.getNumQuestions() + 1;
 		model.addAttribute("questionNum", questionNum);
 
@@ -298,12 +314,28 @@ public class MainController {
 			@Valid QuestionSound qSound,
 			Model model,
 			BindingResult bindingResult,
-			@RequestParam(name = "soundFile",  required = true)  MultipartFile mpFile,
-			@RequestParam(name = "quizTitle",  required = true)  String  title,
-			@RequestParam(name = "quizTopic",  required = true)  Integer topic,
-			@RequestParam(name = "quizLang",   required = true)  Integer lang,
-			@RequestParam(name = "numAnswers", required = false) Integer num) {
-		Quiz quiz = getQuiz(title, topic, lang);
+			@RequestParam(name = "soundFile")  MultipartFile mpFile,
+			@RequestParam(name = "quizTitle")  String title,
+			@RequestParam(name = "quizTopic")  Integer topic,
+			@RequestParam(name = "quizLang")   Integer lang,
+			@RequestParam(name = "numAnswers") Integer num) {
+		Quiz quiz = null;
+
+		if (title == null || topic == null || lang == null || num == null) {
+			model.addAttribute("errorMsg", "addSoundQuestion: fatal: invalid arguments");
+			return "error";
+		} else if (title.isEmpty()) {
+			model.addAttribute("errorMsg", "addSoundQuestion: fatal: empty quiz title");
+			return "error";
+		} else if ((quiz = getQuiz(title, topic, lang)) == null) {
+			model.addAttribute("errorMsg", "addSoundQuestion: fatal: no such quiz");
+			return "error";
+		} else if (quiz.getCompletedAddingQuestions()) {
+			model.addAttribute("errorMsg", "addSoundQuestion: fatal: " +
+					"already completed adding questions for that quiz");
+			return "error";
+		}
+
 		final Integer questionNum = quiz.getNumQuestions() + 1;
 		model.addAttribute("questionNum", questionNum);
 
@@ -348,12 +380,28 @@ public class MainController {
 			@Valid QuestionImage qImage,
 			Model model,
 			BindingResult bindingResult,
-			@RequestParam(name = "imageFile",  required = true)  MultipartFile mpFile,
-			@RequestParam(name = "quizTitle",  required = true)  String  title,
-			@RequestParam(name = "quizTopic",  required = true)  Integer topic,
-			@RequestParam(name = "quizLang",   required = true)  Integer lang,
-			@RequestParam(name = "numAnswers", required = false) Integer num) {
-		Quiz quiz = getQuiz(title, topic, lang);
+			@RequestParam(name = "imageFile")  MultipartFile mpFile,
+			@RequestParam(name = "quizTitle")  String title,
+			@RequestParam(name = "quizTopic")  Integer topic,
+			@RequestParam(name = "quizLang")   Integer lang,
+			@RequestParam(name = "numAnswers") Integer num) {
+		Quiz quiz = null;
+
+		if (title == null || topic == null || lang == null || num == null) {
+			model.addAttribute("errorMsg", "addImageQuestion: fatal: invalid arguments");
+			return "error";
+		} else if (title.isEmpty()) {
+			model.addAttribute("errorMsg", "addImageQuestion: fatal: empty quiz title");
+			return "error";
+		} else if ((quiz = getQuiz(title, topic, lang)) == null) {
+			model.addAttribute("errorMsg", "addImageQuestion: fatal: no such quiz");
+			return "error";
+		} else if (quiz.getCompletedAddingQuestions()) {
+			model.addAttribute("errorMsg", "addImageQuestion: fatal: " +
+					"already completed adding questions for that quiz");
+			return "error";
+		}
+
 		final Integer questionNum = quiz.getNumQuestions() + 1;
 		model.addAttribute("questionNum", questionNum);
 
