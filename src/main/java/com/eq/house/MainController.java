@@ -68,7 +68,7 @@ public class MainController {
 		return "index";
 	}
 
-	public List<Quiz> getFilteredQuizzes(Topic byTopic, Language byLang) {
+	private List<Quiz> getFilteredQuizzes(Topic byTopic, Language byLang) {
 		Iterable<Quiz> all = repo.findAll();
 		List<Quiz> f = new LinkedList<Quiz>();
 
