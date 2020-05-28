@@ -15,44 +15,33 @@
 <div th:replace="fragments/navigation :: navigation"></div>
 
 <div id="middle">
-<h1>Create new quiz</h1>
 
-<form th:action="@{/createQuiz}" method="post">
+	<h1>Create new quiz</h1>
 
-<p>Title:</p>
+	<form th:action="@{/createQuiz}" method="post">
 
-<p><input class="textFieldStyle1 w65" type="text" name="quizTitle" /></p>
+		<p>Title:</p>
+		<p><input class="textFieldStyle1 w65" type="text" name="quizTitle" /></p>
 
-<table id="createQuizTable">
-	<tr>
-		<td><span class="label1">Topic / Category:</span></td>
-		<td>
-			<select th:replace="fragments/quizTopic :: quizTopic"></select>
-		</td>
-	</tr>
-	<tr>
-		<td><span class="label1">Language:</span></td>
-		<td>
-			<select th:replace="fragments/quizLang :: quizLang"></select>
-		</td>
-	</tr>
-	<!-- tr>
-		<td><span class="">Quiz max time:</span></td>
-		<td>
-			<select id="quizMaxTime" name="quizMaxTime">
-				<option value="">1 hour</option>
-				<option value="">30 min</option>
-				<option value="">20 min</option>
-				<option value="">10 min</option>
-				<option value="">5 min</option>
-			</select>
-		</td>
-	</tr -->
-</table> <!-- createQuizTable -->
+		<table id="createQuizTable">
+			<tr>
+				<td><span class="label1">Topic / Category:</span></td>
+				<td>
+					<select th:replace="fragments/quizTopic :: quizTopic"></select>
+				</td>
+			</tr>
+			<tr>
+				<td><span class="label1">Language:</span></td>
+				<td>
+					<select th:replace="fragments/quizLang :: quizLang"></select>
+				</td>
+			</tr>
+		</table> <!-- createQuizTable -->
 
-<p><input type="submit" value="Ok, start adding questions" /></p>
+		<p><input type="submit" value="Ok, start adding questions" /></p>
 
-</form>
+	</form>
+
 </div> <!-- middle -->
 
 <div th:replace="fragments/bottom :: bottom"></div>
