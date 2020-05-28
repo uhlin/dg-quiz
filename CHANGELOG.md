@@ -14,6 +14,8 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 - Lade till följande metoder i klassen `QuestionAndAnswer`:
   - `getListOfAnswers()`
   - `getListOfRightAnswers()`
+  - `getQuestionNum()`
+  - `getQuestionText()`
   - `hasTwoOrMoreAnswers()`
   - `isRightAnswer()`
 
