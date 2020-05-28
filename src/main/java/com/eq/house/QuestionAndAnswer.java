@@ -113,6 +113,29 @@ public class QuestionAndAnswer {
 		return (getListOfRightAnswers().size() >= 2 ? true : false);
 	}
 
+	/*
+	 * BEHAVIOR: If a question has multiple answers that are
+	 * correct, ALL of them must be checked in order to get right
+	 * on the question.
+	 */
+	public Boolean isRightAnswer() {
+		List<OptionAndText> rightList = getListOfRightAnswers();
+		List<String> playerAnswers = getListOfAnswers();
+
+		if (rightList.size() != playerAnswers.size()) /* mismatch */
+			return false;
+
+		for (int i = 0; i < rightList.size(); i ++) {
+			final String str1 = rightList.get(i).getOpt();
+			final String str2 = playerAnswers.get(i);
+
+			if (! str1.equals(str2))
+				return false;
+		}
+
+		return true;
+	}
+
 /***************************************************
  *
  * Getters/setters
