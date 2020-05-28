@@ -18,6 +18,7 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   - `getQuestionText()`
   - `hasTwoOrMoreAnswers()`
   - `isRightAnswer()`
+- Lade till nya stilar i `style.css`
 
 ## 2020-05-27 ##
 - Ändrade följande mallar:
