@@ -7,6 +7,26 @@
 	<link th:href="@{/css/style.css}" rel="STYLESHEET" type="text/css" />
 
 	<style>
+	.question {
+		font-size: x-large;
+		font-weight: bold;
+	}
+	.questionNum {
+		color: peru;
+	}
+	.questionText {
+		color: grey;
+	}
+	.opt {
+		color: mediumseagreen;
+		font-size: large;
+		font-weight: bold;
+	}
+	.optText {
+		font-size: large;
+		text-decoration: underline;
+		text-decoration-color: mediumseagreen;
+	}
 	</style>
 </head>
 
@@ -16,11 +36,37 @@
 
 <div id="middle">
 
-<h1>Quiz completed!</h1>
+	<h1>Quiz completed!</h1>
 
-<p>
-Under construction.
-</p>
+	<p>
+		You answered
+		<span th:text="${rightAnswersCount}" class="gfxSuccess"></span>
+		questions correctly out of
+		<span th:text="${possibleRightAnswers}" class="gfxSuccess"></span>
+		possible.
+	</p>
+
+	<div th:each="qna: ${qnaList}">
+		<p class="question">
+			<span th:text="${qna.getQuestionNum()}" class="questionNum"></span>.
+			&ldquo;<span th:text="${qna.getQuestionText()}" class="questionText"></span>&rdquo;?
+		</p>
+		<p th:if="${qna.isRightAnswer()}" class="gfxSuccess">
+			Correct
+		</p>
+		<p th:unless="${qna.isRightAnswer()}" class="gfxFailure">
+			Wrong
+		</p>
+		<h3>Right answers</h3>
+		<table>
+			<tr th:each="e: ${qna.getListOfRightAnswers()}">
+				<td th:text="${e.getOpt() + ':'}" class="opt">
+				</td>
+				<td th:text="${e.getText()}" class="optText">
+				</td>
+			</tr>
+		</table>
+	</div>
 
 </div> <!-- middle -->
 
