@@ -39,7 +39,7 @@ public class PlayController {
 	@Autowired
 	AnswerRepo answerRepo;
 
-	public Quiz getQuizByUniqueId(final String id) {
+	private Quiz getQuizByUniqueId(final String id) {
 		if (id == null)
 			return null;
 
@@ -79,7 +79,7 @@ public class PlayController {
 
 	/* -------------------- Play functionality -------------------- */
 
-	public Question getQuestion(final String quizId, final Integer questionNum) {
+	private Question getQuestion(final String quizId, final Integer questionNum) {
 		if (quizId == null || questionNum == null || quizId.equals("")) {
 			System.err.println("getQuestion: error: invalid arguments");
 			return null;
@@ -122,7 +122,7 @@ public class PlayController {
 		return null;
 	}
 
-	public Answer getAnswer(
+	private Answer getAnswer(
 			final String playerId,
 			final String quizId,
 			final Integer questionNum) {
@@ -159,7 +159,7 @@ public class PlayController {
 		return questions;
 	}
 
-	public List<QuestionAndAnswer> getAllQna(
+	private List<QuestionAndAnswer> getAllQna(
 			final String quizId,
 			final String playerId) {
 		Quiz quiz = null;
