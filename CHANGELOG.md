@@ -7,6 +7,9 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   - `createQuizBegin()`
 - Fixade förbättrad validering av input för följande mappings:
   - `/addQuestion`
+  - `/addTextQuestion`
+  - `/addSoundQuestion`
+  - `/addImageQuestion`
 
 ## 2020-05-27 ##
 - Ändrade följande mallar:
