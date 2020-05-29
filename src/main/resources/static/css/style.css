@@ -38,6 +38,42 @@ body {
 .ansTable input { width: 85%; }
 .ansTable th, td { text-align: left; }
 .ansTable { width: 85%; }
+
+.button {
+	border: none;
+	color: white;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+}
+.button1, .button3 {
+	background-color: forestgreen;
+}
+.button2 {
+	background-color: forestgreen;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.button3:hover {
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.button4, .button6 {
+	background-color: peru;
+}
+.button5 {
+	background-color: peru;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.button6:hover {
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
 .gfxFailure {
 	color: red;
 	font-weight: bold;
