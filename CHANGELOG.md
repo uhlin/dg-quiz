@@ -2,7 +2,7 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
-## 2020-05-29 ##
+## [1.0.0a] - 2020-05-29 ##
 - Lade till nya stilar för knappar i `style.css`
 - Ändrade utseende för knappar
 
