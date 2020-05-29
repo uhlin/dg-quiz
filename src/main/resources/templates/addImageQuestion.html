@@ -42,11 +42,11 @@
 
 		<input type="hidden" id="numAnswers" name="numAnswers" th:value="${numAnswers}" />
 
-		<p><input type="submit" value="Add question" /></p>
+		<p><input type="submit" value="Add question" class="button button3" /></p>
 	</form>
 
 	<form th:action="@{/doneWithQuestions}" method="post">
-		<p><input type="submit" value="No more questions" /></p>
+		<p><input type="submit" value="No more questions" class="button button4" /></p>
 
 		<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
 		<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
