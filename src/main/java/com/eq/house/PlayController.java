@@ -139,26 +139,6 @@ public class PlayController {
 		return null;
 	}
 
-	public List<Question> getAllQuestionsForQuiz(final String quizId) {
-		/* FIXME: Investigate null checking */
-		Quiz quiz = getQuizByUniqueId(quizId);
-		List<Question> questions = new LinkedList<Question>();
-
-		for (Integer i = 1; i <= quiz.getNumQuestions(); i ++) {
-			Question q = getQuestion(quizId, i);
-			if (q != null)
-				questions.add(q);
-		}
-
-		if (questions.size() != quiz.getNumQuestions()) {
-			System.err.println("----- getAllQuestionsForQuiz -----");
-			System.err.println("fatal: size mismatch!");
-			return null;
-		}
-
-		return questions;
-	}
-
 	private List<QuestionAndAnswer> getAllQna(
 			final String quizId,
 			final String playerId) {

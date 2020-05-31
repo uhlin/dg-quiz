@@ -83,44 +83,6 @@ public class MainController {
 		return f;
 	}
 
-	/*
-	 * Get quiz id (by title, topic and language)
-	 */
-	public Long getQuizId(String title, Integer topic, Integer lang) {
-		Topic _topic = Utilities.intToTopic(topic);
-		Language _lang = Utilities.intToLanguage(lang);
-
-		Iterable<Quiz> all = repo.findAll();
-
-		for (Quiz quiz : all) {
-			if (quiz.getTitle().equalsIgnoreCase(title) &&
-					quiz.getTopic() == _topic &&
-					quiz.getLang() == _lang)
-				return quiz.getId();
-		}
-
-		return Long.valueOf(-1);
-	}
-
-	public String getQuizUniqueId(String title, Integer topic, Integer lang) {
-		if (title == null || topic == null || lang == null)
-			return "";
-
-		Topic _topic = Utilities.intToTopic(topic);
-		Language _lang = Utilities.intToLanguage(lang);
-
-		Iterable<Quiz> all = repo.findAll();
-
-		for (Quiz quiz : all) {
-			if (quiz.getTitle().equalsIgnoreCase(title) &&
-					quiz.getTopic() == _topic &&
-					quiz.getLang() == _lang)
-				return quiz.getUniqueId();
-		}
-
-		return "";
-	}
-
 	private Quiz getQuiz(String title, Integer topic, Integer lang) {
 		if (title == null || topic == null || lang == null)
 			return null;
@@ -134,20 +96,6 @@ public class MainController {
 			if (quiz.getTitle().equalsIgnoreCase(title) &&
 					quiz.getTopic() == _topic &&
 					quiz.getLang() == _lang)
-				return quiz;
-		}
-
-		return null;
-	}
-
-	public Quiz getQuizByUniqueId(final String id) {
-		if (id == null)
-			return null;
-
-		Iterable<Quiz> all = repo.findAll();
-
-		for (Quiz quiz : all) {
-			if (quiz.getUniqueId().equals(id))
 				return quiz;
 		}
 
