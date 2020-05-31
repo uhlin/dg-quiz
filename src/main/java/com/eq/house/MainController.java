@@ -21,6 +21,8 @@ public class MainController {
 	public static final long soundFileMaxBytesUncompressed = 4194304; // 4 MB
 	public static final long imageFileMaxBytesUncompressed = 2097152; // 2 MB
 
+	private static final int quizTitleMaxLen = 200;
+
 	@Autowired
 	QuizRepo repo;
 
@@ -168,6 +170,9 @@ public class MainController {
 		} else if (title.isEmpty()) {
 			model.addAttribute("errorMsg", "createQuizBegin: error: empty title");
 			return "error";
+		} else if (title.length() > quizTitleMaxLen) {
+			model.addAttribute("errorMsg", "createQuizBegin: error: title too long");
+			return "error";
 		} else if (getQuiz(title, topic, lang) != null) {
 			System.err.println("createQuizBegin: error: quiz already exists");
 			return "quizAlreadyExists";
@@ -209,6 +214,9 @@ public class MainController {
 			return "error";
 		} else if (title.isEmpty()) {
 			model.addAttribute("errorMsg", "addQuestion: fatal: empty quiz title");
+			return "error";
+		} else if (title.length() > quizTitleMaxLen) {
+			model.addAttribute("errorMsg", "addQuestion: fatal: title too long");
 			return "error";
 		} else if ((quiz = getQuiz(title, topic, lang)) == null) {
 			model.addAttribute("errorMsg", "addQuestion: fatal: no such quiz");
