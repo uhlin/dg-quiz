@@ -21,7 +21,7 @@ public class Quiz {
 	private Boolean completedAddingQuestions;
 
 	public Quiz() {
-		System.out.println("** Quiz class: default constructor called **");
+		/* null */;
 	}
 
 	public Quiz(String _title, Integer _topic, Integer _lang) {
