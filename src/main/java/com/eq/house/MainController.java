@@ -301,7 +301,7 @@ public class MainController {
 				qText.getOpt4Text().equals("")) {
 			model.addAttribute("errorMsg", "Empty option text A-D");
 			return "addTextQuestion";
-		} else if (num != null && num == 6 &&
+		} else if (num == 6 &&
 				(qText.getOpt5Text().equals("") || qText.getOpt6Text().equals(""))) {
 			model.addAttribute("errorMsg", "Empty option text E-F");
 			return "addTextQuestion";
@@ -367,7 +367,7 @@ public class MainController {
 				qSound.getOpt4Text().equals("")) {
 			model.addAttribute("errorMsg", "Empty option text A-D");
 			return "addSoundQuestion";
-		} else if (num != null && num == 6 &&
+		} else if (num == 6 &&
 				(qSound.getOpt5Text().equals("") || qSound.getOpt6Text().equals(""))) {
 			model.addAttribute("errorMsg", "Empty option text E-F");
 			return "addSoundQuestion";
@@ -433,7 +433,7 @@ public class MainController {
 				qImage.getOpt4Text().equals("")) {
 			model.addAttribute("errorMsg", "Empty option text A-D");
 			return "addImageQuestion";
-		} else if (num != null && num == 6 &&
+		} else if (num == 6 &&
 				(qImage.getOpt5Text().equals("") || qImage.getOpt6Text().equals(""))) {
 			model.addAttribute("errorMsg", "Empty option text E-F");
 			return "addImageQuestion";
