@@ -2,6 +2,12 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-05-31 ##
+- Satte upp följande gränsvärden:
+  - `quizTitleMaxLen`
+  - `questionMaxLen`
+- Tog bort onödiga null checks
+
 ## [1.0.0a] - 2020-05-29 ##
 - Lade till nya stilar för knappar i `style.css`
 - Ändrade utseende för knappar
