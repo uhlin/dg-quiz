@@ -7,6 +7,12 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   - `quizTitleMaxLen`
   - `questionMaxLen`
 - Tog bort onödiga null checks
+- Tog bort följande oanvända metoder i klassen MainController:
+  - `getQuizId()`
+  - `getQuizUniqueId()`
+  - `getQuizByUniqueId()`
+- Tog bort följande oanvända metoder i klassen PlayController:
+  - `getAllQuestionsForQuiz()`
 
 ## [1.0.0a] - 2020-05-29 ##
 - Lade till nya stilar för knappar i `style.css`
