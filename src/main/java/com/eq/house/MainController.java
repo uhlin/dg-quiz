@@ -22,6 +22,7 @@ public class MainController {
 	public static final long imageFileMaxBytesUncompressed = 2097152; // 2 MB
 
 	private static final int quizTitleMaxLen = 200;
+	private static final int questionMaxLen = 200;
 
 	@Autowired
 	QuizRepo repo;
@@ -295,6 +296,9 @@ public class MainController {
 		if (qText.getQuestion().equals("")) {
 			model.addAttribute("errorMsg", "Empty question");
 			return "addTextQuestion";
+		} else if (qText.getQuestion().length() > questionMaxLen) {
+			model.addAttribute("errorMsg", "Question too long");
+			return "addTextQuestion";
 		} else if (qText.getOpt1Text().equals("") ||
 				qText.getOpt2Text().equals("") ||
 				qText.getOpt3Text().equals("") ||
@@ -361,6 +365,9 @@ public class MainController {
 		} else if (qSound.getQuestion().equals("")) {
 			model.addAttribute("errorMsg", "Empty question");
 			return "addSoundQuestion";
+		} else if (qSound.getQuestion().length() > questionMaxLen) {
+			model.addAttribute("errorMsg", "Question too long");
+			return "addSoundQuestion";
 		} else if (qSound.getOpt1Text().equals("") ||
 				qSound.getOpt2Text().equals("") ||
 				qSound.getOpt3Text().equals("") ||
@@ -426,6 +433,9 @@ public class MainController {
 			return "addImageQuestion";
 		} else if (qImage.getQuestion().equals("")) {
 			model.addAttribute("errorMsg", "Empty question");
+			return "addImageQuestion";
+		} else if (qImage.getQuestion().length() > questionMaxLen) {
+			model.addAttribute("errorMsg", "Question too long");
 			return "addImageQuestion";
 		} else if (qImage.getOpt1Text().equals("") ||
 				qImage.getOpt2Text().equals("") ||
