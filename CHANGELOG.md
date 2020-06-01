@@ -2,6 +2,10 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-06-01 ##
+- Satte upp följande gränsvärden:
+  `optTextMaxLen`
+
 ## 2020-05-31 ##
 - Satte upp följande gränsvärden:
   - `quizTitleMaxLen`
