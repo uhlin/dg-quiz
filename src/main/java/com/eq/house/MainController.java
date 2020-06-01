@@ -23,6 +23,7 @@ public class MainController {
 
 	private static final int quizTitleMaxLen = 200;
 	private static final int questionMaxLen = 200;
+	private static final int optTextMaxLen = 200;
 
 	@Autowired
 	QuizRepo repo;
@@ -257,6 +258,14 @@ public class MainController {
 				(qText.getOpt5Text().equals("") || qText.getOpt6Text().equals(""))) {
 			model.addAttribute("errorMsg", "Empty option text E-F");
 			return "addTextQuestion";
+		} else if (qText.getOpt1Text().length() > optTextMaxLen ||
+				qText.getOpt2Text().length() > optTextMaxLen ||
+				qText.getOpt3Text().length() > optTextMaxLen ||
+				qText.getOpt4Text().length() > optTextMaxLen ||
+				qText.getOpt5Text().length() > optTextMaxLen ||
+				qText.getOpt6Text().length() > optTextMaxLen) {
+			model.addAttribute("errorMsg", "Option text too long");
+			return "addTextQuestion";
 		} else if (bindingResult.hasErrors()) {
 			return "addTextQuestion";
 		}
@@ -326,6 +335,14 @@ public class MainController {
 				(qSound.getOpt5Text().equals("") || qSound.getOpt6Text().equals(""))) {
 			model.addAttribute("errorMsg", "Empty option text E-F");
 			return "addSoundQuestion";
+		} else if (qSound.getOpt1Text().length() > optTextMaxLen ||
+				qSound.getOpt2Text().length() > optTextMaxLen ||
+				qSound.getOpt3Text().length() > optTextMaxLen ||
+				qSound.getOpt4Text().length() > optTextMaxLen ||
+				qSound.getOpt5Text().length() > optTextMaxLen ||
+				qSound.getOpt6Text().length() > optTextMaxLen) {
+			model.addAttribute("errorMsg", "Option text too long");
+			return "addSoundQuestion";
 		} else if (bindingResult.hasErrors()) {
 			return "addSoundQuestion";
 		}
@@ -394,6 +411,14 @@ public class MainController {
 		} else if (num == 6 &&
 				(qImage.getOpt5Text().equals("") || qImage.getOpt6Text().equals(""))) {
 			model.addAttribute("errorMsg", "Empty option text E-F");
+			return "addImageQuestion";
+		} else if (qImage.getOpt1Text().length() > optTextMaxLen ||
+				qImage.getOpt2Text().length() > optTextMaxLen ||
+				qImage.getOpt3Text().length() > optTextMaxLen ||
+				qImage.getOpt4Text().length() > optTextMaxLen ||
+				qImage.getOpt5Text().length() > optTextMaxLen ||
+				qImage.getOpt6Text().length() > optTextMaxLen) {
+			model.addAttribute("errorMsg", "Option text too long");
 			return "addImageQuestion";
 		} else if (bindingResult.hasErrors()) {
 			return "addImageQuestion";
