@@ -6,6 +6,7 @@
 
 <body>
 <select th:fragment="quizLang" id="quizLang" name="quizLang">
+	<option th:if="${includeAllOpt != null && includeAllOpt}" value="255">All</option>
 	<option value="0">English</option>
 	<option value="1">Swedish</option>
 </select>

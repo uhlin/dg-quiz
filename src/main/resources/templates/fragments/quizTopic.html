@@ -6,6 +6,7 @@
 
 <body>
 <select th:fragment="quizTopic" id="quizTopic" name="quizTopic">
+	<option th:if="${includeAllOpt != null && includeAllOpt}" value="255">All</option>
 	<option value="0">Sports</option>
 	<option value="1">Games &amp; Leisure</option>
 	<option value="2">History</option>
