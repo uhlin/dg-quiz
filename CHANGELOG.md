@@ -8,6 +8,7 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   - quiztitel (45 tecken)
   - frågor (180 tecken)
   - svarsalternativ (80 tecken)
+- Gällande filtrering av Quiz: lade till valmöjligheten 'All'
 
 ## 2020-06-01 ##
 - Satte upp följande gränsvärden:
