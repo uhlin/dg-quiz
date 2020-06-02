@@ -15,21 +15,22 @@
 <div th:replace="fragments/navigation :: navigation"></div>
 
 <div id="middle">
-<h1>Add question</h1>
 
-<form th:action="@{/addQuestion}" method="post">
-<p>Please, choose question type and number of answers:</p>
+	<h1>Add question</h1>
 
-<select th:replace="fragments/questionType :: questionType"></select>
+	<form th:action="@{/addQuestion}" method="post">
+		<p>Please, choose question type and number of answers:</p>
 
-<select th:replace="fragments/numAnswers :: numAnswers"></select>
+		<select th:replace="fragments/questionType :: questionType"></select>
+		<select th:replace="fragments/numAnswers :: numAnswers"></select>
 
-<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
-<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
-<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
+		<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
+		<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
+		<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
 
-<p><input type="submit" value="Next &rsaquo;" class="button button1" /></p>
-</form>
+		<p><input type="submit" value="Next &rsaquo;" class="button button1" /></p>
+	</form>
+
 </div> <!-- middle -->
 
 <div th:replace="fragments/bottom :: bottom"></div>
