@@ -2,6 +2,12 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-06-02 ##
+- Uppdaterade TODO
+- Satte maxlängd på
+  - quiztitel (45 tecken)
+  - frågor (180 tecken)
+
 ## 2020-06-01 ##
 - Satte upp följande gränsvärden:
   - `optTextMaxLen`
