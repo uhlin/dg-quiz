@@ -49,6 +49,30 @@ public class MainController {
 		return f;
 	}
 
+	private List<Quiz> getFilteredQuizzesByTopic(Topic byTopic) {
+		Iterable<Quiz> all = repo.findAll();
+		List<Quiz> f = new LinkedList<Quiz>();
+
+		for (Quiz quiz : all) {
+			if (quiz.getTopic() == byTopic)
+				f.add(quiz);
+		}
+
+		return f;
+	}
+
+	private List<Quiz> getFilteredQuizzesByLang(Language byLang) {
+		Iterable<Quiz> all = repo.findAll();
+		List<Quiz> f = new LinkedList<Quiz>();
+
+		for (Quiz quiz : all) {
+			if (quiz.getLang() == byLang)
+				f.add(quiz);
+		}
+
+		return f;
+	}
+
 	@RequestMapping("/")
 	public String index(
 			Model model,
