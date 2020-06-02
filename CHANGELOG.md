@@ -7,6 +7,7 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 - Satte maxlängd på
   - quiztitel (45 tecken)
   - frågor (180 tecken)
+  - svarsalternativ (80 tecken)
 
 ## 2020-06-01 ##
 - Satte upp följande gränsvärden:
