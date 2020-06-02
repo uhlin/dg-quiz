@@ -15,35 +15,39 @@
 <div th:replace="fragments/navigation :: navigation"></div>
 
 <div id="middle">
-<h1>QUIZ</h1>
-<h2>Play a quiz</h2>
-<p>
-There are totally
-<span th:text="${completeNumberOfQuizzes}"></span>
-number of quizzes to play.
-</p>
 
-<form th:action="@{/}" method="post">
-<table id="filterTable">
-	<tr>
-		<td><span class="label1">Topic / Category:</span></td>
-		<td>
-			<select th:replace="fragments/quizTopic :: quizTopic"></select>
-		</td>
-	</tr>
-	<tr>
-		<td><span class="label1">Language:</span></td>
-		<td>
-			<select th:replace="fragments/quizLang :: quizLang"></select>
-		</td>
-	</tr>
-</table> <!-- filterTable -->
+	<h1>QUIZ</h1>
 
-<p><input type="submit" value="Filter" class="button button6" /></p>
+	<h2>Play a quiz</h2>
 
-</form>
+	<p>
+		There are totally
+		<span th:text="${completeNumberOfQuizzes}"></span>
+		number of quizzes to play.
+	</p>
 
-<div th:replace="fragments/showQuizzesV2 :: showQuizzesV2"></div>
+	<form th:action="@{/}" method="post">
+		<table id="filterTable">
+			<tr>
+				<td><span class="label1">Topic / Category:</span></td>
+				<td>
+					<select th:replace="fragments/quizTopic :: quizTopic"></select>
+				</td>
+			</tr>
+			<tr>
+				<td><span class="label1">Language:</span></td>
+				<td>
+					<select th:replace="fragments/quizLang :: quizLang"></select>
+				</td>
+			</tr>
+		</table> <!-- filterTable -->
+
+		<p><input type="submit" value="Filter" class="button button6" /></p>
+
+	</form>
+
+	<div th:replace="fragments/showQuizzesV2 :: showQuizzesV2"></div>
+
 </div> <!-- middle -->
 
 <div th:replace="fragments/bottom :: bottom"></div>
