@@ -341,7 +341,7 @@ public class PlayController {
 		if (answers == null) {
 			model.addAttribute("errorMsg", "exitQuiz: fatal: cannot find answers");
 			return "error";
-		} else if (answers.size() == 0) {
+		} else if (answers.isEmpty()) {
 			model.addAttribute("errorMsg", "exitQuiz: fatal: zero answers");
 			return "error";
 		} else if ((quiz = getQuizByUniqueId(quizId)) == null) {
