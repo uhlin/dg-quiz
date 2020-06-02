@@ -76,29 +76,42 @@ public class MainController {
 	@RequestMapping("/")
 	public String index(
 			Model model,
-			@RequestParam(name = "quizTopic", required = false, defaultValue = "-1") Integer topic,
-			@RequestParam(name = "quizLang",  required = false, defaultValue = "-1") Integer lang) {
+			@RequestParam(name = "quizTopic", required = false, defaultValue = "255") Integer topic,
+			@RequestParam(name = "quizLang",  required = false, defaultValue = "255") Integer lang) {
 		String s1 = "";
 		String s2 = "";
 
 		model.addAttribute("completeNumberOfQuizzes", repo.count());
 
 		if (repo.count() > 0) {
-			if (topic != -1 && lang != -1) {
+			final Integer allValue = 255;
+
+			if (topic == allValue && lang == allValue) {
+				model.addAttribute("db", repo.findAll());
+				model.addAttribute("dbCount", repo.count());
+			} else if (topic != allValue && lang == allValue) {
+				List<Quiz> f = getFilteredQuizzesByTopic(Utilities.intToTopic(topic));
+
+				model.addAttribute("db", f);
+				model.addAttribute("dbCount", f.size());
+			} else if (topic == allValue && lang != allValue) {
+				List<Quiz> f = getFilteredQuizzesByLang(Utilities.intToLanguage(lang));
+
+				model.addAttribute("db", f);
+				model.addAttribute("dbCount", f.size());
+			} else {
 				s1 = Utilities.topicToString(Utilities.intToTopic(topic));
 				s2 = Utilities.languageToString(Utilities.intToLanguage(lang));
 
 				System.out.println("MainController: index: topic = " + s1);
 				System.out.println("MainController: index: lang  = " + s2);
 
-				List<Quiz> f =
-						getFilteredQuizzes(Utilities.intToTopic(topic), Utilities.intToLanguage(lang));
+				List<Quiz> f = getFilteredQuizzes(
+						Utilities.intToTopic(topic),
+						Utilities.intToLanguage(lang));
 
 				model.addAttribute("db", f);
 				model.addAttribute("dbCount", f.size());
-			} else {
-				model.addAttribute("db", repo.findAll());
-				model.addAttribute("dbCount", repo.count());
 			}
 		} else {
 			model.addAttribute("db", null);
