@@ -9,6 +9,9 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   - frågor (180 tecken)
   - svarsalternativ (80 tecken)
 - Gällande filtrering av Quiz: lade till valmöjligheten 'All'
+- Lade till följande metoder i klassen `MainController`:
+  - `getFilteredQuizzesByTopic()`
+  - `getFilteredQuizzesByLang()`
 
 ## 2020-06-01 ##
 - Satte upp följande gränsvärden:
