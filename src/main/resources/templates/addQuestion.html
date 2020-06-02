@@ -18,7 +18,7 @@
 
 	<h1>Add question</h1>
 
-	<form th:action="@{/addQuestion}" method="post">
+	<form th:action="@{/addQuestion}" method="POST" th:with="includeAllOpt=false">
 		<p>Please, choose question type and number of answers:</p>
 
 		<select th:replace="fragments/questionType :: questionType"></select>
