@@ -27,7 +27,7 @@
 	</p>
 
 	<form th:action="@{/}" method="post">
-		<table id="filterTable">
+		<table id="filterTable" th:with="includeAllOpt=true">
 			<tr>
 				<td><span class="label1">Topic / Category:</span></td>
 				<td>
