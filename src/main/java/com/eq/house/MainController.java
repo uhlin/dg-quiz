@@ -37,6 +37,18 @@ public class MainController {
 	@Autowired
 	QuestionImageRepo questionImageRepo;
 
+	private List<Quiz> getFilteredQuizzes(Topic byTopic, Language byLang) {
+		Iterable<Quiz> all = repo.findAll();
+		List<Quiz> f = new LinkedList<Quiz>();
+
+		for (Quiz quiz : all) {
+			if (quiz.getTopic() == byTopic && quiz.getLang() == byLang)
+				f.add(quiz);
+		}
+
+		return f;
+	}
+
 	@RequestMapping("/")
 	public String index(
 			Model model,
@@ -70,18 +82,6 @@ public class MainController {
 		}
 
 		return "index";
-	}
-
-	private List<Quiz> getFilteredQuizzes(Topic byTopic, Language byLang) {
-		Iterable<Quiz> all = repo.findAll();
-		List<Quiz> f = new LinkedList<Quiz>();
-
-		for (Quiz quiz : all) {
-			if (quiz.getTopic() == byTopic && quiz.getLang() == byLang)
-				f.add(quiz);
-		}
-
-		return f;
 	}
 
 	private Quiz getQuiz(String title, Integer topic, Integer lang) {
