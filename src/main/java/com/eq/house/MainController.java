@@ -86,15 +86,15 @@ public class MainController {
 		if (repo.count() > 0) {
 			final Integer allValue = 255;
 
-			if (topic == allValue && lang == allValue) {
+			if (topic.equals(allValue) && lang.equals(allValue)) {
 				model.addAttribute("db", repo.findAll());
 				model.addAttribute("dbCount", repo.count());
-			} else if (topic != allValue && lang == allValue) {
+			} else if (!topic.equals(allValue) && lang.equals(allValue)) {
 				List<Quiz> f = getFilteredQuizzesByTopic(Utilities.intToTopic(topic));
 
 				model.addAttribute("db", f);
 				model.addAttribute("dbCount", f.size());
-			} else if (topic == allValue && lang != allValue) {
+			} else if (topic.equals(allValue) && !lang.equals(allValue)) {
 				List<Quiz> f = getFilteredQuizzesByLang(Utilities.intToLanguage(lang));
 
 				model.addAttribute("db", f);
