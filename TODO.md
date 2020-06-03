@@ -8,7 +8,6 @@
 - Avbryt-knapp
 - Möjlighet att byta frågetyp
 - Efter svar på fråga ska man få veta rätt svar
-- Filteralternativ "alla"
 - Formulär (kolla horsemetro.com)
 - Förhandsgranskning av bilden vid bildfråga
 - Rapportera fråga vid:
