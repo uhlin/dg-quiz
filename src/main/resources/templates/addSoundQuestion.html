@@ -16,6 +16,19 @@
 
 <div id="middle">
 
+	<form th:action="@{/addQuestion}" method="POST" th:with="includeAllOpt=false">
+		<p>Please, choose question type and number of answers:</p>
+
+		<select th:replace="fragments/questionType :: questionType"></select>
+		<select th:replace="fragments/numAnswers :: numAnswers"></select>
+
+		<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
+		<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
+		<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
+
+		<p><input type="submit" value="Change" class="button button4" /></p>
+	</form>
+
 	<h1>Add SOUND question for: <span th:text="${quizTitle}"></span></h1>
 
 	<p th:if="${errorMsg}">
