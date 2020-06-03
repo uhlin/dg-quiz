@@ -282,7 +282,7 @@ public class MainController {
 			return "error";
 		}
 
-		final Integer questionNum = quiz.getNumQuestions() + 1;
+		Integer questionNum = quiz.getNumQuestions() + 1;
 		model.addAttribute("questionNum", questionNum);
 
 		model.addAttribute("quizTitle", title);
@@ -322,7 +322,11 @@ public class MainController {
 		qText.setQuestionNum(quiz.increaseNumQuestions());
 		qText.outputObject();
 		questionTextRepo.save(qText);
-		return "addQuestion";
+
+		questionNum ++;
+		model.addAttribute("questionNum", questionNum);
+
+		return "addTextQuestion";
 	}
 
 
@@ -354,7 +358,7 @@ public class MainController {
 			return "error";
 		}
 
-		final Integer questionNum = quiz.getNumQuestions() + 1;
+		Integer questionNum = quiz.getNumQuestions() + 1;
 		model.addAttribute("questionNum", questionNum);
 
 		model.addAttribute("quizTitle", title);
@@ -400,7 +404,11 @@ public class MainController {
 		qSound.setQuestionNum(quiz.increaseNumQuestions());
 		qSound.outputObject();
 		questionSoundRepo.save(qSound);
-		return "addQuestion";
+
+		questionNum ++;
+		model.addAttribute("questionNum", questionNum);
+
+		return "addTextQuestion";
 	}
 
 
@@ -432,7 +440,7 @@ public class MainController {
 			return "error";
 		}
 
-		final Integer questionNum = quiz.getNumQuestions() + 1;
+		Integer questionNum = quiz.getNumQuestions() + 1;
 		model.addAttribute("questionNum", questionNum);
 
 		model.addAttribute("quizTitle", title);
@@ -478,7 +486,11 @@ public class MainController {
 		qImage.setQuestionNum(quiz.increaseNumQuestions());
 		qImage.outputObject();
 		questionImageRepo.save(qImage);
-		return "addQuestion";
+
+		questionNum ++;
+		model.addAttribute("questionNum", questionNum);
+
+		return "addTextQuestion";
 	}
 
 
