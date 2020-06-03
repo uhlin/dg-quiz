@@ -4,9 +4,7 @@
 - "No more questions"
 - Security auditing
 
-- Kunna välja antal svarsalternativ på samma sida som frågetyp
 - Avbryt-knapp
-- Möjlighet att byta frågetyp
 - Efter svar på fråga ska man få veta rätt svar
 - Formulär (kolla horsemetro.com)
 - Förhandsgranskning av bilden vid bildfråga
