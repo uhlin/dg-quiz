@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -246,6 +247,7 @@ public class MainController {
 
 
 	@PostMapping("/addTextQuestion")
+	@Transactional
 	public String addTextQuestion(
 			@Valid QuestionText qText,
 			Model model,
@@ -316,6 +318,7 @@ public class MainController {
 
 
 	@PostMapping("/addSoundQuestion")
+	@Transactional
 	public String addSoundQuestion(
 			@Valid QuestionSound qSound,
 			Model model,
@@ -393,6 +396,7 @@ public class MainController {
 
 
 	@PostMapping("/addImageQuestion")
+	@Transactional
 	public String addImageQuestion(
 			@Valid QuestionImage qImage,
 			Model model,
