@@ -2,6 +2,9 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-06-04 ##
+- Fixade databasinställningar för testning respektive produktion
+
 ## 2020-06-03 ##
 - När man skapar Quiz går det nu att välja/byta 1) frågetyp 2) antal svarsalter-  
   nativ **på samma sida som frågan själv**.
