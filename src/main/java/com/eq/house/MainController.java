@@ -184,7 +184,16 @@ public class MainController {
 		model.addAttribute("quizTitle", title);
 		model.addAttribute("quizTopic", topic);
 		model.addAttribute("quizLang", lang);
-		return "addQuestion";
+
+		final Integer questionTypeDefault = 0;
+		final Integer questionNum = quiz.getNumQuestions() + 1;
+		final Integer numAnswersDefault = 4;
+
+		model.addAttribute("questionType", questionTypeDefault);
+		model.addAttribute("questionNum", questionNum);
+		model.addAttribute("numAnswers", numAnswersDefault);
+
+		return "addTextQuestion";
 	}
 
 	@PostMapping("/addQuestion")
