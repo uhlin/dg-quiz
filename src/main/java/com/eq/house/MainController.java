@@ -327,6 +327,9 @@ public class MainController {
 		qText.outputObject();
 		questionTextRepo.save(qText);
 
+		if (quiz.getNumQuestions().equals(quiz.getNumQuestionsGoal()))
+			return doneWithQuestions(model, title, topic, lang);
+
 		questionNum ++;
 		model.addAttribute("questionNum", questionNum);
 
@@ -409,6 +412,9 @@ public class MainController {
 		qSound.outputObject();
 		questionSoundRepo.save(qSound);
 
+		if (quiz.getNumQuestions().equals(quiz.getNumQuestionsGoal()))
+			return doneWithQuestions(model, title, topic, lang);
+
 		questionNum ++;
 		model.addAttribute("questionNum", questionNum);
 
@@ -490,6 +496,9 @@ public class MainController {
 		qImage.setQuestionNum(quiz.increaseNumQuestions());
 		qImage.outputObject();
 		questionImageRepo.save(qImage);
+
+		if (quiz.getNumQuestions().equals(quiz.getNumQuestionsGoal()))
+			return doneWithQuestions(model, title, topic, lang);
 
 		questionNum ++;
 		model.addAttribute("questionNum", questionNum);
