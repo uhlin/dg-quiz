@@ -176,6 +176,7 @@ public class MainController {
 			return "error";
 		} else {
 			quiz.setNumQuestionsGoal(goal);
+			repo.save(quiz);
 			model.addAttribute("quiz", quiz);
 		}
 
