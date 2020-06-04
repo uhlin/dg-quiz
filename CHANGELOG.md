@@ -11,6 +11,7 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 - Lade till följande mappings:
   - `/abortCreateQuiz`
 - PlayController: getQuestion: förbättrade algoritm
+- Fixade hantering av om en och samma fråga blir besvarad två eller fler gånger
 
 ## 2020-06-03 ##
 - När man skapar Quiz går det nu att välja/byta 1) frågetyp 2) antal svarsalter-  
