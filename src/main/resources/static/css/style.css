@@ -33,6 +33,10 @@ body {
 }
 #quizzesTable2 th, td { text-align: left; }
 #quizzesTable2 { width: 70%; }
+#version {
+	color: white;
+	font-size: small;
+}
 
 .ansOpt { color: peru; }
 .ansTable input { width: 85%; }
