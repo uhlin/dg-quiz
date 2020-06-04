@@ -36,6 +36,12 @@
 					<select th:replace="fragments/quizLang :: quizLang"></select>
 				</td>
 			</tr>
+			<tr>
+				<td><span class="label1">Number of questions:</span></td>
+				<td>
+					<input min="2" max="30" name="quizNumQuestionsGoal" type="number" />
+				</td>
+			</tr>
 		</table> <!-- createQuizTable -->
 
 		<p><input type="submit" value="Ok, start adding questions &rsaquo;" class="button button1" /></p>
