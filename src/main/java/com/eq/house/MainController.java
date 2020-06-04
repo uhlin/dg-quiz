@@ -153,6 +153,9 @@ public class MainController {
 			@RequestParam(name = "quizTopic") Integer topic,
 			@RequestParam(name = "quizLang")  Integer lang,
 			@RequestParam(name = "quizNumQuestionsGoal") Integer goal) {
+		final Integer goalMinValue = 2;
+		final Integer goalMaxValue = 30;
+
 		if (title == null || topic == null || lang == null || goal == null) {
 			model.addAttribute("errorMsg", "createQuizBegin: error: invalid arguments");
 			return "error";
@@ -161,6 +164,10 @@ public class MainController {
 			return "error";
 		} else if (title.length() > quizTitleMaxLen) {
 			model.addAttribute("errorMsg", "createQuizBegin: error: title too long");
+			return "error";
+		} else if (goal < goalMinValue || goal > goalMaxValue) {
+			model.addAttribute("errorMsg", "createQuizBegin: error: " +
+					"questions goal number out of range!");
 			return "error";
 		} else if (getQuiz(title, topic, lang) != null) {
 			System.err.println("createQuizBegin: error: quiz already exists");
