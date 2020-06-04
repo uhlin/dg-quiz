@@ -58,8 +58,8 @@
 		<p><input type="submit" value="Add question" class="button button3" /></p>
 	</form>
 
-	<form th:action="@{/doneWithQuestions}" method="post">
-		<p><input type="submit" value="No more questions" class="button button4" /></p>
+	<form th:action="@{/abortCreateQuiz}" method="POST">
+		<p><input type="submit" value="Cancel" class="button button4" /></p>
 
 		<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
 		<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
