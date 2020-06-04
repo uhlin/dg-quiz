@@ -556,4 +556,25 @@ public class MainController {
 		model.addAttribute("numQuestions", quiz.getNumQuestions());
 		return "doneWithQuestions";
 	}
+
+	@PostMapping("/abortCreateQuiz")
+	@Transactional
+	public String abortCreateQuiz(
+			Model model,
+			@RequestParam(name = "quizTitle", required = true) String  title,
+			@RequestParam(name = "quizTopic", required = true) Integer topic,
+			@RequestParam(name = "quizLang",  required = true) Integer lang) {
+		Quiz quiz = getQuiz(title, topic, lang);
+
+		if (quiz == null) {
+			model.addAttribute("errorMsg", "Cannot find quiz!");
+			return "error";
+		} else if (quiz.getCompletedAddingQuestions()) {
+			model.addAttribute("errorMsg", "Cannot cancel creation of THAT quiz!");
+			return "error";
+		}
+
+		repo.delete(quiz);
+		return "abortCreateQuiz";
+	}
 }
