@@ -574,7 +574,12 @@ public class MainController {
 			return "error";
 		}
 
+		questionTextRepo.deleteByQuizId(quiz.getUniqueId());
+		questionSoundRepo.deleteByQuizId(quiz.getUniqueId());
+		questionImageRepo.deleteByQuizId(quiz.getUniqueId());
+
 		repo.delete(quiz);
+
 		return "abortCreateQuiz";
 	}
 }
