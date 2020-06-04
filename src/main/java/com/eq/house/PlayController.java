@@ -135,7 +135,7 @@ public class PlayController {
 				return a;
 		}
 
-		System.err.println("getAnswer: error: cannot find answer");
+		//System.err.println("getAnswer: error: cannot find answer");
 		return null;
 	}
 
@@ -293,6 +293,17 @@ public class PlayController {
 		} else if (questionNum < 1 || questionNum > quiz.getNumQuestions()) {
 			attr.addAttribute("errorMsg", "answerQuestion: fatal: question number out of range!");
 			return "redirect:/error";
+		}
+
+		final boolean alreadyAnsweredQuestion =
+				(getAnswer(playerId, quizId, questionNum) != null ? true : false);
+
+		if (alreadyAnsweredQuestion) {
+			System.out.println("answerQuestion: already answered question!");
+			System.out.println("Deleting previous answer...");
+			System.out.println("pre count:  " + answerRepo.count());
+			answerRepo.delete(getAnswer(playerId, quizId, questionNum));
+			System.out.println("post count: " + answerRepo.count());
 		}
 
 		switch (question.getqType()) {
