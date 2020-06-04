@@ -274,6 +274,7 @@ public class PlayController {
 	}
 
 	@PostMapping("/answerQuestion")
+	@Transactional
 	public String answerQuestion(
 			@Valid Answer answer,
 			RedirectAttributes attr,
