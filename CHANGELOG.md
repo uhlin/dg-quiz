@@ -10,6 +10,7 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   - `abortCreateQuiz.html`
 - Lade till följande mappings:
   - `/abortCreateQuiz`
+- PlayController: getQuestion: förbättrade algoritm
 
 ## 2020-06-03 ##
 - När man skapar Quiz går det nu att välja/byta 1) frågetyp 2) antal svarsalter-  
