@@ -17,6 +17,7 @@ public class Quiz {
 	private String title;
 	private Topic topic;
 	private Language lang;
+	private Integer numQuestionsGoal;
 	private Integer numQuestions;
 	private Boolean completedAddingQuestions;
 
@@ -29,6 +30,7 @@ public class Quiz {
 		this.title = _title;
 		this.topic = Utilities.intToTopic(_topic);
 		this.lang = Utilities.intToLanguage(_lang);
+		this.numQuestionsGoal = 0;
 		this.numQuestions = 0;
 		this.completedAddingQuestions = false;
 	}
@@ -102,6 +104,19 @@ public class Quiz {
 	}
 	public void setLang(Language lang) {
 		this.lang = lang;
+	}
+
+
+	/*************************************************
+	 *
+	 * getNumQuestionsGoal() and setNumQuestionsGoal()
+	 *
+	 */
+	public Integer getNumQuestionsGoal() {
+		return numQuestionsGoal;
+	}
+	public void setNumQuestionsGoal(Integer numQuestionsGoal) {
+		this.numQuestionsGoal = numQuestionsGoal;
 	}
 
 
