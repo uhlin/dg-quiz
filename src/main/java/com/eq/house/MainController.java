@@ -149,10 +149,11 @@ public class MainController {
 	@PostMapping("/createQuiz")
 	public String createQuizBegin(
 			Model model,
-			@RequestParam(name = "quizTitle") String  title,
+			@RequestParam(name = "quizTitle") String title,
 			@RequestParam(name = "quizTopic") Integer topic,
-			@RequestParam(name = "quizLang")  Integer lang) {
-		if (title == null || topic == null || lang == null) {
+			@RequestParam(name = "quizLang")  Integer lang,
+			@RequestParam(name = "quizNumQuestionsGoal") Integer goal) {
+		if (title == null || topic == null || lang == null || goal == null) {
 			model.addAttribute("errorMsg", "createQuizBegin: error: invalid arguments");
 			return "error";
 		} else if (title.isEmpty()) {
@@ -168,18 +169,20 @@ public class MainController {
 			repo.save(new Quiz(title, topic, lang));
 		}
 
-		System.out.println("quizTitle: " + title);
-		System.out.println("quizTopic: " + topic);
-		System.out.println("quizLang:  " + lang);
-
 		Quiz quiz = null;
 
 		if ((quiz = getQuiz(title, topic, lang)) == null) {
 			System.err.println("createQuizBegin: fatal: cannot find saved quiz");
 			return "error";
 		} else {
+			quiz.setNumQuestionsGoal(goal);
 			model.addAttribute("quiz", quiz);
 		}
+
+		System.out.println("quizTitle: " + title);
+		System.out.println("quizTopic: " + topic);
+		System.out.println("quizLang:  " + lang);
+		System.out.println("quizNumQuestionsGoal: " + goal);
 
 		model.addAttribute("quizTitle", title);
 		model.addAttribute("quizTopic", topic);
