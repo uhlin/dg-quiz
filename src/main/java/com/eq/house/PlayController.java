@@ -86,9 +86,9 @@ public class PlayController {
 		}
 
 		Question question = null;
-		Iterable<QuestionText> allText = questionTextRepo.findAll();
-		Iterable<QuestionSound> allSound = questionSoundRepo.findAll();
-		Iterable<QuestionImage> allImage = questionImageRepo.findAll();
+		List<QuestionText> allText = questionTextRepo.findByQuizId(quizId);
+		List<QuestionSound> allSound = questionSoundRepo.findByQuizId(quizId);
+		List<QuestionImage> allImage = questionImageRepo.findByQuizId(quizId);
 
 		for (QuestionText qText : allText) {
 			if (qText.getQuestionNum() == questionNum && qText.getQuizId().equals(quizId)) {
