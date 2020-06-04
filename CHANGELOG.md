@@ -4,6 +4,8 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
 ## 2020-06-04 ##
 - Fixade databasinställningar för testning respektive produktion
+- Fixade visning av programversion i sidans huvud
+- Lade till möjligheten att specificera hur många frågor ett Quiz ska innehålla
 
 ## 2020-06-03 ##
 - När man skapar Quiz går det nu att välja/byta 1) frågetyp 2) antal svarsalter-  
