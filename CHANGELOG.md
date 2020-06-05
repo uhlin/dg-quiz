@@ -5,6 +5,7 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 ## 2020-06-05 ##
 - Lade till följande scripts:
   - `goBack.js`
+- Fixade förhandsgranskning av bild vid bildfråga (vid skapande av quiz)
 
 ## 2020-06-04 ##
 - Fixade databasinställningar för testning respektive produktion
