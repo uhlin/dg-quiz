@@ -39,6 +39,23 @@ public class PlayController {
 	@Autowired
 	AnswerRepo answerRepo;
 
+	private Answer getAnswer(
+			final String playerId,
+			final String quizId,
+			final Integer questionNum) {
+		List<Answer> allAnswers = answerRepo.findByPlayerId(playerId);
+
+		for (Answer a : allAnswers) {
+			if (a.getPlayerId().equals(playerId) &&
+					a.getQuizId().equals(quizId) &&
+					a.getQuestionNum() == questionNum)
+				return a;
+		}
+
+		//System.err.println("getAnswer: error: cannot find answer");
+		return null;
+	}
+
 	@RequestMapping("/quizzes/{quizId}/{binaryName}")
 	@ResponseBody
 	public final byte[] getBinary(
@@ -122,23 +139,6 @@ public class PlayController {
 		System.err.println("quizId:      " + quizId);
 		System.err.println("questionNum: " + questionNum);
 		System.err.println("CANNOT FIND QUESTION!!!");
-		return null;
-	}
-
-	private Answer getAnswer(
-			final String playerId,
-			final String quizId,
-			final Integer questionNum) {
-		List<Answer> allAnswers = answerRepo.findByPlayerId(playerId);
-
-		for (Answer a : allAnswers) {
-			if (a.getPlayerId().equals(playerId) &&
-					a.getQuizId().equals(quizId) &&
-					a.getQuestionNum() == questionNum)
-				return a;
-		}
-
-		//System.err.println("getAnswer: error: cannot find answer");
 		return null;
 	}
 
