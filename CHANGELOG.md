@@ -2,6 +2,10 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-06-05 ##
+- Lade till följande scripts:
+  - `goBack.js`
+
 ## 2020-06-04 ##
 - Fixade databasinställningar för testning respektive produktion
 - Fixade visning av programversion i sidans huvud
