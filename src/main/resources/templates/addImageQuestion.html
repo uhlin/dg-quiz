@@ -7,6 +7,12 @@
 	<link th:href="@{/css/style.css}" rel="STYLESHEET" type="text/css" />
 
 	<style>
+	#imageView {
+		border: 1px solid black;
+		display: none;
+		height: 180px;
+		width: 180px;
+	}
 	</style>
 </head>
 
@@ -40,7 +46,8 @@
 		<p><input class="textFieldStyle1 w80" maxlength="180" name="question" type="text" /></p>
 
 		<p>Image file:</p>
-		<p><input type="file" name="imageFile" class="" /></p>
+		<p><input accept="image/*" class="" name="imageFile" onchange="previewImage(event)" type="file" /></p>
+		<p><img alt="" id="imageView" src="" /></p>
 
 		<div th:if="${numAnswers} == 4">
 			<table th:replace="fragments/4ans :: 4ans"></table>
@@ -69,5 +76,17 @@
 </div> <!-- middle -->
 
 <div th:replace="fragments/bottom :: bottom"></div>
+
+<script type="text/javascript">
+var previewImage = function (event) {
+	var output = document.getElementById("imageView");
+
+	output.src = URL.createObjectURL(event.target.files[0]);
+	output.onload = function () {
+		output.style.display = "block";
+		URL.revokeObjectURL(output.src);
+	};
+};
+</script>
 </body>
 </html>
