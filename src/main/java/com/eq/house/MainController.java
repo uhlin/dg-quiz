@@ -74,6 +74,25 @@ public class MainController {
 		return f;
 	}
 
+	private Quiz getQuiz(String title, Integer topic, Integer lang) {
+		if (title == null || topic == null || lang == null)
+			return null;
+
+		Topic _topic = Utilities.intToTopic(topic);
+		Language _lang = Utilities.intToLanguage(lang);
+
+		Iterable<Quiz> all = repo.findAll();
+
+		for (Quiz quiz : all) {
+			if (quiz.getTitle().equalsIgnoreCase(title) &&
+					quiz.getTopic() == _topic &&
+					quiz.getLang() == _lang)
+				return quiz;
+		}
+
+		return null;
+	}
+
 	@RequestMapping("/")
 	public String index(
 			Model model,
@@ -120,25 +139,6 @@ public class MainController {
 		}
 
 		return "index";
-	}
-
-	private Quiz getQuiz(String title, Integer topic, Integer lang) {
-		if (title == null || topic == null || lang == null)
-			return null;
-
-		Topic _topic = Utilities.intToTopic(topic);
-		Language _lang = Utilities.intToLanguage(lang);
-
-		Iterable<Quiz> all = repo.findAll();
-
-		for (Quiz quiz : all) {
-			if (quiz.getTitle().equalsIgnoreCase(title) &&
-					quiz.getTopic() == _topic &&
-					quiz.getLang() == _lang)
-				return quiz;
-		}
-
-		return null;
 	}
 
 	@GetMapping("/createQuiz")
