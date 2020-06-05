@@ -39,6 +39,35 @@ public class PlayController {
 	@Autowired
 	AnswerRepo answerRepo;
 
+	private List<QuestionAndAnswer> getAllQna(
+			final String quizId,
+			final String playerId) {
+		Quiz quiz = null;
+
+		if (quizId == null || playerId == null || quizId.isEmpty() || playerId.isEmpty()) {
+			System.err.println("getAllQna: error: invalid arguments");
+			return null;
+		} else if ((quiz = getQuizByUniqueId(quizId)) == null) {
+			System.err.println("getAllQna: error: cannot find quiz");
+			return null;
+		}
+
+		List<QuestionAndAnswer> qnaList = new LinkedList<QuestionAndAnswer>();
+
+		for (Integer i = 1; i <= quiz.getNumQuestions(); i ++) {
+			Question question = getQuestion(quizId, i);
+			Answer   answer   = getAnswer(playerId, quizId, i);
+
+			if (question == null || answer == null)
+				return null;
+
+			QuestionAndAnswer qna = new QuestionAndAnswer(question, answer);
+			qnaList.add(qna);
+		}
+
+		return qnaList;
+	}
+
 	private Answer getAnswer(
 			final String playerId,
 			final String quizId,
@@ -79,22 +108,6 @@ public class PlayController {
 
 		return "".getBytes();
 	}
-
-	private Quiz getQuizByUniqueId(final String id) {
-		if (id == null)
-			return null;
-
-		Iterable<Quiz> all = repo.findAll();
-
-		for (Quiz quiz : all) {
-			if (quiz.getUniqueId().equals(id))
-				return quiz;
-		}
-
-		return null;
-	}
-
-	/* -------------------- Play functionality -------------------- */
 
 	private Question getQuestion(final String quizId, final Integer questionNum) {
 		if (quizId == null || questionNum == null || quizId.equals("")) {
@@ -142,34 +155,21 @@ public class PlayController {
 		return null;
 	}
 
-	private List<QuestionAndAnswer> getAllQna(
-			final String quizId,
-			final String playerId) {
-		Quiz quiz = null;
+	private Quiz getQuizByUniqueId(final String id) {
+		if (id == null)
+			return null;
 
-		if (quizId == null || playerId == null || quizId.isEmpty() || playerId.isEmpty()) {
-			System.err.println("getAllQna: error: invalid arguments");
-			return null;
-		} else if ((quiz = getQuizByUniqueId(quizId)) == null) {
-			System.err.println("getAllQna: error: cannot find quiz");
-			return null;
+		Iterable<Quiz> all = repo.findAll();
+
+		for (Quiz quiz : all) {
+			if (quiz.getUniqueId().equals(id))
+				return quiz;
 		}
 
-		List<QuestionAndAnswer> qnaList = new LinkedList<QuestionAndAnswer>();
-
-		for (Integer i = 1; i <= quiz.getNumQuestions(); i ++) {
-			Question question = getQuestion(quizId, i);
-			Answer   answer   = getAnswer(playerId, quizId, i);
-
-			if (question == null || answer == null)
-				return null;
-
-			QuestionAndAnswer qna = new QuestionAndAnswer(question, answer);
-			qnaList.add(qna);
-		}
-
-		return qnaList;
+		return null;
 	}
+
+	/* -------------------- Play functionality -------------------- */
 
 	@GetMapping("/playQuiz")
 	public String playQuiz(
