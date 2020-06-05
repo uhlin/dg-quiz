@@ -39,20 +39,6 @@ public class PlayController {
 	@Autowired
 	AnswerRepo answerRepo;
 
-	private Quiz getQuizByUniqueId(final String id) {
-		if (id == null)
-			return null;
-
-		Iterable<Quiz> all = repo.findAll();
-
-		for (Quiz quiz : all) {
-			if (quiz.getUniqueId().equals(id))
-				return quiz;
-		}
-
-		return null;
-	}
-
 	@RequestMapping("/quizzes/{quizId}/{binaryName}")
 	@ResponseBody
 	public final byte[] getBinary(
@@ -75,6 +61,20 @@ public class PlayController {
 		}
 
 		return "".getBytes();
+	}
+
+	private Quiz getQuizByUniqueId(final String id) {
+		if (id == null)
+			return null;
+
+		Iterable<Quiz> all = repo.findAll();
+
+		for (Quiz quiz : all) {
+			if (quiz.getUniqueId().equals(id))
+				return quiz;
+		}
+
+		return null;
 	}
 
 	/* -------------------- Play functionality -------------------- */
