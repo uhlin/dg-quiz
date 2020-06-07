@@ -2,6 +2,13 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-06-08 ##
+- Lade till följande filer:
+  - `answerQuestion.js`
+  - `evaluateAnswer.js`
+  - `modalOutAnswer.css`
+- Lade till mapping för: `/evaluateAnswer`
+
 ## 2020-06-05 ##
 - Lade till följande scripts:
   - `goBack.js`
