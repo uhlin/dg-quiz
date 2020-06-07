@@ -5,6 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 @Entity
 public class Answer {
 	@Id
@@ -35,6 +38,22 @@ public class Answer {
 		this.opt4Checked = false;
 		this.opt5Checked = false;
 		this.opt6Checked = false;
+	}
+
+	public Answer(final String json) {
+		JsonObject obj = JsonParser.parseString(json).getAsJsonObject();
+
+		this.playerId = obj.get("playerId").getAsString();
+		this.quizId = obj.get("quizId").getAsString();
+		this.questionNum = obj.get("questionNum").getAsInt();
+		this.ansAlt = obj.get("ansAlt").getAsInt();
+
+		this.opt1Checked = obj.get("opt1").getAsBoolean();
+		this.opt2Checked = obj.get("opt2").getAsBoolean();
+		this.opt3Checked = obj.get("opt3").getAsBoolean();
+		this.opt4Checked = obj.get("opt4").getAsBoolean();
+		this.opt5Checked = obj.get("opt5").getAsBoolean();
+		this.opt6Checked = obj.get("opt6").getAsBoolean();
 	}
 
 	public void outputObject() {
