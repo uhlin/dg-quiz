@@ -102,6 +102,10 @@ body {
 .left { text-align: left; }
 .right { text-align: right; }
 .center { text-align: center; }
+.centerTable {
+	margin-left: auto;
+	margin-right: auto;
+}
 
 .textFieldStyle1 {
 	border: 1px solid peru;
