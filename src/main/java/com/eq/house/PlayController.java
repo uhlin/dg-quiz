@@ -17,6 +17,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -38,6 +39,14 @@ public class PlayController {
 
 	@Autowired
 	AnswerRepo answerRepo;
+
+	@PostMapping(path = "/evaluateAnswer", consumes = "application/json", produces = "application/json")
+	@ResponseBody
+	public String evaluateAnswer(@RequestBody Answer answer) {
+		StringBuilder sb = new StringBuilder("<h1>TODO: Add markup</h1>");
+
+		return "{\"html\": \"" + sb.toString() + "\"}";
+	}
 
 	private List<QuestionAndAnswer> getAllQna(
 			final String quizId,
