@@ -23,7 +23,7 @@
 	<h4 class="center">&ldquo;<span th:text="${question.getQuestion()}"></span>&rdquo;?</h4>
 	<h4 class="center">Alternatives</h4>
 
-	<form action="javascript:void(0);" method="POST" onsubmit="evaluateAnswer()">
+	<form action="javascript:void(0);" id="ansQuestionForm" method="POST" onsubmit="evaluateAnswer()">
 
 		<div th:replace="fragments/questionAnsAlt :: questionAnsAlt"></div>
 
@@ -42,29 +42,7 @@
 		<p class="center"><input type="submit" value="Exit" class="button button5" /></p>
 	</form>
 
-	<div id="modalOutputAnswer">
-	<div id="modalOutputAnswerContent">
-		<div id="ansContentDynamic">
-		</div>
-		<div id="ansContentStatic">
-			<table class="centerTable">
-			<tr>
-				<td>
-					<form th:action="@{/exitQuiz}" method="POST">
-
-						<input type="hidden" name="playerId" th:value="${playerId}" />
-						<input type="hidden" name="quizId" th:value="${quiz.getUniqueId()}" />
-
-						<p><input type="submit" value="Exit" class="button button5" /></p>
-
-					</form>
-				</td>
-				<td><button class="button button3" onclick="answerQuestion()">Next &rsaquo;</button></td>
-			</tr>
-			</table>
-		</div>
-	</div>
-	</div>
+	<div th:replace="fragments/modalOutputAnswer :: modalOutputAnswer"></div>
 
 </div> <!-- middle -->
 
