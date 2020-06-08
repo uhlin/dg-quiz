@@ -3,7 +3,6 @@
 - Backfunktion
 - Security auditing
 
-- Efter svar på fråga ska man få veta rätt svar
 - Formulär (kolla horsemetro.com)
 - Rapportera fråga vid:
   1. fel
