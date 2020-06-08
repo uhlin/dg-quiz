@@ -40,7 +40,9 @@ public class PlayController {
 	@Autowired
 	AnswerRepo answerRepo;
 
-	@PostMapping(path = "/evaluateAnswer", consumes = "application/json", produces = "application/json")
+	@PostMapping(path = "/evaluateAnswer",
+			consumes = "application/json",
+			produces = "application/json")
 	@ResponseBody
 	public String evaluateAnswer(@RequestBody Answer answer) {
 		StringBuilder sb = new StringBuilder("<h1>TODO: Add markup</h1>");
