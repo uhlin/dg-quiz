@@ -45,7 +45,28 @@ public class PlayController {
 			produces = "application/json")
 	@ResponseBody
 	public String evaluateAnswer(@RequestBody Answer answer) {
-		StringBuilder sb = new StringBuilder("<h1>TODO: Add markup</h1>");
+		final String errorJson = "{\"html\": \"INTERNAL ERROR\"}";
+
+		if (answer == null) {
+			System.err.println("evaluateAnswer: fatal: null answer");
+			return errorJson;
+		}
+
+		Question question = null;
+		final String quizId = answer.getQuizId();
+		final Integer questionNum = answer.getQuestionNum();
+
+		if ((question = getQuestion(quizId, questionNum)) == null)
+			return errorJson;
+
+		StringBuilder sb = new StringBuilder("");
+		QuestionAndAnswer qna = new QuestionAndAnswer(question, answer);
+
+		if (qna.isRightAnswer()) {
+			sb.append("<p class='gfxSuccess'>That's the right answer!</p>");
+		} else {
+			sb.append("<p class='gfxFailure'>Wrong</p>");
+		}
 
 		return "{\"html\": \"" + sb.toString() + "\"}";
 	}
