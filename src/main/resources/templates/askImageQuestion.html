@@ -6,6 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link th:href="@{/css/style.css}" rel="STYLESHEET" type="text/css" />
 	<link th:href="@{/css/checkbox.css}" rel="STYLESHEET" type="text/css" />
+	<link th:href="@{/css/modalOutAnswer.css}" rel="STYLESHEET" type="text/css" />
 
 	<style>
 	img.question {
@@ -35,7 +36,7 @@
 
 	<h4 class="center">Alternatives</h4>
 
-	<form th:action="@{/answerQuestion}" method="POST">
+	<form action="javascript:void(0);" id="ansQuestionForm" method="POST" onsubmit="evaluateAnswer()">
 
 		<div th:replace="fragments/questionAnsAlt :: questionAnsAlt"></div>
 
@@ -54,8 +55,13 @@
 		<p class="center"><input type="submit" value="Exit" class="button button5" /></p>
 	</form>
 
+	<div th:replace="fragments/modalOutputAnswer :: modalOutputAnswer"></div>
+
 </div> <!-- middle -->
 
 <div th:replace="fragments/bottom :: bottom"></div>
+
+<script src="/scripts/evaluateAnswer.js"></script>
+<script src="/scripts/answerQuestion.js"></script>
 </body>
 </html>
