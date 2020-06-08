@@ -8,6 +8,7 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   - `evaluateAnswer.js`
   - `modalOutAnswer.css`
 - Lade till mapping för: `/evaluateAnswer`
+- Lade till nya fragment
 
 ## 2020-06-05 ##
 - Lade till följande scripts:
