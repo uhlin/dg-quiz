@@ -66,6 +66,26 @@ public class PlayController {
 			sb.append("<p class='gfxSuccess'>That's the right answer!</p>");
 		} else {
 			sb.append("<p class='gfxFailure'>Wrong</p>");
+
+			if (!qna.hasTwoOrMoreAnswers())
+				sb.append("<h3>Right answer</h3>");
+			else
+				sb.append("<h3>Right answers</h3>");
+
+			sb.append("<table class='centerTable'>");
+
+			for (OptionAndText e : qna.getListOfRightAnswers()) {
+				sb.append("<tr>");
+				sb.append("<td class='gfxSuccess'>");
+				sb.append(e.getOpt() + ':');
+				sb.append("</td>");
+				sb.append("<td class='txtBold txtUnderline'>");
+				sb.append(e.getText());
+				sb.append("</td>");
+				sb.append("</tr>");
+			}
+
+			sb.append("</table>");
 		}
 
 		return "{\"html\": \"" + sb.toString() + "\"}";
