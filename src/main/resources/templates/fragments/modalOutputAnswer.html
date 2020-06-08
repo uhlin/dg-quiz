@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+
+<body>
+
+<div th:fragment="modalOutputAnswer" id="modalOutputAnswer">
+	<div id="modalOutputAnswerContent">
+		<div id="ansContentDynamic">
+		</div>
+		<div id="ansContentStatic">
+			<table class="centerTable">
+			<tr>
+				<td>
+					<form th:action="@{/exitQuiz}" method="POST">
+						<input type="hidden" name="playerId" th:value="${playerId}" />
+						<input type="hidden" name="quizId" th:value="${quiz.getUniqueId()}" />
+
+						<p><input type="submit" value="Exit" class="button button5" /></p>
+					</form>
+				</td>
+				<td><button class="button button3" onclick="answerQuestion()">Next &rsaquo;</button></td>
+			</tr>
+			</table>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
