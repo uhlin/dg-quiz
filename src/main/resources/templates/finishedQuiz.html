@@ -8,7 +8,7 @@
 
 	<style>
 	.question {
-		font-size: x-large;
+		font-size: large;
 		font-weight: bold;
 	}
 	.questionNum {
@@ -19,11 +19,11 @@
 	}
 	.opt {
 		color: mediumseagreen;
-		font-size: large;
+		font-size: medium;
 		font-weight: bold;
 	}
 	.optText {
-		font-size: large;
+		font-size: medium;
 		text-decoration: underline;
 		text-decoration-color: mediumseagreen;
 	}
@@ -36,9 +36,9 @@
 
 <div id="middle">
 
-	<h1>Quiz completed!</h1>
+	<div class="centerDiv"><h1>Quiz completed!</h1></div>
 
-	<p>
+	<p class="center txtXXlarge">
 		You answered
 		<span th:text="${rightAnswersCount}" class="gfxSuccess"></span>
 		questions correctly out of
@@ -46,7 +46,7 @@
 		possible.
 	</p>
 
-	<div th:each="qna: ${qnaList}">
+	<div class="centerDiv" th:each="qna: ${qnaList}">
 		<p class="question">
 			<span th:text="${qna.getQuestionNum()}" class="questionNum"></span>.
 			&ldquo;<span th:text="${qna.getQuestionText()}" class="questionText"></span>&rdquo;?
@@ -57,7 +57,8 @@
 		<p th:unless="${qna.isRightAnswer()}" class="gfxFailure">
 			Wrong
 		</p>
-		<h3>Right answers</h3>
+		<h5 th:if="${qna.hasTwoOrMoreAnswers()}">Right answers</h5>
+		<h5 th:unless="${qna.hasTwoOrMoreAnswers()}">Right answer</h5>
 		<table>
 			<tr th:each="e: ${qna.getListOfRightAnswers()}">
 				<td th:text="${e.getOpt() + ':'}" class="opt">

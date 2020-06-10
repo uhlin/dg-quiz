@@ -2,6 +2,11 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-06-10 ##
+- Lade till nya stilar
+- Gjorde arbete på följande mallar:
+  - `finishedQuiz.html`
+
 ## [1.0.0b] - 2020-06-08 ##
 - Lade till följande filer:
   - `answerQuestion.js`
