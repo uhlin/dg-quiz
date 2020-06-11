@@ -16,18 +16,40 @@
 
 <div id="middle">
 
-	<form th:action="@{/addQuestion}" method="POST" th:with="includeAllOpt=false">
-		<p>Please, choose question type and number of answers:</p>
+	<p>Please, choose question type and number of answers:</p>
 
-		<select th:replace="fragments/questionType :: questionType"></select>
-		<select th:replace="fragments/numAnswers :: numAnswers"></select>
+	<table>
+	<tr>
+		<td class="vertAlignBottom">
+			<form th:action="@{/addQuestion}" method="POST" th:with="includeAllOpt=false">
 
-		<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
-		<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
-		<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
+			<select th:replace="fragments/questionType :: questionType"></select>
+			<select th:replace="fragments/numAnswers :: numAnswers"></select>
 
-		<p><input type="submit" value="Change" class="button button4" /></p>
-	</form>
+			<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
+			<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
+			<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
+
+			<p><input type="submit" value="Change" class="button button4" /></p>
+
+			</form>
+		</td>
+		<td class="vertAlignBottom">
+			<form th:action="@{/addQuestion}" method="POST">
+
+			<p><input type="submit" value="&lsaquo; Prev" class="button button1" /></p>
+
+			</form>
+		</td>
+		<td class="vertAlignBottom">
+			<form th:action="@{/addQuestion}" method="POST">
+
+			<p><input type="submit" value="Next &rsaquo;" class="button button1" /></p>
+
+			</form>
+		</td>
+	</tr>
+	</table>
 
 	<h1>Add TEXT question for: <span th:text="${quizTitle}"></span></h1>
 
