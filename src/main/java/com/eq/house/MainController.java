@@ -27,6 +27,9 @@ public class MainController {
 	private static final int optTextMaxLen = 200;
 
 	@Autowired
+	PlayController pc;
+
+	@Autowired
 	QuizRepo repo;
 
 	@Autowired
