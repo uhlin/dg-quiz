@@ -161,7 +161,7 @@ public class PlayController {
 		return "".getBytes();
 	}
 
-	private Question getQuestion(final String quizId, final Integer questionNum) {
+	public Question getQuestion(final String quizId, final Integer questionNum) {
 		if (quizId == null || questionNum == null || quizId.equals("")) {
 			System.err.println("getQuestion: error: invalid arguments");
 			return null;
