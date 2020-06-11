@@ -2,6 +2,12 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-06-11 ##
+- Lade till följande scripts:
+  - `goForward.js`
+- Uppdaterade `style.css`
+- Arbetat med att fixa en backfunktion. (Ej klar.)
+
 ## 2020-06-10 ##
 - Lade till nya stilar
 - Gjorde arbete på följande mallar:
