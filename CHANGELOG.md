@@ -2,6 +2,9 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-06-12 ##
+- Fortsatt arbete med en backfunktion
+
 ## 2020-06-11 ##
 - Lade till följande scripts:
   - `goForward.js`
