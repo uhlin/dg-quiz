@@ -72,7 +72,10 @@
 	<form th:action="@{/addTextQuestion}" method="POST">
 		<p><span th:text="${questionNum}"></span>. Question:</p>
 
-		<p><input class="textFieldStyle1 w80" maxlength="180" name="question" type="text" /></p>
+		<p>
+			<input class="textFieldStyle1 w80" maxlength="180" name="question" type="text"
+			    th:value="${(question != null) ? question.getQuestion() : ''}" />
+		</p>
 
 		<div th:if="${numAnswers} == 4">
 			<table th:replace="fragments/4ans :: 4ans"></table>
