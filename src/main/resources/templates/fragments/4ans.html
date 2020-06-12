@@ -15,11 +15,15 @@
 
 	<tr>
 		<td><strong>A:</strong></td>
-		<td><input class="textFieldStyle1" maxlength="80" name="opt1Text" type="text" /></td>
+		<td>
+			<input class="textFieldStyle1" maxlength="80" name="opt1Text" type="text"
+			    th:value="${(question != null) ? question.getOpt1Text() : ''}" />
+		</td>
 		<td>
 			<select id="opt1Right" name="opt1Right">
 				<option value="0">No</option>
-				<option value="1">Yes</option>
+				<option value="1"
+				    th:selected="${question != null && question.getOpt1Right() == 1}">Yes</option>
 			</select>
 		</td>
 	</tr>
@@ -27,11 +31,15 @@
 
 	<tr>
 		<td><strong>B:</strong></td>
-		<td><input class="textFieldStyle1" maxlength="80" name="opt2Text" type="text" /></td>
+		<td>
+			<input class="textFieldStyle1" maxlength="80" name="opt2Text" type="text"
+			    th:value="${(question != null) ? question.getOpt2Text() : ''}" />
+		</td>
 		<td>
 			<select id="opt2Right" name="opt2Right">
 				<option value="0">No</option>
-				<option value="1">Yes</option>
+				<option value="1"
+				    th:selected="${question != null && question.getOpt2Right() == 1}">Yes</option>
 			</select>
 		</td>
 	</tr>
@@ -39,11 +47,15 @@
 
 	<tr>
 		<td><strong>C:</strong></td>
-		<td><input class="textFieldStyle1" maxlength="80" name="opt3Text" type="text" /></td>
+		<td>
+			<input class="textFieldStyle1" maxlength="80" name="opt3Text" type="text"
+			    th:value="${(question != null) ? question.getOpt3Text() : ''}" />
+		</td>
 		<td>
 			<select id="opt3Right" name="opt3Right">
 				<option value="0">No</option>
-				<option value="1">Yes</option>
+				<option value="1"
+				    th:selected="${question != null && question.getOpt3Right() == 1}">Yes</option>
 			</select>
 		</td>
 	</tr>
@@ -51,11 +63,15 @@
 
 	<tr>
 		<td><strong>D:</strong></td>
-		<td><input class="textFieldStyle1" maxlength="80" name="opt4Text" type="text" /></td>
+		<td>
+			<input class="textFieldStyle1" maxlength="80" name="opt4Text" type="text"
+			    th:value="${(question != null) ? question.getOpt4Text() : ''}" />
+		</td>
 		<td>
 			<select id="opt4Right" name="opt4Right">
 				<option value="0">No</option>
-				<option value="1">Yes</option>
+				<option value="1"
+				    th:selected="${question != null && question.getOpt4Right() == 1}">Yes</option>
 			</select>
 		</td>
 	</tr>
