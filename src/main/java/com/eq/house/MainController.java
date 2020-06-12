@@ -282,10 +282,16 @@ public class MainController {
 
 		switch (Utilities.intToQuestionType(type)) {
 		case Text:
+			if (question != null)
+				model.addAttribute("question", question.getqText());
 			return "addTextQuestion";
 		case Sound:
+			if (question != null)
+				model.addAttribute("question", question.getqSound());
 			return "addSoundQuestion";
 		case Image:
+			if (question != null)
+				model.addAttribute("question", question.getqImage());
 			return "addImageQuestion";
 		case None:
 			break;
