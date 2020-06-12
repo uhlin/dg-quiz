@@ -213,14 +213,16 @@ public class MainController {
 	@PostMapping("/addQuestion")
 	public String addQuestion(
 			Model model,
-			@RequestParam(name = "questionType", required = true) Integer type,
 			@RequestParam(name = "quizTitle",    required = true) String  title,
 			@RequestParam(name = "quizTopic",    required = true) Integer topic,
 			@RequestParam(name = "quizLang",     required = true) Integer lang,
-			@RequestParam(name = "numAnswers",   required = true) Integer num) {
+			@RequestParam(name = "questionType", required = false) Integer type,
+			@RequestParam(name = "questionNum",  required = false) Integer questionNum,
+			@RequestParam(name = "numAnswers",   required = false) Integer num) {
 		Quiz quiz = null;
+		Question question = null;
 
-		if (type == null || title == null || topic == null || lang == null || num == null) {
+		if (title == null || topic == null || lang == null) {
 			model.addAttribute("errorMsg", "addQuestion: fatal: invalid arguments");
 			return "error";
 		} else if (title.isEmpty()) {
@@ -236,15 +238,40 @@ public class MainController {
 			model.addAttribute("errorMsg", "addQuestion: fatal: " +
 					"already completed adding questions for that quiz");
 			return "error";
+		} else if (questionNum != null) {
+			question = pc.getQuestion(quiz.getUniqueId(), questionNum);
 		}
 
 		model.addAttribute("quizTitle", title);
 		model.addAttribute("quizTopic", topic);
 		model.addAttribute("quizLang", lang);
-		model.addAttribute("numAnswers", num);
+		model.addAttribute("quiz", quiz);
 
-		final Integer questionNum = quiz.getNumQuestions() + 1;
-		model.addAttribute("questionNum", questionNum);
+		if (question != null) {
+			model.addAttribute("questionNum", questionNum);
+
+			switch (question.getqType()) {
+			case Text:
+				type = 0;
+				model.addAttribute("numAnswers", question.getqText().haveSixOptions() ? 6 : 4);
+				break;
+			case Sound:
+				type = 1;
+				model.addAttribute("numAnswers", question.getqSound().haveSixOptions() ? 6 : 4);
+				break;
+			case Image:
+				type = 2;
+				model.addAttribute("numAnswers", question.getqImage().haveSixOptions() ? 6 : 4);
+				break;
+			case None:
+				type = 3;
+				break;
+			}
+		} else {
+			type = 0;
+			model.addAttribute("questionNum", (quiz.getNumQuestions() + 1));
+			model.addAttribute("numAnswers", (num != null ? num : 4));
+		}
 
 		System.out.println("---------- addQuestion: ----------");
 		System.out.println("questionType: " + type);
