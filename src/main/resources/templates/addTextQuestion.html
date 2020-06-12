@@ -34,15 +34,27 @@
 
 			</form>
 		</td>
-		<td class="vertAlignBottom">
+		<td th:if="${questionNum > 1}" class="vertAlignBottom">
 			<form th:action="@{/addQuestion}" method="POST">
+
+			<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
+			<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
+			<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
+
+			<input type="hidden" id="questionNum" name="questionNum" th:value="${questionNum - 1}" />
 
 			<p><input type="submit" value="&lsaquo; Prev" class="button button1" /></p>
 
 			</form>
 		</td>
-		<td class="vertAlignBottom">
+		<td th:if="${quiz != null && questionNum <= quiz.getNumQuestions()}" class="vertAlignBottom">
 			<form th:action="@{/addQuestion}" method="POST">
+
+			<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
+			<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
+			<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
+
+			<input type="hidden" id="questionNum" name="questionNum" th:value="${questionNum + 1}" />
 
 			<p><input type="submit" value="Next &rsaquo;" class="button button1" /></p>
 
