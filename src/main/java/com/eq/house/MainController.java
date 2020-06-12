@@ -187,7 +187,6 @@ public class MainController {
 		} else {
 			quiz.setNumQuestionsGoal(goal);
 			repo.save(quiz);
-			model.addAttribute("quiz", quiz);
 		}
 
 		System.out.println("quizTitle: " + title);
@@ -198,6 +197,7 @@ public class MainController {
 		model.addAttribute("quizTitle", title);
 		model.addAttribute("quizTopic", topic);
 		model.addAttribute("quizLang", lang);
+		model.addAttribute("quiz", quiz);
 
 		final Integer questionTypeDefault = 0;
 		final Integer questionNum = quiz.getNumQuestions() + 1;
