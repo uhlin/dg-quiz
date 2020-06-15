@@ -252,15 +252,18 @@ public class MainController {
 
 			switch (question.getqType()) {
 			case Text:
-				type = 0;
+				if (type == null)
+					type = 0;
 				model.addAttribute("numAnswers", question.getqText().haveSixOptions() ? 6 : 4);
 				break;
 			case Sound:
-				type = 1;
+				if (type == null)
+					type = 1;
 				model.addAttribute("numAnswers", question.getqSound().haveSixOptions() ? 6 : 4);
 				break;
 			case Image:
-				type = 2;
+				if (type == null)
+					type = 2;
 				model.addAttribute("numAnswers", question.getqImage().haveSixOptions() ? 6 : 4);
 				break;
 			case None:
@@ -268,7 +271,8 @@ public class MainController {
 				break;
 			}
 		} else {
-			type = 0;
+			if (type == null)
+				type = 0;
 			model.addAttribute("questionNum", (quiz.getNumQuestions() + 1));
 			model.addAttribute("numAnswers", (num != null ? num : 4));
 		}
