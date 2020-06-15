@@ -41,6 +41,32 @@ public class MainController {
 	@Autowired
 	QuestionImageRepo questionImageRepo;
 
+	private void deleteQuestion(Question question) {
+		if (question == null)
+			return;
+
+		switch (question.getqType()) {
+		case Text:
+			questionTextRepo.deleteByQuizIdAndQuestionNum(
+					question.getqText().getQuizId(),
+					question.getqText().getQuestionNum());
+			break;
+		case Sound:
+			questionSoundRepo.deleteByQuizIdAndQuestionNum(
+					question.getqSound().getQuizId(),
+					question.getqSound().getQuestionNum());
+			break;
+		case Image:
+			questionImageRepo.deleteByQuizIdAndQuestionNum(
+					question.getqImage().getQuizId(),
+					question.getqImage().getQuestionNum());
+			break;
+		default:
+			System.err.println("deleteQuestion: warning: cannot determine question type");
+			break;
+		}
+	}
+
 	private List<Quiz> getFilteredQuizzes(Topic byTopic, Language byLang) {
 		Iterable<Quiz> all = repo.findAll();
 		List<Quiz> f = new LinkedList<Quiz>();
