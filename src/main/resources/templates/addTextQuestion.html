@@ -93,7 +93,12 @@
 		<input type="hidden" id="numAnswers" name="numAnswers" th:value="${numAnswers}" />
 		<input type="hidden" id="questionNum" name="questionNum" th:value="${questionNum}" />
 
-		<p><input type="submit" value="Add question" class="button button3" /></p>
+		<p th:unless="${questionNum == (quiz.getNumQuestions() + 1)}">
+			<input type="submit" value="Edit question" class="button button3" />
+		</p>
+		<p th:if="${questionNum == (quiz.getNumQuestions() + 1)}">
+			<input type="submit" value="Add question" class="button button3" />
+		</p>
 	</form>
 
 	<form th:action="@{/abortCreateQuiz}" method="POST">
