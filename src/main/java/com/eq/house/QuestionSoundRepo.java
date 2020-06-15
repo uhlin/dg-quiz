@@ -12,5 +12,6 @@ public interface QuestionSoundRepo extends CrudRepository<QuestionSound, Long> {
 	List<QuestionSound> findByQuizId(String quizId);
 
 	void deleteByQuizId(String quizId);
+	void deleteByQuizIdAndQuestionNum(String quizId, Integer questionNum);
 
 }
