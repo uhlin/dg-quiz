@@ -16,18 +16,54 @@
 
 <div id="middle">
 
-	<form th:action="@{/addQuestion}" method="POST" th:with="includeAllOpt=false">
-		<p>Please, choose question type and number of answers:</p>
+	<p>Please, choose question type and number of answers:</p>
 
-		<select th:replace="fragments/questionType :: questionType"></select>
-		<select th:replace="fragments/numAnswers :: numAnswers"></select>
+	<table>
+	<tr>
+		<td class="vertAlignBottom">
+			<form th:action="@{/addQuestion}" method="POST" th:with="includeAllOpt=false">
 
-		<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
-		<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
-		<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
+			<select th:replace="fragments/questionType :: questionType"></select>
+			<select th:replace="fragments/numAnswers :: numAnswers"></select>
 
-		<p><input type="submit" value="Change" class="button button4" /></p>
-	</form>
+			<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
+			<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
+			<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
+
+			<input type="hidden" id="questionNum" name="questionNum" th:value="${questionNum}" />
+
+			<p><input type="submit" value="Change" class="button button4" /></p>
+
+			</form>
+		</td>
+		<td th:if="${questionNum > 1}" class="vertAlignBottom">
+			<form th:action="@{/addQuestion}" method="POST">
+
+			<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
+			<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
+			<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
+
+			<input type="hidden" id="questionNum" name="questionNum" th:value="${questionNum - 1}" />
+
+			<p><input type="submit" value="&lsaquo; Prev" class="button button1" /></p>
+
+			</form>
+		</td>
+		<td th:if="${quiz != null && questionNum <= quiz.getNumQuestions()}" class="vertAlignBottom">
+			<form th:action="@{/addQuestion}" method="POST">
+
+			<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
+			<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
+			<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
+
+			<input type="hidden" id="questionNum" name="questionNum" th:value="${questionNum + 1}" />
+
+			<p><input type="submit" value="Next &rsaquo;" class="button button1" /></p>
+
+			</form>
+		</td>
+	</tr>
+	</table>
 
 	<h1>Add SOUND question for: <span th:text="${quizTitle}"></span></h1>
 
@@ -37,7 +73,11 @@
 
 	<form th:action="@{/addSoundQuestion}" method="POST" enctype="multipart/form-data">
 		<p><span th:text="${questionNum}"></span>. Question:</p>
-		<p><input class="textFieldStyle1 w80" maxlength="180" name="question" type="text" /></p>
+
+		<p>
+			<input class="textFieldStyle1 w80" maxlength="180" name="question" type="text"
+			    th:value="${(question != null) ? question.getQuestion() : ''}" />
+		</p>
 
 		<p>Sound file:</p>
 		<p><input accept="audio/*" class="" name="soundFile" type="file" /></p>
@@ -54,8 +94,14 @@
 		<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
 
 		<input type="hidden" id="numAnswers" name="numAnswers" th:value="${numAnswers}" />
+		<input type="hidden" id="questionNum" name="questionNum" th:value="${questionNum}" />
 
-		<p><input type="submit" value="Add question" class="button button3" /></p>
+		<p th:unless="${questionNum == (quiz.getNumQuestions() + 1)}">
+			<input type="submit" value="Edit question" class="button button3" />
+		</p>
+		<p th:if="${questionNum == (quiz.getNumQuestions() + 1)}">
+			<input type="submit" value="Add question" class="button button3" />
+		</p>
 	</form>
 
 	<form th:action="@{/abortCreateQuiz}" method="POST">
