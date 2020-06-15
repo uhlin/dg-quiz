@@ -30,6 +30,8 @@
 			<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
 			<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
 
+			<input type="hidden" id="questionNum" name="questionNum" th:value="${questionNum}" />
+
 			<p><input type="submit" value="Change" class="button button4" /></p>
 
 			</form>
@@ -89,6 +91,7 @@
 		<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
 
 		<input type="hidden" id="numAnswers" name="numAnswers" th:value="${numAnswers}" />
+		<input type="hidden" id="questionNum" name="questionNum" th:value="${questionNum}" />
 
 		<p><input type="submit" value="Add question" class="button button3" /></p>
 	</form>
