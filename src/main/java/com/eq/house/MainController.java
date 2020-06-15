@@ -338,11 +338,13 @@ public class MainController {
 			@Valid QuestionText qText,
 			Model model,
 			BindingResult bindingResult,
-			@RequestParam(name = "quizTitle")  String title,
-			@RequestParam(name = "quizTopic")  Integer topic,
-			@RequestParam(name = "quizLang")   Integer lang,
-			@RequestParam(name = "numAnswers") Integer num) {
+			@RequestParam(name = "quizTitle")   String title,
+			@RequestParam(name = "quizTopic")   Integer topic,
+			@RequestParam(name = "quizLang")    Integer lang,
+			@RequestParam(name = "numAnswers")  Integer num,
+			@RequestParam(name = "questionNum") Integer questionNum) {
 		Quiz quiz = null;
+		Question question = null;
 
 		if (title == null || topic == null || lang == null || num == null) {
 			model.addAttribute("errorMsg", "addTextQuestion: fatal: invalid arguments");
@@ -359,13 +361,12 @@ public class MainController {
 			return "error";
 		}
 
-		Integer questionNum = quiz.getNumQuestions() + 1;
-		model.addAttribute("questionNum", questionNum);
-
 		model.addAttribute("quizTitle", title);
 		model.addAttribute("quizTopic", topic);
 		model.addAttribute("quizLang", lang);
+		model.addAttribute("quiz", quiz);
 		model.addAttribute("numAnswers", num);
+		model.addAttribute("questionNum", questionNum);
 
 		if (qText.getQuestion().equals("")) {
 			model.addAttribute("errorMsg", "Empty question");
@@ -393,19 +394,21 @@ public class MainController {
 			return "addTextQuestion";
 		} else if (bindingResult.hasErrors()) {
 			return "addTextQuestion";
+		} else if ((question = pc.getQuestion(quiz.getUniqueId(), questionNum)) != null) {
+			deleteQuestion(question);
 		}
 
 		qText.setQuizId(quiz.getUniqueId());
-		qText.setQuestionNum(quiz.increaseNumQuestions());
+		qText.setQuestionNum(questionNum);
+		if (questionNum == (quiz.getNumQuestions() + 1))
+			quiz.increaseNumQuestions();
 		qText.outputObject();
 		questionTextRepo.save(qText);
 
 		if (quiz.getNumQuestions().equals(quiz.getNumQuestionsGoal()))
 			return doneWithQuestions(model, title, topic, lang);
 
-		questionNum ++;
-		model.addAttribute("questionNum", questionNum);
-
+		model.addAttribute("questionNum", (quiz.getNumQuestions() + 1));
 		return "addTextQuestion";
 	}
 
@@ -416,12 +419,14 @@ public class MainController {
 			@Valid QuestionSound qSound,
 			Model model,
 			BindingResult bindingResult,
-			@RequestParam(name = "soundFile")  MultipartFile mpFile,
-			@RequestParam(name = "quizTitle")  String title,
-			@RequestParam(name = "quizTopic")  Integer topic,
-			@RequestParam(name = "quizLang")   Integer lang,
-			@RequestParam(name = "numAnswers") Integer num) {
+			@RequestParam(name = "soundFile")   MultipartFile mpFile,
+			@RequestParam(name = "quizTitle")   String title,
+			@RequestParam(name = "quizTopic")   Integer topic,
+			@RequestParam(name = "quizLang")    Integer lang,
+			@RequestParam(name = "numAnswers")  Integer num,
+			@RequestParam(name = "questionNum") Integer questionNum) {
 		Quiz quiz = null;
+		Question question = null;
 
 		if (title == null || topic == null || lang == null || num == null) {
 			model.addAttribute("errorMsg", "addSoundQuestion: fatal: invalid arguments");
@@ -438,13 +443,12 @@ public class MainController {
 			return "error";
 		}
 
-		Integer questionNum = quiz.getNumQuestions() + 1;
-		model.addAttribute("questionNum", questionNum);
-
 		model.addAttribute("quizTitle", title);
 		model.addAttribute("quizTopic", topic);
 		model.addAttribute("quizLang", lang);
+		model.addAttribute("quiz", quiz);
 		model.addAttribute("numAnswers", num);
+		model.addAttribute("questionNum", questionNum);
 
 		if (mpFile == null || mpFile.getSize() == 0) {
 			model.addAttribute("errorMsg", "Sound file null or zero size");
@@ -478,19 +482,21 @@ public class MainController {
 			return "addSoundQuestion";
 		} else if (bindingResult.hasErrors()) {
 			return "addSoundQuestion";
+		} else if ((question = pc.getQuestion(quiz.getUniqueId(), questionNum)) != null) {
+			deleteQuestion(question);
 		}
 
 		qSound.setQuizId(quiz.getUniqueId());
-		qSound.setQuestionNum(quiz.increaseNumQuestions());
+		qSound.setQuestionNum(questionNum);
+		if (questionNum == (quiz.getNumQuestions() + 1))
+			quiz.increaseNumQuestions();
 		qSound.outputObject();
 		questionSoundRepo.save(qSound);
 
 		if (quiz.getNumQuestions().equals(quiz.getNumQuestionsGoal()))
 			return doneWithQuestions(model, title, topic, lang);
 
-		questionNum ++;
-		model.addAttribute("questionNum", questionNum);
-
+		model.addAttribute("questionNum", (quiz.getNumQuestions() + 1));
 		return "addTextQuestion";
 	}
 
@@ -501,12 +507,14 @@ public class MainController {
 			@Valid QuestionImage qImage,
 			Model model,
 			BindingResult bindingResult,
-			@RequestParam(name = "imageFile")  MultipartFile mpFile,
-			@RequestParam(name = "quizTitle")  String title,
-			@RequestParam(name = "quizTopic")  Integer topic,
-			@RequestParam(name = "quizLang")   Integer lang,
-			@RequestParam(name = "numAnswers") Integer num) {
+			@RequestParam(name = "imageFile")   MultipartFile mpFile,
+			@RequestParam(name = "quizTitle")   String title,
+			@RequestParam(name = "quizTopic")   Integer topic,
+			@RequestParam(name = "quizLang")    Integer lang,
+			@RequestParam(name = "numAnswers")  Integer num,
+			@RequestParam(name = "questionNum") Integer questionNum) {
 		Quiz quiz = null;
+		Question question = null;
 
 		if (title == null || topic == null || lang == null || num == null) {
 			model.addAttribute("errorMsg", "addImageQuestion: fatal: invalid arguments");
@@ -523,13 +531,12 @@ public class MainController {
 			return "error";
 		}
 
-		Integer questionNum = quiz.getNumQuestions() + 1;
-		model.addAttribute("questionNum", questionNum);
-
 		model.addAttribute("quizTitle", title);
 		model.addAttribute("quizTopic", topic);
 		model.addAttribute("quizLang", lang);
+		model.addAttribute("quiz", quiz);
 		model.addAttribute("numAnswers", num);
+		model.addAttribute("questionNum", questionNum);
 
 		if (mpFile == null || mpFile.getSize() == 0) {
 			model.addAttribute("errorMsg", "Image file null or zero size");
@@ -563,19 +570,21 @@ public class MainController {
 			return "addImageQuestion";
 		} else if (bindingResult.hasErrors()) {
 			return "addImageQuestion";
+		} else if ((question = pc.getQuestion(quiz.getUniqueId(), questionNum)) != null) {
+			deleteQuestion(question);
 		}
 
 		qImage.setQuizId(quiz.getUniqueId());
-		qImage.setQuestionNum(quiz.increaseNumQuestions());
+		qImage.setQuestionNum(questionNum);
+		if (questionNum == (quiz.getNumQuestions() + 1))
+			quiz.increaseNumQuestions();
 		qImage.outputObject();
 		questionImageRepo.save(qImage);
 
 		if (quiz.getNumQuestions().equals(quiz.getNumQuestionsGoal()))
 			return doneWithQuestions(model, title, topic, lang);
 
-		questionNum ++;
-		model.addAttribute("questionNum", questionNum);
-
+		model.addAttribute("questionNum", (quiz.getNumQuestions() + 1));
 		return "addTextQuestion";
 	}
 
