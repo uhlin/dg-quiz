@@ -7,6 +7,9 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   - `deleteQuestion()`
 - Gjorde arbete på följande mallar:
   - `addTextQuestion.html`
+  - `addSoundQuestion.html`
+  - `addImageQuestion.html`
+- **Backfunktionen när man skapar Quiz fungerar nu**!
 
 ## 2020-06-12 ##
 - Fortsatt arbete med en backfunktion
