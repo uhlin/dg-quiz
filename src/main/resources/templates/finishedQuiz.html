@@ -57,8 +57,8 @@
 		<p th:unless="${qna.isRightAnswer()}" class="gfxFailure">
 			Wrong
 		</p>
-		<h5 th:if="${qna.hasTwoOrMoreAnswers()}">Right answers</h5>
-		<h5 th:unless="${qna.hasTwoOrMoreAnswers()}">Right answer</h5>
+		<h5 th:if="${qna.hasTwoOrMoreAnswers()}">Right answers:</h5>
+		<h5 th:unless="${qna.hasTwoOrMoreAnswers()}">Right answer:</h5>
 		<table>
 			<tr th:each="e: ${qna.getListOfRightAnswers()}">
 				<td th:text="${e.getOpt() + ':'}" class="opt">
