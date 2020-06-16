@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Quiz completed!</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link th:href="@{/css/style.css}" rel="STYLESHEET" type="text/css" />
+
+	<style>
+	</style>
+</head>
+
+<body>
+<div th:replace="fragments/top :: top"></div>
+<div th:replace="fragments/navigation :: navigation"></div>
+
+<div id="middle">
+
+	<div class="centerDiv"><h1>Quiz completed!</h1></div>
+
+	<p class="center txtXXlarge">
+		You answered
+		<span th:text="${rightAnswersCount}" class="gfxSuccess"></span>
+		questions correctly out of
+		<span th:text="${possibleRightAnswers}" class="gfxSuccess"></span>
+		possible.
+	</p>
+
+</div> <!-- middle -->
+
+<div th:replace="fragments/bottom :: bottom"></div>
+</body>
+</html>
