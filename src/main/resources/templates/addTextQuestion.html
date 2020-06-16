@@ -89,7 +89,8 @@
 			<input type="submit" value="Edit question" class="button button3" />
 		</p>
 		<p th:if="${questionNum == (quiz.getNumQuestions() + 1)}">
-			<input type="submit" value="Add question" class="button button3" />
+			<input class="button button3" type="submit"
+			    th:value="${(questionNum == quiz.getNumQuestionsGoal()) ? 'Create Quiz' : 'Add question'}" />
 		</p>
 	</form>
 
