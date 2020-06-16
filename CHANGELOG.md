@@ -2,6 +2,10 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-06-16 ##
+- Lade till följande fragment:
+  - `commonInput.html`
+
 ## 2020-06-15 ##
 - Lade till följande metoder i klassen MainController:
   - `deleteQuestion()`
