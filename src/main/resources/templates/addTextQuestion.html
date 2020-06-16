@@ -26,9 +26,7 @@
 			<select th:replace="fragments/questionType :: questionType"></select>
 			<select th:replace="fragments/numAnswers :: numAnswers"></select>
 
-			<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
-			<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
-			<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
+			<div th:replace="fragments/commonInput :: commonInput"></div>
 
 			<input type="hidden" id="questionNum" name="questionNum" th:value="${questionNum}" />
 
@@ -39,9 +37,7 @@
 		<td th:if="${questionNum > 1}" class="vertAlignBottom">
 			<form th:action="@{/addQuestion}" method="POST">
 
-			<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
-			<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
-			<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
+			<div th:replace="fragments/commonInput :: commonInput"></div>
 
 			<input type="hidden" id="questionNum" name="questionNum" th:value="${questionNum - 1}" />
 
@@ -52,9 +48,7 @@
 		<td th:if="${quiz != null && questionNum <= quiz.getNumQuestions()}" class="vertAlignBottom">
 			<form th:action="@{/addQuestion}" method="POST">
 
-			<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
-			<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
-			<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
+			<div th:replace="fragments/commonInput :: commonInput"></div>
 
 			<input type="hidden" id="questionNum" name="questionNum" th:value="${questionNum + 1}" />
 
@@ -86,9 +80,7 @@
 			<table th:replace="fragments/6ans :: 6ans"></table>
 		</div>
 
-		<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
-		<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
-		<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
+		<div th:replace="fragments/commonInput :: commonInput"></div>
 
 		<input type="hidden" id="numAnswers" name="numAnswers" th:value="${numAnswers}" />
 		<input type="hidden" id="questionNum" name="questionNum" th:value="${questionNum}" />
@@ -104,9 +96,7 @@
 	<form th:action="@{/abortCreateQuiz}" method="POST">
 		<p><input type="submit" value="Cancel" class="button button4" /></p>
 
-		<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
-		<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
-		<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
+		<div th:replace="fragments/commonInput :: commonInput"></div>
 	</form>
 
 </div> <!-- middle -->
