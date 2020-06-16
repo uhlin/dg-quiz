@@ -5,6 +5,8 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 ## 2020-06-16 ##
 - Lade till följande fragment:
   - `commonInput.html`
+- På den sista frågan vid skapande av Quiz skrivs "Create Quiz" ut
+  istället för "Add question".
 
 ## 2020-06-15 ##
 - Lade till följande metoder i klassen MainController:
