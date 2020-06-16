@@ -265,7 +265,7 @@ public class MainController {
 					"already completed adding questions for that quiz");
 			return "error";
 		} else if (questionNum != null) {
-			question = pc.getQuestion(quiz.getUniqueId(), questionNum);
+			question = pc.getQuestion(quiz.getUniqueId(), questionNum, false);
 		}
 
 		model.addAttribute("quizTitle", title);
@@ -394,7 +394,7 @@ public class MainController {
 			return "addTextQuestion";
 		} else if (bindingResult.hasErrors()) {
 			return "addTextQuestion";
-		} else if ((question = pc.getQuestion(quiz.getUniqueId(), questionNum)) != null) {
+		} else if ((question = pc.getQuestion(quiz.getUniqueId(), questionNum, false)) != null) {
 			deleteQuestion(question);
 		}
 
@@ -482,7 +482,7 @@ public class MainController {
 			return "addSoundQuestion";
 		} else if (bindingResult.hasErrors()) {
 			return "addSoundQuestion";
-		} else if ((question = pc.getQuestion(quiz.getUniqueId(), questionNum)) != null) {
+		} else if ((question = pc.getQuestion(quiz.getUniqueId(), questionNum, false)) != null) {
 			deleteQuestion(question);
 		}
 
@@ -570,7 +570,7 @@ public class MainController {
 			return "addImageQuestion";
 		} else if (bindingResult.hasErrors()) {
 			return "addImageQuestion";
-		} else if ((question = pc.getQuestion(quiz.getUniqueId(), questionNum)) != null) {
+		} else if ((question = pc.getQuestion(quiz.getUniqueId(), questionNum, false)) != null) {
 			deleteQuestion(question);
 		}
 

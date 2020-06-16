@@ -56,7 +56,7 @@ public class PlayController {
 		final String quizId = answer.getQuizId();
 		final Integer questionNum = answer.getQuestionNum();
 
-		if ((question = getQuestion(quizId, questionNum)) == null)
+		if ((question = getQuestion(quizId, questionNum, true)) == null)
 			return errorJson;
 
 		StringBuilder sb = new StringBuilder("");
@@ -107,7 +107,7 @@ public class PlayController {
 		List<QuestionAndAnswer> qnaList = new LinkedList<QuestionAndAnswer>();
 
 		for (Integer i = 1; i <= quiz.getNumQuestions(); i ++) {
-			Question question = getQuestion(quizId, i);
+			Question question = getQuestion(quizId, i, false);
 			Answer   answer   = getAnswer(playerId, quizId, i);
 
 			if (question == null || answer == null)
@@ -161,7 +161,7 @@ public class PlayController {
 		return "".getBytes();
 	}
 
-	public Question getQuestion(final String quizId, final Integer questionNum) {
+	public Question getQuestion(final String quizId, final Integer questionNum, final boolean outErr) {
 		if (quizId == null || questionNum == null || quizId.equals("")) {
 			System.err.println("getQuestion: error: invalid arguments");
 			return null;
@@ -200,10 +200,13 @@ public class PlayController {
 		}
 
 		/* not found! */
-		System.err.println("----- getQuestion: -----");
-		System.err.println("quizId:      " + quizId);
-		System.err.println("questionNum: " + questionNum);
-		System.err.println("CANNOT FIND QUESTION!!!");
+		if (outErr) {
+			System.err.println("----- getQuestion: -----");
+			System.err.println("quizId:      " + quizId);
+			System.err.println("questionNum: " + questionNum);
+			System.err.println("CANNOT FIND QUESTION!!!");
+		}
+
 		return null;
 	}
 
@@ -259,7 +262,7 @@ public class PlayController {
 		if ((quiz = getQuizByUniqueId(quizId)) == null) {
 			model.addAttribute("errorMsg", "askQuestion: fatal: cannot find quiz");
 			return "error";
-		} else if ((question = getQuestion(quizId, questionNum)) == null) {
+		} else if ((question = getQuestion(quizId, questionNum, true)) == null) {
 			model.addAttribute("errorMsg", "askQuestion: fatal: cannot find question");
 			return "error";
 		}
@@ -343,7 +346,7 @@ public class PlayController {
 		if ((quiz = getQuizByUniqueId(quizId)) == null) {
 			attr.addAttribute("errorMsg", "answerQuestion: fatal: cannot find quiz");
 			return "redirect:/error";
-		} else if ((question = getQuestion(quizId, questionNum)) == null) {
+		} else if ((question = getQuestion(quizId, questionNum, true)) == null) {
 			attr.addAttribute("errorMsg", "answerQuestion: fatal: cannot find question");
 			return "redirect:/error";
 		} else if (questionNum < 1 || questionNum > quiz.getNumQuestions()) {
