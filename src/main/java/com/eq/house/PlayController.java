@@ -68,9 +68,9 @@ public class PlayController {
 			sb.append("<p class='gfxFailure'>Wrong</p>");
 
 			if (!qna.hasTwoOrMoreAnswers())
-				sb.append("<h3>Right answer</h3>");
+				sb.append("<h4>Right answer:</h4>");
 			else
-				sb.append("<h3>Right answers</h3>");
+				sb.append("<h4>Right answers:</h4>");
 
 			sb.append("<table class='centerTable'>");
 
