@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+
+<body>
+<div th:fragment="commonInput" th:remove="tag">
+	<input type="hidden" id="quizTitle" name="quizTitle" th:value="${quizTitle}" />
+	<input type="hidden" id="quizTopic" name="quizTopic" th:value="${quizTopic}" />
+	<input type="hidden" id="quizLang"  name="quizLang"  th:value="${quizLang}" />
+</div>
+</body>
+</html>
