@@ -1,6 +1,5 @@
 # Att göra lista #
 
-- Backfunktion
 - Security auditing
 
 - Formulär (kolla horsemetro.com)
