@@ -7,6 +7,8 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   - `commonInput.html`
 - På den sista frågan vid skapande av Quiz skrivs "Create Quiz" ut
   istället för "Add question".
+- Lade till följande mallar:
+  - `finishedQuizV2.html`
 
 ## 2020-06-15 ##
 - Lade till följande metoder i klassen MainController:
