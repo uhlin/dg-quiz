@@ -462,6 +462,6 @@ public class PlayController {
 		model.addAttribute("possibleRightAnswers", qnaList.size());
 		model.addAttribute("qnaList", qnaList);
 
-		return "finishedQuiz";
+		return "finishedQuizV2";
 	}
 }
