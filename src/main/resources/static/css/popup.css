@@ -59,3 +59,10 @@
 	from	{ opacity: 0; }
 	to	{ opacity: 1; }
 }
+
+.bullets {
+	color: #bbb;
+}
+.bullets:hover {
+	color: peru;
+}
