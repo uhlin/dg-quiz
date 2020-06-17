@@ -78,6 +78,29 @@ body {
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
+.dBlock {
+	display: block;
+}
+.dInline {
+	display: inline;
+}
+.dInlineBlock {
+	display: inline-block;
+}
+.dNone {
+	display: none;
+}
+
+.floatLeft {
+	float: left;
+}
+.floatRight {
+	float: right;
+}
+.floatNone {
+	float: none;
+}
+
 .gfxFailure {
 	color: red;
 	font-weight: bold;
