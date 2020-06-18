@@ -2,6 +2,13 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-06-18 ##
+- Lade till följande filer:
+  - `modalReportQuestionErrors.css`
+  - `modalReportQuestionContents.css`
+  - `modalReportQuestionErrors.html`
+  - `modalReportQuestionContents.html`
+
 ## 2020-06-17 ##
 - Lade till nya stilar
 - Lade till följande filer:
