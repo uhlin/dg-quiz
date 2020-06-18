@@ -10,13 +10,14 @@
 }
 
 .popupContainer .popupActual {
-	background-color: #555;
+	background-color: white;
+	border: 1px solid #ccc;
 	border-radius: 6px;
 	bottom: 125%;
-	color: #fff;
+	color: black;
 	left: 50%;
 	margin-left: -80px;
-	padding: 8px 0;
+	padding: 8px;
 	position: absolute;
 	text-align: center;
 	visibility: hidden;
@@ -28,14 +29,25 @@
  * Popup arrow
  */
 .popupContainer .popupActual::after {
-	border-color: #555 transparent transparent transparent;
+	border-color: #ccc transparent transparent transparent;
 	border-style: solid;
-	border-width: 5px;
+	border-width: 10px;
 	content: "";
 	left: 50%;
-	margin-left: -5px;
+	margin-left: -10px;
 	position: absolute;
 	top: 100%;
+}
+
+.popupActual td {
+	font-size: x-small;
+	font-weight: bold;
+	height: 3em;
+	padding-left: 8px;
+}
+
+.popupActual td:hover {
+	border-left: 3px solid peru;
 }
 
 /*
