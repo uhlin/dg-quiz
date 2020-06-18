@@ -2,6 +2,11 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-06-17 ##
+- Lade till nya stilar
+- Lade till följande filer:
+  - `popup.css`
+
 ## 2020-06-16 ##
 - Lade till följande fragment:
   - `commonInput.html`
