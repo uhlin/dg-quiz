@@ -31,12 +31,12 @@
 
 			<table class="popupActual" id="reportPopup">
 			<tr>
-				<td>
+				<td onclick="openReportErrorsForm()">
 				Report Errors
 				</td>
 			</tr>
 			<tr>
-				<td>
+				<td onclick="openReportContentsForm()">
 				Report Contents
 				</td>
 			</tr>
@@ -76,6 +76,14 @@
 function toggleReportPopup() {
 	var popup = document.getElementById("reportPopup");
 	popup.classList.toggle("show");
+}
+
+function openReportErrorsForm() {
+	alert("Report Errors");
+}
+
+function openReportContentsForm() {
+	alert("Report Contents");
 }
 </script>
 <script src="/scripts/evaluateAnswer.js"></script>
