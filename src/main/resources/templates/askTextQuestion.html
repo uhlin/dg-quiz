@@ -7,6 +7,8 @@
 	<link th:href="@{/css/style.css}" rel="STYLESHEET" type="text/css" />
 	<link th:href="@{/css/checkbox.css}" rel="STYLESHEET" type="text/css" />
 	<link th:href="@{/css/modalOutAnswer.css}" rel="STYLESHEET" type="text/css" />
+	<link th:href="@{/css/modalReportQuestionErrors.css}" rel="STYLESHEET" type="text/css" />
+	<link th:href="@{/css/modalReportQuestionContents.css}" rel="STYLESHEET" type="text/css" />
 	<link th:href="@{/css/popup.css}" rel="STYLESHEET" type="text/css" />
 
 	<style>
@@ -67,6 +69,8 @@
 	</form>
 
 	<div th:replace="fragments/modalOutputAnswer :: modalOutputAnswer"></div>
+	<div th:replace="fragments/modalReportQuestionErrors :: modalReportQuestionErrors"></div>
+	<div th:replace="fragments/modalReportQuestionContents :: modalReportQuestionContents"></div>
 
 </div> <!-- middle -->
 
