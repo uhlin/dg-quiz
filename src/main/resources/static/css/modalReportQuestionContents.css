@@ -20,7 +20,7 @@
 	padding: 0;
 	position: relative;
 	text-align: center;
-	width: 35%;
+	width: 330px;
 
 	-webkit-animation-name: animatetop;
 	-webkit-animation-duration: 0.4s;
@@ -39,6 +39,13 @@
 	font-size: small;
 	text-align: left;
 	padding: 1em;
+}
+
+#reportDesc {
+	border: 1px solid peru;
+	height: 100px;
+	resize: none;
+	width: 295px;
 }
 
 .closeRqc {
