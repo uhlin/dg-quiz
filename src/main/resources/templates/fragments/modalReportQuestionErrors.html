@@ -8,6 +8,24 @@
 
 <div th:fragment="modalReportQuestionErrors" id="modalReportQuestionErrors">
 	<div id="modalReportQuestionErrors_object">
+		<div id="modalRqeHeader">
+			<span class="dInline txtBold txtSmall">REPORT THIS QUESTION?</span>
+			<span class="closeRqe dInline" onclick="closeReportErrorsForm()">&times;</span>
+		</div>
+		<div id="modalRqeBody">
+			<form action="" method="POST">
+				<p>
+					<span class="txtBold txtXsmall">WHAT DO YOU WANT TO REPORT?</span><br />
+					<textarea id="reportErrorsDesc" name="reportErrorsDesc" maxlength="400"
+					    placeholder="What is wrong with this question? (required)"
+					    rows="" cols="" required></textarea>
+				</p>
+
+				<p class="center">
+					<input type="submit" value="SEND REPORT" class="button button4" />
+				</p>
+			</form>
+		</div>
 	</div>
 </div>
 
