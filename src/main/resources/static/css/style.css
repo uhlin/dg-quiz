@@ -147,10 +147,13 @@ body {
 .txtNormal { font-weight: normal; }
 .txtUnderline { text-decoration: underline; }
 
-.txtMedium { font-size: medium; }
-.txtLarge { font-size: large; }
-.txtXlarge { font-size: x-large; }
-.txtXXlarge { font-size: xx-large; }
+.txtXXsmall	{ font-size: xx-small; }
+.txtXsmall	{ font-size: x-small; }
+.txtSmall	{ font-size: small; }
+.txtMedium	{ font-size: medium; }
+.txtLarge	{ font-size: large; }
+.txtXlarge	{ font-size: x-large; }
+.txtXXlarge	{ font-size: xx-large; }
 
 .vertAlignBottom { vertical-align: bottom; }
 .vertAlignTop { vertical-align: top; }
@@ -161,6 +164,7 @@ body {
 .w75 { width: 75%; }
 .w80 { width: 80%; }
 .w85 { width: 85%; }
+.w100 { width: 100%; }
 
 a {
 	color: peru;
