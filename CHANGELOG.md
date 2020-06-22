@@ -4,6 +4,9 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
 ## 2020-06-22 ##
 - Lade till nya stilar
+- Lade till följande filer:
+  - `reportQuestionErrors.js`
+  - `reportQuestionContents.js`
 
 ## 2020-06-18 ##
 - Lade till följande filer:
