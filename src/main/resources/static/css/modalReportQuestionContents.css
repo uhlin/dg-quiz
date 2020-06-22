@@ -20,10 +20,36 @@
 	padding: 0;
 	position: relative;
 	text-align: center;
-	width: 45%;
+	width: 35%;
 
 	-webkit-animation-name: animatetop;
 	-webkit-animation-duration: 0.4s;
 	animation-name: animatetop;
 	animation-duration: 0.4s;
+}
+
+#modalRqcHeader {
+	background-color: lightgrey;
+	color: white;
+	height: 1.5em;
+	padding: 1em;
+}
+
+#modalRqcBody {
+	font-size: small;
+	text-align: left;
+	padding: 1em;
+}
+
+.closeRqc {
+	color: white;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.closeRqc:hover, .closeRqc:focus {
+	color: #000;
+	cursor: pointer;
+	text-decoration: none;
 }
