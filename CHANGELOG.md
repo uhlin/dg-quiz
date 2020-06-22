@@ -10,6 +10,7 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 - Gjorde arbete på följande mallar:
   - `askTextQuestion.html`
 - Ändrade följande fragment:
+  - `modalReportQuestionErrors.html`
   - `modalReportQuestionContents.html`
 
 ## 2020-06-18 ##
