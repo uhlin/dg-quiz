@@ -7,6 +7,10 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 - Lade till följande filer:
   - `reportQuestionErrors.js`
   - `reportQuestionContents.js`
+- Gjorde arbete på följande mallar:
+  - `askTextQuestion.html`
+- Ändrade följande fragment:
+  - `modalReportQuestionContents.html`
 
 ## 2020-06-18 ##
 - Lade till följande filer:
