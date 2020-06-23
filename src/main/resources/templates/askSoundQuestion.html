@@ -7,6 +7,9 @@
 	<link th:href="@{/css/style.css}" rel="STYLESHEET" type="text/css" />
 	<link th:href="@{/css/checkbox.css}" rel="STYLESHEET" type="text/css" />
 	<link th:href="@{/css/modalOutAnswer.css}" rel="STYLESHEET" type="text/css" />
+	<link th:href="@{/css/modalReportQuestionErrors.css}" rel="STYLESHEET" type="text/css" />
+	<link th:href="@{/css/modalReportQuestionContents.css}" rel="STYLESHEET" type="text/css" />
+	<link th:href="@{/css/popup.css}" rel="STYLESHEET" type="text/css" />
 
 	<style>
 	</style>
@@ -19,7 +22,30 @@
 <div id="middle">
 
 	<h2 class="center"><span th:text="${quiz.getTitle()}"></span></h2>
-	<h3 class="center">Question number <span th:text="${question.getQuestionNum()}"></span></h3>
+
+	<div class="center centerDiv">
+		<h3 class="dInline">
+			Question number <span th:text="${question.getQuestionNum()}"></span>
+		</h3>
+
+		<div class="dInline floatRight popupContainer" onclick="toggleReportPopup()">
+			<span class="bullets">&bull;&bull;&bull;</span>
+
+			<table class="popupActual" id="reportPopup">
+			<tr>
+				<td onclick="openReportErrorsForm()">
+				Report Errors
+				</td>
+			</tr>
+			<tr>
+				<td onclick="openReportContentsForm()">
+				Report Contents
+				</td>
+			</tr>
+			</table>
+		</div>
+	</div>
+
 	<h4 class="center">&ldquo;<span th:text="${question.getQuestion()}"></span>&rdquo;?</h4>
 
 	<p class="center">
@@ -52,11 +78,21 @@
 	</form>
 
 	<div th:replace="fragments/modalOutputAnswer :: modalOutputAnswer"></div>
+	<div th:replace="fragments/modalReportQuestionErrors :: modalReportQuestionErrors"></div>
+	<div th:replace="fragments/modalReportQuestionContents :: modalReportQuestionContents"></div>
 
 </div> <!-- middle -->
 
 <div th:replace="fragments/bottom :: bottom"></div>
 
+<script>
+function toggleReportPopup() {
+	var popup = document.getElementById("reportPopup");
+	popup.classList.toggle("show");
+}
+</script>
+<script src="/scripts/reportQuestionErrors.js"></script>
+<script src="/scripts/reportQuestionContents.js"></script>
 <script src="/scripts/evaluateAnswer.js"></script>
 <script src="/scripts/answerQuestion.js"></script>
 </body>
