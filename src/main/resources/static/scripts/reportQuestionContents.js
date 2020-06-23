@@ -5,3 +5,7 @@ function openReportContentsForm() {
 function closeReportContentsForm() {
 	modalReportQuestionContents.style.display = "none";
 }
+
+function reportQuestionContent() {
+
+}
