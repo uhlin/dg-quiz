@@ -9,6 +9,8 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 - Lade till följande filer:
   - `ReportController.java`
   - `ReportSubject.java` (enum)
+  - `ReportQuestionError.java`
+  - `ReportQuestionContent.java`
 
 ## 2020-06-22 ##
 - Lade till nya stilar
