@@ -5,3 +5,7 @@ function openReportErrorsForm() {
 function closeReportErrorsForm() {
 	modalReportQuestionErrors.style.display = "none";
 }
+
+function reportQuestionError() {
+
+}
