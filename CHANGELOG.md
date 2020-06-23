@@ -6,6 +6,9 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 - Gjorde arbete på följande mallar:
   - `askSoundQuestion.html`
   - `askImageQuestion.html`
+- Lade till följande filer:
+  - `ReportController.java`
+  - `ReportSubject.java` (enum)
 
 ## 2020-06-22 ##
 - Lade till nya stilar
