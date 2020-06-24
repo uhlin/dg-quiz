@@ -2,6 +2,12 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-06-24 ##
+- Lade till kod till följande JS funktioner:
+  - `reportQuestionError()`
+- Gjorde arbete på följande klasser:
+  - `ReportQuestionError`
+
 ## 2020-06-23 ##
 - Gjorde arbete på följande mallar:
   - `askSoundQuestion.html`
