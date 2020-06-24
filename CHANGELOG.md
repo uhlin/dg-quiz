@@ -5,8 +5,11 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 ## 2020-06-24 ##
 - Lade till kod till följande JS funktioner:
   - `reportQuestionError()`
+  - `reportQuestionContent()`
 - Gjorde arbete på följande klasser:
   - `ReportQuestionError`
+- Lade till följande metoder i klassen Utilities:
+  - `intToReportSubject()`
 
 ## 2020-06-23 ##
 - Gjorde arbete på följande mallar:
