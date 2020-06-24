@@ -172,4 +172,32 @@ public class Utilities {
 		final double maxSize = (MainController.imageFileMaxBytesUncompressed / oneMegaByte);
 		return ("Max is: " + maxSize + " MB");
 	}
+
+	public static ReportSubject intToReportSubject(Integer i) {
+		switch (i) {
+		case 0:
+			return ReportSubject.Abuse;
+		case 1:
+			return ReportSubject.FalseNews;
+		case 2:
+			return ReportSubject.Harassment;
+		case 3:
+			return ReportSubject.HateSpeech;
+		case 4:
+			return ReportSubject.Nudity;
+		case 5:
+			return ReportSubject.PromotingDrugs;
+		case 6:
+			return ReportSubject.ScamOrFraud;
+		case 7:
+			return ReportSubject.Spam;
+		case 8:
+			return ReportSubject.Terrorism;
+		case 9:
+			return ReportSubject.Violence;
+		}
+
+		System.err.println("intToReportSubject: warning: unknown report subject");
+		return ReportSubject.Abuse;
+	} /* intToReportSubject() */
 }
