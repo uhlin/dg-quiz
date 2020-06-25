@@ -1,5 +1,6 @@
 !.mvn/wrapper/maven-wrapper.jar
 bin/
+dg-quiz-*
 quizzes/
 target/
 
