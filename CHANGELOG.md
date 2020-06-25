@@ -8,6 +8,8 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 - Gjorde arbete på följande klasser:
   - `ReportQuestionContent`
 - pom.xml: lade till nya beroenden
+- Lade till följande klasser:
+  - `EmailConfiguration`
 
 ## 2020-06-24 ##
 - Lade till kod till följande JS funktioner:
