@@ -2,6 +2,10 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-06-25 ##
+- Lade till följande metoder i klassen Utilities:
+  - `reportSubjectToString()`
+
 ## 2020-06-24 ##
 - Lade till kod till följande JS funktioner:
   - `reportQuestionError()`
