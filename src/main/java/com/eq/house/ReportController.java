@@ -123,7 +123,36 @@ public class ReportController {
 			produces = "application/json")
 	@ResponseBody
 	public String reportQuestionContents(@RequestBody ReportQuestionContent report) {
+		if (report == null)
+			return failedJson;
 		report.outputObject();
+
+		Quiz quiz = pc.getQuizByUniqueId(report.getQuizId());
+		Question question = pc.getQuestion(report.getQuizId(), report.getQuestionNum(), true);
+		if (quiz == null || question == null)
+			return failedJson;
+
+		final String to = "staff@question.contents.hq.com";
+		final String from = "Question Contents <no-reply@question.contents.hq.com>";
+
+		StringBuilder subject = new StringBuilder("QUIZ REPORT: QUESTION CONTENT ");
+
+		subject.append('-');
+		subject.append(Utilities.reportSubjectToString(report.getReportSubject()));
+		subject.append('-');
+
+		StringBuilder text = new StringBuilder("QUESTION CONTENT REPORT\r\n\r\n");
+
+		text.append(_getPlayerId(report.getPlayerId()));
+		text.append(_getQuizId(report.getQuizId()));
+		text.append(_getQuizTitle(quiz.getTitle()));
+		text.append(_getQuizTopic(quiz.getTopicString()));
+		text.append(_getQuestionNumAndQuestion(question));
+		text.append(report.getReportDesc());
+		text.append("\r\n");
+
+		emailService.sendSimpleMessage(to, from, subject.toString(), text.toString());
+
 		return reportSentJson;
 	}
 }
