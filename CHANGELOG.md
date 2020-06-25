@@ -10,6 +10,7 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 - pom.xml: lade till nya beroenden
 - Lade till följande klasser:
   - `EmailConfiguration`
+  - `EmailService`
 
 ## 2020-06-24 ##
 - Lade till kod till följande JS funktioner:
