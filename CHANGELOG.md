@@ -7,6 +7,7 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   - `reportSubjectToString()`
 - Gjorde arbete på följande klasser:
   - `ReportQuestionContent`
+- pom.xml: lade till nya beroenden
 
 ## 2020-06-24 ##
 - Lade till kod till följande JS funktioner:
