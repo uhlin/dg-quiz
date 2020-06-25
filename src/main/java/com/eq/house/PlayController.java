@@ -213,7 +213,7 @@ public class PlayController {
 		return null;
 	}
 
-	private Quiz getQuizByUniqueId(final String id) {
+	public Quiz getQuizByUniqueId(final String id) {
 		if (id == null)
 			return null;
 
