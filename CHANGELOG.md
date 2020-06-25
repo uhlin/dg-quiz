@@ -11,6 +11,7 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 - Lade till följande klasser:
   - `EmailConfiguration`
   - `EmailService`
+- Det går nu att rapportera en fråga vid fel alternativt olämpligt innehåll.
 
 ## 2020-06-24 ##
 - Lade till kod till följande JS funktioner:
