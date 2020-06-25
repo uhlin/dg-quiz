@@ -200,4 +200,32 @@ public class Utilities {
 		System.err.println("intToReportSubject: warning: unknown report subject");
 		return ReportSubject.Abuse;
 	} /* intToReportSubject() */
+
+	public static final String reportSubjectToString(ReportSubject rs) {
+		switch (rs) {
+		case Abuse:
+			return "Abuse";
+		case FalseNews:
+			return "False news";
+		case Harassment:
+			return "Harassment";
+		case HateSpeech:
+			return "Hate speech";
+		case Nudity:
+			return "Nudity or inappropriate sexual content";
+		case PromotingDrugs:
+			return "Promoting/advertising/selling drugs";
+		case ScamOrFraud:
+			return "Scam or fraud";
+		case Spam:
+			return "Spam";
+		case Terrorism:
+			return "Terrorism";
+		case Violence:
+			return "Violence";
+		}
+
+		System.err.println("reportSubjectToString: warning: unknown report subject");
+		return ("Abuse");
+	} /* reportSubjectToString() */
 }
