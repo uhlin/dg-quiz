@@ -22,7 +22,8 @@ public class ReportController {
 			consumes = "application/json",
 			produces = "application/json")
 	@ResponseBody
-	public String reportQuestionContents() {
+	public String reportQuestionContents(@RequestBody ReportQuestionContent report) {
+		report.outputObject();
 		return reportSentJson;
 	}
 }
