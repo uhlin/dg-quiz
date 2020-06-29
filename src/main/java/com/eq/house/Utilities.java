@@ -1,5 +1,6 @@
 package com.eq.house;
 
+import java.util.UUID;
 import java.util.zip.Deflater;
 import java.util.zip.Inflater;
 
@@ -228,4 +229,14 @@ public class Utilities {
 		System.err.println("reportSubjectToString: warning: unknown report subject");
 		return ("Abuse");
 	} /* reportSubjectToString() */
+
+	public static boolean isValidUUID(final String str) {
+		try {
+			UUID.fromString(str);
+		} catch (IllegalArgumentException ex) {
+			return false;
+		}
+
+		return true;
+	}
 }
