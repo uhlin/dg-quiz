@@ -1,6 +1,7 @@
 # Att göra lista #
 
-- Security auditing
+- Adminlösenord
+- Radioknappar för svarsalternativ
 
 ## Kontakt ##
 
