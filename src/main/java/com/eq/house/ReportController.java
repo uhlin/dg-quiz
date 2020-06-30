@@ -14,8 +14,8 @@ public class ReportController {
 	@Autowired
 	private EmailService emailService;
 
-	private final String reportSentJson = "{\"html\": \"Report Sent!\"}";
-	private final String failedJson = "{\"html\": \"An error occurred. Could not send report.\"}";
+	private static final String reportSentJson = "{\"html\": \"Report Sent!\"}";
+	private static final String failedJson = "{\"html\": \"An error occurred. Could not send report.\"}";
 
 	private final String _getPlayerId(final String playerId) {
 		StringBuilder sb = new StringBuilder("Player ID: ");
