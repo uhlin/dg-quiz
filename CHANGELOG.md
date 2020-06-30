@@ -2,6 +2,9 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-06-30 ##
+- Fixade visning av rapportformulär vid låg upplösning
+
 ## 2020-06-29 ##
 - Lade till följande metoder i klassen Utilities:
   - `isValidUUID()`
