@@ -262,7 +262,13 @@ public class PlayController {
 		Quiz quiz = null;
 		Question question = null;
 
-		if ((quiz = getQuizByUniqueId(quizId)) == null) {
+		if (!Utilities.isValidUUID(playerId)) {
+			model.addAttribute("errorMsg", "askQuestion: fatal: invalid player id");
+			return "error";
+		} else if (!Utilities.isValidUUID(quizId)) {
+			model.addAttribute("errorMsg", "askQuestion: fatal: invalid quiz id");
+			return "error";
+		} else if ((quiz = getQuizByUniqueId(quizId)) == null) {
 			model.addAttribute("errorMsg", "askQuestion: fatal: cannot find quiz");
 			return "error";
 		} else if ((question = getQuestion(quizId, questionNum, true)) == null) {
@@ -346,7 +352,13 @@ public class PlayController {
 		Quiz quiz = null;
 		Question question = null;
 
-		if ((quiz = getQuizByUniqueId(quizId)) == null) {
+		if (!Utilities.isValidUUID(playerId)) {
+			attr.addAttribute("errorMsg", "answerQuestion: fatal: invalid player id");
+			return "redirect:/error";
+		} else if (!Utilities.isValidUUID(quizId)) {
+			attr.addAttribute("errorMsg", "answerQuestion: fatal: invalid quiz id");
+			return "redirect:/error";
+		} else if ((quiz = getQuizByUniqueId(quizId)) == null) {
 			attr.addAttribute("errorMsg", "answerQuestion: fatal: cannot find quiz");
 			return "redirect:/error";
 		} else if ((question = getQuestion(quizId, questionNum, true)) == null) {
@@ -440,6 +452,12 @@ public class PlayController {
 
 		if (playerId == null || quizId == null || playerId.isEmpty() || quizId.isEmpty()) {
 			model.addAttribute("errorMsg", "finishedQuiz: fatal: invalid arguments");
+			return "error";
+		} else if (!Utilities.isValidUUID(playerId)) {
+			model.addAttribute("errorMsg", "finishedQuiz: fatal: invalid player id");
+			return "error";
+		} else if (!Utilities.isValidUUID(quizId)) {
+			model.addAttribute("errorMsg", "finishedQuiz: fatal: invalid quiz id");
 			return "error";
 		} else if ((quiz = getQuizByUniqueId(quizId)) == null) {
 			model.addAttribute("errorMsg", "finishedQuiz: fatal: no such quiz");
