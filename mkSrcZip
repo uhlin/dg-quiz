@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source "VERSION"
+
+git archive --format=zip "--prefix=dgQuizSource-${VERSION}/" -o dgQuizSource-${VERSION}.zip v${VERSION}
