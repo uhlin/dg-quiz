@@ -56,28 +56,28 @@
 	<p>
 		<label class="radioButtonContainer">
 			<span class="ansOpt">A)</span>&nbsp;<span th:text="${question.getOpt1Text()}"></span>
-			<input type="radio" name="answer" checked />
+			<input type="radio" name="answer" value="" checked />
 			<span class="radioBtn"></span>
 		</label>
 	</p>
 	<p>
 		<label class="radioButtonContainer">
 			<span class="ansOpt">B)</span>&nbsp;<span th:text="${question.getOpt2Text()}"></span>
-			<input type="radio" name="answer" />
+			<input type="radio" name="answer" value="" />
 			<span class="radioBtn"></span>
 		</label>
 	</p>
 	<p>
 		<label class="radioButtonContainer">
 			<span class="ansOpt">C)</span>&nbsp;<span th:text="${question.getOpt3Text()}"></span>
-			<input type="radio" name="answer" />
+			<input type="radio" name="answer" value="" />
 			<span class="radioBtn"></span>
 		</label>
 	</p>
 	<p>
 		<label class="radioButtonContainer">
 			<span class="ansOpt">D)</span>&nbsp;<span th:text="${question.getOpt4Text()}"></span>
-			<input type="radio" name="answer" />
+			<input type="radio" name="answer" value="" />
 			<span class="radioBtn"></span>
 		</label>
 	</p>
@@ -85,14 +85,14 @@
 	<p th:if="${question.haveSixOptions() == true}">
 		<label class="radioButtonContainer">
 			<span class="ansOpt">E)</span>&nbsp;<span th:text="${question.getOpt5Text()}"></span>
-			<input type="radio" name="answer" />
+			<input type="radio" name="answer" value="" />
 			<span class="radioBtn"></span>
 		</label>
 	</p>
 	<p th:if="${question.haveSixOptions() == true}">
 		<label class="radioButtonContainer">
 			<span class="ansOpt">F)</span>&nbsp;<span th:text="${question.getOpt6Text()}"></span>
-			<input type="radio" name="answer" />
+			<input type="radio" name="answer" value="" />
 			<span class="radioBtn"></span>
 		</label>
 	</p>
