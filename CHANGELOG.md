@@ -7,6 +7,7 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 - Lade till följande filer:
   - `radioButton.css`
 - Fixade användning av radioknappar för frågor som enbart har ett rätt svar.
+- UUID checking
 
 ## 2020-06-29 ##
 - Lade till följande metoder i klassen Utilities:
