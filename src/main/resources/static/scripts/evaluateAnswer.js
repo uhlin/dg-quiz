@@ -3,20 +3,40 @@ function evaluateAnswer() {
 	var quizId = document.getElementsByName("quizId")[0].value;
 	var questionNum = document.getElementsByName("questionNum")[0].value;
 
-	var opt1 = document.getElementsByName("opt1Checked")[0].checked;
-	var opt2 = document.getElementsByName("opt2Checked")[0].checked;
-	var opt3 = document.getElementsByName("opt3Checked")[0].checked;
-	var opt4 = document.getElementsByName("opt4Checked")[0].checked;
+	var answers = document.getElementsByName("answer");
+
+	var opt1 = false;
+	var opt2 = false;
+	var opt3 = false;
+	var opt4 = false;
 
 	var ansAlt = "4";
 	var opt5 = false;
 	var opt6 = false;
 
-	if (document.getElementsByName("opt5Checked").length != 0 &&
-	    document.getElementsByName("opt6Checked").length != 0) {
-		ansAlt = "6";
-		opt5 = document.getElementsByName("opt5Checked")[0].checked;
-		opt6 = document.getElementsByName("opt6Checked")[0].checked;
+	if (answers.length == 0) {
+		opt1 = document.getElementsByName("opt1Checked")[0].checked;
+		opt2 = document.getElementsByName("opt2Checked")[0].checked;
+		opt3 = document.getElementsByName("opt3Checked")[0].checked;
+		opt4 = document.getElementsByName("opt4Checked")[0].checked;
+
+		if (document.getElementsByName("opt5Checked").length != 0 &&
+		    document.getElementsByName("opt6Checked").length != 0) {
+			ansAlt = "6";
+			opt5 = document.getElementsByName("opt5Checked")[0].checked;
+			opt6 = document.getElementsByName("opt6Checked")[0].checked;
+		}
+	} else {
+		opt1 = answers[0].checked;
+		opt2 = answers[1].checked;
+		opt3 = answers[2].checked;
+		opt4 = answers[3].checked;
+
+		if (answers.length == 6) {
+			ansAlt = "6";
+			opt5 = answers[4].checked;
+			opt6 = answers[5].checked;
+		}
 	}
 
 	var request = new XMLHttpRequest();
