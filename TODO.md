@@ -1,7 +1,6 @@
 # Att göra lista #
 
 - Adminlösenord
-- Radioknappar för svarsalternativ
 
 ## Kontakt ##
 
