@@ -97,15 +97,15 @@ public class QuestionSound {
 
 		if (this.opt1Right.equals(1))
 			i++;
-		else if (this.opt2Right.equals(1))
+		if (this.opt2Right.equals(1))
 			i++;
-		else if (this.opt3Right.equals(1))
+		if (this.opt3Right.equals(1))
 			i++;
-		else if (this.opt4Right.equals(1))
+		if (this.opt4Right.equals(1))
 			i++;
-		else if (this.opt5Right.equals(1))
+		if (this.opt5Right.equals(1))
 			i++;
-		else if (this.opt6Right.equals(1))
+		if (this.opt6Right.equals(1))
 			i++;
 
 		return (i > 1 ? true : false);
