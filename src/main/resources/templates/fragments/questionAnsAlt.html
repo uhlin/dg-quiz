@@ -57,6 +57,7 @@
 		<label class="radioButtonContainer">
 			<span class="ansOpt">A)</span>&nbsp;<span th:text="${question.getOpt1Text()}"></span>
 			<input type="radio" name="answer" value="" checked />
+			<input type="hidden" id="opt1Checked" name="opt1Checked" value="0" />
 			<span class="radioBtn"></span>
 		</label>
 	</p>
@@ -64,6 +65,7 @@
 		<label class="radioButtonContainer">
 			<span class="ansOpt">B)</span>&nbsp;<span th:text="${question.getOpt2Text()}"></span>
 			<input type="radio" name="answer" value="" />
+			<input type="hidden" id="opt2Checked" name="opt2Checked" value="0" />
 			<span class="radioBtn"></span>
 		</label>
 	</p>
@@ -71,6 +73,7 @@
 		<label class="radioButtonContainer">
 			<span class="ansOpt">C)</span>&nbsp;<span th:text="${question.getOpt3Text()}"></span>
 			<input type="radio" name="answer" value="" />
+			<input type="hidden" id="opt3Checked" name="opt3Checked" value="0" />
 			<span class="radioBtn"></span>
 		</label>
 	</p>
@@ -78,6 +81,7 @@
 		<label class="radioButtonContainer">
 			<span class="ansOpt">D)</span>&nbsp;<span th:text="${question.getOpt4Text()}"></span>
 			<input type="radio" name="answer" value="" />
+			<input type="hidden" id="opt4Checked" name="opt4Checked" value="0" />
 			<span class="radioBtn"></span>
 		</label>
 	</p>
@@ -86,6 +90,7 @@
 		<label class="radioButtonContainer">
 			<span class="ansOpt">E)</span>&nbsp;<span th:text="${question.getOpt5Text()}"></span>
 			<input type="radio" name="answer" value="" />
+			<input type="hidden" id="opt5Checked" name="opt5Checked" value="0" />
 			<span class="radioBtn"></span>
 		</label>
 	</p>
@@ -93,6 +98,7 @@
 		<label class="radioButtonContainer">
 			<span class="ansOpt">F)</span>&nbsp;<span th:text="${question.getOpt6Text()}"></span>
 			<input type="radio" name="answer" value="" />
+			<input type="hidden" id="opt6Checked" name="opt6Checked" value="0" />
 			<span class="radioBtn"></span>
 		</label>
 	</p>
