@@ -6,6 +6,7 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 - Fixade visning av rapportformulär vid låg upplösning
 - Lade till följande filer:
   - `radioButton.css`
+- Fixade användning av radioknappar för frågor som enbart har ett rätt svar.
 
 ## 2020-06-29 ##
 - Lade till följande metoder i klassen Utilities:
