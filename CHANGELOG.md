@@ -10,6 +10,7 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   quiz inte fanns på hårddisken
 - Lade till följande filer:
   - `Admin.java`
+- Ett lösenord måste nu anges för att kunna skapa nya quiz
 
 ## 2020-06-30 ##
 - Fixade visning av rapportformulär vid låg upplösning
