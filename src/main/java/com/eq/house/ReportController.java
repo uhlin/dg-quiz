@@ -12,6 +12,9 @@ public class ReportController {
 	private PlayController pc;
 
 	@Autowired
+	private EmailConfiguration emailConfiguration;
+
+	@Autowired
 	private EmailService emailService;
 
 	private static final String reportSentJson = "{\"html\": \"Report Sent!\"}";
@@ -93,8 +96,8 @@ public class ReportController {
 		if (quiz == null || question == null)
 			return failedJson;
 
-		final String to = "staff@question.errors.com";
-		final String from = "Question Errors <no-reply@question.errors.com>";
+		final String to = emailConfiguration.getQuestionErrorsTo();
+		final String from = emailConfiguration.getQuestionErrorsFrom();
 
 		StringBuilder subject = new StringBuilder("QUIZ REPORT: Question Error: ");
 
@@ -132,8 +135,8 @@ public class ReportController {
 		if (quiz == null || question == null)
 			return failedJson;
 
-		final String to = "staff@question.contents.hq.com";
-		final String from = "Question Contents <no-reply@question.contents.hq.com>";
+		final String to = emailConfiguration.getQuestionContentsTo();
+		final String from = emailConfiguration.getQuestionContentsFrom();
 
 		StringBuilder subject = new StringBuilder("QUIZ REPORT: QUESTION CONTENT ");
 
