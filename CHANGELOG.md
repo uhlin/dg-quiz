@@ -5,6 +5,7 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 ## 2020-07-01 ##
 - Vid rapportering av frågor så är det nu möjligt att konfigurera
   till/från adress i `application.properties`.
+- Förbättrade förhandsgranskning av bild vid bildfråga
 
 ## 2020-06-30 ##
 - Fixade visning av rapportformulär vid låg upplösning
