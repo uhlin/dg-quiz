@@ -6,6 +6,8 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 - Vid rapportering av frågor så är det nu möjligt att konfigurera
   till/från adress i `application.properties`.
 - Förbättrade förhandsgranskning av bild vid bildfråga
+- Fixade en bugg som berodde på att quizkatalogen för ett specifikt
+  quiz inte fanns på hårddisken
 
 ## 2020-06-30 ##
 - Fixade visning av rapportformulär vid låg upplösning
