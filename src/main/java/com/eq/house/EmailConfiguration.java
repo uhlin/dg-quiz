@@ -29,6 +29,12 @@ public class EmailConfiguration {
 	@Value("${questionContentsFrom}")
 	private String questionContentsFrom;
 
+/***************************************************
+ *
+ * Getters/setters
+ *
+ ***************************************************/
+
 	public String getHost() {
 		return host;
 	}
@@ -60,6 +66,11 @@ public class EmailConfiguration {
 		this.password = password;
 	}
 
+/***************************************************
+ *
+ * More getters/setters
+ *
+ ***************************************************/
 
 	public String getQuestionErrorsTo() {
 		return questionErrorsTo;
