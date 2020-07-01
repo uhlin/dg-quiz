@@ -17,6 +17,18 @@ public class EmailConfiguration {
 	@Value("${spring.mail.password}")
 	private String password;
 
+	@Value("${questionErrorsTo}")
+	private String questionErrorsTo;
+
+	@Value("${questionErrorsFrom}")
+	private String questionErrorsFrom;
+
+	@Value("${questionContentsTo}")
+	private String questionContentsTo;
+
+	@Value("${questionContentsFrom}")
+	private String questionContentsFrom;
+
 	public String getHost() {
 		return host;
 	}
@@ -46,5 +58,33 @@ public class EmailConfiguration {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+
+	public String getQuestionErrorsTo() {
+		return questionErrorsTo;
+	}
+	public void setQuestionErrorsTo(String questionErrorsTo) {
+		this.questionErrorsTo = questionErrorsTo;
+	}
+	public String getQuestionErrorsFrom() {
+		return questionErrorsFrom;
+	}
+	public void setQuestionErrorsFrom(String questionErrorsFrom) {
+		this.questionErrorsFrom = questionErrorsFrom;
+	}
+
+
+	public String getQuestionContentsTo() {
+		return questionContentsTo;
+	}
+	public void setQuestionContentsTo(String questionContentsTo) {
+		this.questionContentsTo = questionContentsTo;
+	}
+	public String getQuestionContentsFrom() {
+		return questionContentsFrom;
+	}
+	public void setQuestionContentsFrom(String questionContentsFrom) {
+		this.questionContentsFrom = questionContentsFrom;
 	}
 }
