@@ -27,6 +27,9 @@ public class MainController {
 	private static final int optTextMaxLen = 200;
 
 	@Autowired
+	Admin admin;
+
+	@Autowired
 	PlayController pc;
 
 	@Autowired
@@ -178,14 +181,15 @@ public class MainController {
 	@PostMapping("/createQuiz")
 	public String createQuizBegin(
 			Model model,
-			@RequestParam(name = "quizTitle") String title,
-			@RequestParam(name = "quizTopic") Integer topic,
-			@RequestParam(name = "quizLang")  Integer lang,
-			@RequestParam(name = "quizNumQuestionsGoal") Integer goal) {
+			@RequestParam(name = "quizTitle")            String title,
+			@RequestParam(name = "quizTopic")            Integer topic,
+			@RequestParam(name = "quizLang")             Integer lang,
+			@RequestParam(name = "quizNumQuestionsGoal") Integer goal,
+			@RequestParam(name = "adminPass")            String pass) {
 		final Integer goalMinValue = 2;
 		final Integer goalMaxValue = 30;
 
-		if (title == null || topic == null || lang == null || goal == null) {
+		if (title == null || topic == null || lang == null || goal == null || pass == null) {
 			model.addAttribute("errorMsg", "createQuizBegin: error: invalid arguments");
 			return "error";
 		} else if (title.isEmpty()) {
@@ -197,6 +201,9 @@ public class MainController {
 		} else if (goal < goalMinValue || goal > goalMaxValue) {
 			model.addAttribute("errorMsg", "createQuizBegin: error: " +
 					"questions goal number out of range!");
+			return "error";
+		} else if (!pass.equals(admin.getPassword())) {
+			model.addAttribute("errorMsg", "createQuizBegin: error: bogus admin password");
 			return "error";
 		} else if (getQuiz(title, topic, lang) != null) {
 			System.err.println("createQuizBegin: error: quiz already exists");
