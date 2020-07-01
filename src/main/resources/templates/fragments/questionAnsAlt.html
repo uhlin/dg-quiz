@@ -6,7 +6,7 @@
 
 <body>
 <div th:fragment="questionAnsAlt" id="questionAnsAlt">
-<div th:if="${question.hasMultipleRightAnswers()}">
+<div th:if="${question.hasMultipleRightAnswers()}" th:remove="tag">
 	<p>
 		<label class="checkboxContainer">
 			<span class="ansOpt">A)</span>&nbsp;<span th:text="${question.getOpt1Text()}"></span>
@@ -52,7 +52,7 @@
 	</p>
 </div>
 
-<div th:unless="${question.hasMultipleRightAnswers()}">
+<div th:unless="${question.hasMultipleRightAnswers()}" th:remove="tag">
 	<p>
 		<label class="radioButtonContainer">
 			<span class="ansOpt">A)</span>&nbsp;<span th:text="${question.getOpt1Text()}"></span>
