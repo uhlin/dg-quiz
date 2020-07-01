@@ -21,7 +21,10 @@
 	<form th:action="@{/createQuiz}" method="POST">
 
 		<p class="txtBold">Title:</p>
-		<p><input class="textFieldStyle1 w65" maxlength="45" name="quizTitle" type="text" /></p>
+		<p>
+			<input class="textFieldStyle1 w65" maxlength="45"
+			    name="quizTitle" type="text" required />
+		</p>
 
 		<table id="createQuizTable">
 			<tr>
@@ -39,7 +42,9 @@
 			<tr>
 				<td><span class="label1">Number of questions:</span></td>
 				<td>
-					<input min="2" max="30" name="quizNumQuestionsGoal" type="number" />
+					<input min="2" max="30"
+					    name="quizNumQuestionsGoal"
+					    type="number" required />
 				</td>
 			</tr>
 			<tr>
