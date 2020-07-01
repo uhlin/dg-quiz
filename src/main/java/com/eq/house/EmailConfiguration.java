@@ -42,7 +42,6 @@ public class EmailConfiguration {
 		this.host = host;
 	}
 
-
 	public Integer getPort() {
 		return port;
 	}
@@ -50,14 +49,12 @@ public class EmailConfiguration {
 		this.port = port;
 	}
 
-
 	public String getUsername() {
 		return username;
 	}
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
 
 	public String getPassword() {
 		return password;
