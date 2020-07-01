@@ -40,6 +40,18 @@ public class PlayController {
 	@Autowired
 	AnswerRepo answerRepo;
 
+	private void createDirIfNonexistent(final String path) {
+		if (path == null || path.isEmpty())
+			return;
+
+		File file = new File(path);
+
+		if (!file.exists()) {
+			if (file.mkdirs())
+				System.out.println("createDirIfNonexistent: created: " + path);
+		}
+	}
+
 	@PostMapping(path = "/evaluateAnswer",
 			consumes = "application/json",
 			produces = "application/json")
@@ -275,6 +287,8 @@ public class PlayController {
 			model.addAttribute("errorMsg", "askQuestion: fatal: cannot find question");
 			return "error";
 		}
+
+		createDirIfNonexistent("quizzes/" + quizId);
 
 		final String src1 = "quizzes/" + quizId + "/question" + questionNum;
 		final String src2 = "/quizzes/" + quizId + "/question" + questionNum;
