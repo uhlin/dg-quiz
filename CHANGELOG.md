@@ -8,6 +8,8 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 - Förbättrade förhandsgranskning av bild vid bildfråga
 - Fixade en bugg som berodde på att quizkatalogen för ett specifikt
   quiz inte fanns på hårddisken
+- Lade till följande filer:
+  - `Admin.java`
 
 ## 2020-06-30 ##
 - Fixade visning av rapportformulär vid låg upplösning
