@@ -1,3 +1,7 @@
+/*
+ * Written by Markus Uhlin 2020-07-03
+ */
+
 #include <cstdio>
 #include <cstring>
 #include <random>
@@ -12,7 +16,8 @@ int
 main()
 {
 	const char legal_index[] =
-	    "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	    "0123456789"
+	    "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	    "abcdefghijklmnopqrstuvwxyz";
 
 	std::random_device rd;
