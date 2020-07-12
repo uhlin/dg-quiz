@@ -664,4 +664,9 @@ public class MainController {
 
 		return "abortCreateQuiz";
 	}
+
+	@RequestMapping("/bhABhfEwOiH723CIzLeSTo781rBUbQZs_AdminView")
+	public String adminView() {
+		return "adminView";
+	}
 }
