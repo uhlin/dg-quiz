@@ -2,7 +2,7 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
-## 2020-07-12 ##
+## [1.1.1] - 2020-07-12 ##
 - Lade till mapping för:
   - `/bhABhfEwOiH723CIzLeSTo781rBUbQZs_AdminView`
 - Lade till följande mallar:
