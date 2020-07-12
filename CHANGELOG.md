@@ -8,6 +8,7 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 - Lade till följande mallar:
   - `adminView.html`
 - questionMaxLen: 200 -> 400
+- Begränsade bredd för fråga
 
 ## 2020-07-03 ##
 - Lade till `standalone/AdminViewUrl.cpp`
