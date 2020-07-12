@@ -23,7 +23,7 @@ public class MainController {
 	public static final long imageFileMaxBytesUncompressed = 2097152; // 2 MB
 
 	private static final int quizTitleMaxLen = 200;
-	private static final int questionMaxLen = 200;
+	private static final int questionMaxLen = 400;
 	private static final int optTextMaxLen = 200;
 
 	@Autowired
