@@ -7,6 +7,7 @@ Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
   - `/bhABhfEwOiH723CIzLeSTo781rBUbQZs_AdminView`
 - Lade till följande mallar:
   - `adminView.html`
+- questionMaxLen: 200 -> 400
 
 ## 2020-07-03 ##
 - Lade till `standalone/AdminViewUrl.cpp`
