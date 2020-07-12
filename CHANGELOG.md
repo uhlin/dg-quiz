@@ -2,6 +2,12 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
+## 2020-07-12 ##
+- Lade till mapping för:
+  - `/bhABhfEwOiH723CIzLeSTo781rBUbQZs_AdminView`
+- Lade till följande mallar:
+  - `adminView.html`
+
 ## 2020-07-03 ##
 - Lade till `standalone/AdminViewUrl.cpp`
 
