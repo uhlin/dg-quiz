@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,7 +19,11 @@ public class QuestionSound {
 	private Long id;
 
 	private String quizId;
+
+	@NotNull
+	@Size(min = 0, max = 600)
 	private String question;
+
 	private Integer questionNum;
 
 	@Lob
