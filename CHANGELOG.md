@@ -2,7 +2,7 @@
 
 Noterbara ändringar som gjorts för detta projekt dokumenteras i denna fil.
 
-## 2020-07-15 ##
+## [1.1.3] - 2020-07-15 ##
 - Fixade en bugg som uppstod när ett eller flera svarsalternativ
   innehöll citattecken (JSON-relaterat)
 - Lade till en stängknapp för att komma tillbaka till startsidan vid
