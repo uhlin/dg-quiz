@@ -87,12 +87,14 @@ public class PlayController {
 			sb.append("<table class='centerTable'>");
 
 			for (OptionAndText e : qna.getListOfRightAnswers()) {
+				String textCopy = new String(e.getText());
+				textCopy = textCopy.replace("\"", "\\\"");
 				sb.append("<tr>");
 				sb.append("<td class='gfxSuccess'>");
 				sb.append(e.getOpt() + ':');
 				sb.append("</td>");
 				sb.append("<td class='txtBold txtUnderline'>");
-				sb.append(e.getText());
+				sb.append(textCopy);
 				sb.append("</td>");
 				sb.append("</tr>");
 			}
